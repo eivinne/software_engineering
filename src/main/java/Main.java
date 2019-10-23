@@ -11,10 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-
-
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("loginnskjerm.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("arrangorView.fxml"));
 
         Parent loginnSkjerm = fxmlLoader.load();
 
@@ -23,7 +21,6 @@ public class Main extends Application {
         primaryStage.setScene(hovedScene);
 
         primaryStage.show();
-
 
     }
 
