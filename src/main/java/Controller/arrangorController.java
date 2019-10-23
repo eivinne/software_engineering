@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 
 public class arrangorController {
@@ -28,7 +29,7 @@ public class arrangorController {
     @FXML
     private AnchorPane rootPane;
 
-    private Arrangement valgtArrangement;
+    private static Arrangement valgtArrangement;
 
 
     @FXML
@@ -48,6 +49,7 @@ public class arrangorController {
 
     @FXML
     private void gaaTilArrangementside() throws IOException{
+        valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
 
         AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangementSide.fxml"));
         rootPane.getChildren().setAll(pane);
@@ -62,6 +64,10 @@ public class arrangorController {
         arrangementSideController arrangementSideController = fxmlLoader.getController();
         arrangementSideController.fyllInnArrangementInfo(valgtArrangement);*/
 
+    }
+
+    public static Arrangement getValgtArrangement(){
+        return valgtArrangement;
     }
 
 }

@@ -29,11 +29,12 @@ public class arrangementSideController {
 
     @FXML
     private AnchorPane rootPane;
+    private Arrangement valgt = arrangorController.getValgtArrangement();
 
 
     @FXML
     private void initialize() {
-
+    arrangementTittelLabel.setText(valgt.getTittel());
     }
 
     @FXML
