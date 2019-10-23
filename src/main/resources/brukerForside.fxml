@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.brukerForsideController">
+   <children>
+      <Button fx:id="minSideBtn" layoutX="34.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#loadMinSide" prefHeight="46.0" prefWidth="134.0" text="Min Side" />
+      <Button fx:id="loggUtBtn" layoutX="522.0" layoutY="26.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="63.0" text="Logg ut" />
+   </children>
+</AnchorPane>
