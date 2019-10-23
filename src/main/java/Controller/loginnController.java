@@ -51,6 +51,7 @@ public class loginnController {
 
     @FXML
     public void knappTrykk() throws IOException {
+
         if(textPassord.getText().equals("passord123") && textNavn.getText().equals("Bruker")){
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../brukerForside.fxml"));
             hovedPane.getChildren().setAll(pane);

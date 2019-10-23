@@ -6,7 +6,7 @@ public class Deltager extends Person {
     private ObservableList<Arrangement> ferdigeArrangement;
     private ObservableList<Arrangement> kommendeArrangement;
 
-    public Deltager(String fornavn, String etternavn, int alder, String epost,String brukernavn, String passord){
+    public Deltager(String fornavn, String etternavn, int alder, String epost, String brukernavn, String passord){
         super(fornavn,etternavn,alder,epost, brukernavn, passord);
     }
 
@@ -17,4 +17,6 @@ public class Deltager extends Person {
     public ObservableList<Arrangement> getKommendeArrangement() {
         return kommendeArrangement;
     }
+
+
 }

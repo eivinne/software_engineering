@@ -9,12 +9,15 @@ public abstract class Person {
     private String passord;
 
 
-    public Person(String fornavn, String etternavn, int alder, String epost, String Brukernavn, String passord){
+
+    public Person(String fornavn, String etternavn, int alder, String epost, String brukernavn, String passord){
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.alder = alder;
         this.epost = epost;
+        this.brukernavn = brukernavn;
         this.passord = passord;
+
 
     }
 

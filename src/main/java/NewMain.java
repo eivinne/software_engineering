@@ -1,3 +1,4 @@
+import Model.Arrangor;
 import Model.Deltager;
 
 public class NewMain {
@@ -7,5 +8,6 @@ public class NewMain {
     }
 
    Deltager bruker = new Deltager("Sander","Kander",12,"kulKar123@hiof.no","Bruker","passord123");
+   Arrangor arrangor = new Arrangor("Maria","Casino",14,"minsLike@kul.no","Arrangør","drossap123","Gamblers");
 }
 
