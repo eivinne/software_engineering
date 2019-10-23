@@ -11,6 +11,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
+
+
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("loginnskjerm.fxml"));
 
@@ -21,6 +23,7 @@ public class Main extends Application {
         primaryStage.setScene(hovedScene);
 
         primaryStage.show();
+
 
     }
 

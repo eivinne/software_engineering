@@ -5,10 +5,11 @@ public abstract class Person {
     private String etternavn;
     private int alder;
     private String epost;
+    private String brukernavn;
     private String passord;
 
 
-    public Person(String fornavn, String etternavn, int alder, String epost, String passord){
+    public Person(String fornavn, String etternavn, int alder, String epost, String Brukernavn, String passord){
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.alder = alder;
