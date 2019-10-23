@@ -6,11 +6,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.arrangorController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.arrangorController">
    <children>
       <ListView id="mineArrangementerListe" fx:id="mineArrangementerListe" prefHeight="400.0" prefWidth="305.0" />
       <Button id="nyttArrangementBtn" fx:id="nyttArrangementBtn" layoutX="382.0" layoutY="320.0" mnemonicParsing="false" text="Nytt arrangement" />
-      <Button id="seArrangementsideBtn" fx:id="seArrangementsideBtn" layoutX="377.0" layoutY="270.0" mnemonicParsing="false" text="Gå til arrangementside" />
+      <Button id="gaaTilArrangementsideBtn" fx:id="gaaTilArrangementsideBtn" layoutX="377.0" layoutY="270.0" mnemonicParsing="false" onAction="#gaaTilArrangementside" text="Gå til arrangementside" />
       <TextField id="navnPaaArrangementTxt" fx:id="navnPaaArrangementTxt" layoutX="372.0" layoutY="44.0" />
       <TextField id="arrangementDatoTxt" fx:id="arrangementDatoTxt" layoutX="372.0" layoutY="109.0" />
       <Label id="navnPaaArrangementLabel" layoutX="389.0" layoutY="14.0" text="Navn på arrangement" />
