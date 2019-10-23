@@ -1,7 +1,11 @@
 package Controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 
 public class loginnController {
@@ -21,6 +25,9 @@ public class loginnController {
     private ToggleGroup loginnSom;
 
     @FXML
+    private AnchorPane hovedPane;
+
+    @FXML
     public void initialize(){
 
 
@@ -30,17 +37,31 @@ public class loginnController {
 
     @FXML
     public void fyllBruker(){
-
+    textNavn.setText("Bruker");
+    textPassord.setText("passord123");
 
     }
 
     @FXML
     public void fyllArrangor(){
+        textNavn.setText("Arrangør");
+        textPassord.setText("drossap123");
 
     }
 
     @FXML
-    public void knappTrykk(){
+    public void knappTrykk() throws IOException {
+        if(textPassord.getText().equals("passord123") && textNavn.getText().equals("Bruker")){
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../brukerForside.fxml"));
+            hovedPane.getChildren().setAll(pane);
+
+        }
+        else if (textPassord.getText().equals("drossap123") && textNavn.getText().equals("Arrangør")){
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangorView.fxml"));
+            hovedPane.getChildren().setAll(pane);
+        }
+        else
+            System.out.println("FEIL BRUKERNAVN ELLER PASSORD" + " " + textNavn.getText() + " " + textPassord.getText());
 
     }
 

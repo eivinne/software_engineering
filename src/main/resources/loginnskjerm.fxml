@@ -8,7 +8,7 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginnController">
+<AnchorPane fx:id="hovedPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginnController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -20,7 +20,7 @@
             <PasswordField fx:id="textPassord" layoutX="205.0" layoutY="258.0" />
             <TextField fx:id="textNavn" layoutX="205.0" layoutY="208.0" />
             <Button fx:id="loginnKnapp" layoutX="253.0" layoutY="323.0" mnemonicParsing="false" onAction="#knappTrykk" text="Button" />
-            <Label layoutX="237.0" layoutY="106.0" text="Loginn som:" />
+            <Label layoutX="237.0" layoutY="106.0" text="Login som:" />
          </children>
       </AnchorPane>
    </children>
