@@ -13,7 +13,6 @@ public class Deltager extends Person {
     public ObservableList<Arrangement> getKommendeArrangement() {
         //NB!!
         //Dummyfunskjon dato variabel må endres i arrangement
-        //Kopieres også til getFerdigArrangement
         for(Arrangement etArrangemang: kommendeArrangement){
             if(etArrangemang.getDato() != "123");
             ferdigeArrangement.add(etArrangemang);

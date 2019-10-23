@@ -1,5 +1,9 @@
 package Model;
 
+import javafx.collections.ObservableList;
+
+import java.util.ArrayList;
+
 public abstract class Person {
     private String fornavn;
     private String etternavn;
@@ -7,6 +11,8 @@ public abstract class Person {
     private String epost;
     private String brukernavn;
     private String passord;
+
+    private static ArrayList<Person> brukerListe = new ArrayList<>();
 
 
 
@@ -17,6 +23,8 @@ public abstract class Person {
         this.epost = epost;
         this.brukernavn = brukernavn;
         this.passord = passord;
+        brukerListe.add(this);
+
 
 
     }
@@ -67,5 +75,9 @@ public abstract class Person {
 
     public void setBrukernavn(String brukernavn) {
         this.brukernavn = brukernavn;
+    }
+
+    public static ArrayList<Person> getBrukerListe(){
+        return brukerListe;
     }
 }

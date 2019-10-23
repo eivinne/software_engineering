@@ -1,3 +1,5 @@
+import Model.Arrangor;
+import Model.Deltager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,6 +25,8 @@ public class Main extends Application {
         primaryStage.show();
 
     }
+    Deltager bruker = new Deltager("Sander","Kander",12,"kulKar123@hiof.no","Bruker","passord123");
+    Arrangor arrangor = new Arrangor("Maria","Casino",14,"minsLike@kul.no","Arrangør","drossap123","Gamblers");
 
     public static void main(String[] args) {
         launch(args);

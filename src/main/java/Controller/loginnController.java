@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Person;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -51,7 +53,18 @@ public class loginnController {
 
     @FXML
     public void knappTrykk() throws IOException {
+        for (Person enPerson : Person.getBrukerListe()) {
+            if (enPerson.getBrukernavn().equals(textNavn.getText()) && enPerson.getPassord().equals(textPassord.getText())) {
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("../minSide.fxml"));
+                hovedPane.getChildren().setAll(pane);
+            }
+            else
+                System.out.println("FEIL BRUKERNAVN ELLER PASSORD" + " " + textNavn.getText() + " " + textPassord.getText());
 
+
+        }
+    }
+/*
         if(textPassord.getText().equals("passord123") && textNavn.getText().equals("Bruker")){
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../brukerForside.fxml"));
             hovedPane.getChildren().setAll(pane);
@@ -67,4 +80,5 @@ public class loginnController {
     }
 
 
+*/
 }
