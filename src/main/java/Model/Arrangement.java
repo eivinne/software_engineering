@@ -36,6 +36,11 @@ public class Arrangement {
         this.interessertListe = interessertListe;
     }
 
+    @Override
+    public String toString() {
+        return this.getTittel() + " " + this.getDato();
+    }
+
     public Image getArrangementsBilde() {
         return arrangementsBilde;
     }

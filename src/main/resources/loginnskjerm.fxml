@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginnController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginnController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
-            <ListView id="mineArrangementerListe" layoutX="28.0" layoutY="28.0" prefHeight="344.0" prefWidth="187.0" />
+            <RadioButton fx:id="radioArrangor" layoutX="241.0" layoutY="163.0" mnemonicParsing="false" onAction="#fyllArrangor" text="Arrangør">
+               <toggleGroup>
+                  <ToggleGroup fx:id="loginnSom" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="radioBruker" layoutX="241.0" layoutY="146.0" mnemonicParsing="false" onAction="#fyllBruker" text="Bruker" toggleGroup="$loginnSom" />
+            <PasswordField fx:id="textPassord" layoutX="205.0" layoutY="258.0" />
+            <TextField fx:id="textNavn" layoutX="205.0" layoutY="208.0" />
+            <Button fx:id="loginnKnapp" layoutX="253.0" layoutY="323.0" mnemonicParsing="false" onAction="#knappTrykk" text="Button" />
+            <Label layoutX="237.0" layoutY="106.0" text="Loginn som:" />
          </children>
       </AnchorPane>
    </children>
