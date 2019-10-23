@@ -10,12 +10,20 @@ public class Deltager extends Person {
         super(fornavn,etternavn,alder,epost, brukernavn, passord);
     }
 
-    public ObservableList<Arrangement> getFerdigeArrangement() {
-        return ferdigeArrangement;
+    public ObservableList<Arrangement> getKommendeArrangement() {
+        //NB!!
+        //Dummyfunskjon dato variabel må endres i arrangement
+        //Kopieres også til getFerdigArrangement
+        for(Arrangement etArrangemang: kommendeArrangement){
+            if(etArrangemang.getDato() != "123");
+            ferdigeArrangement.add(etArrangemang);
+            kommendeArrangement.remove(etArrangemang);
+        }
+        return kommendeArrangement;
     }
 
-    public ObservableList<Arrangement> getKommendeArrangement() {
-        return kommendeArrangement;
+    public ObservableList<Arrangement> getFerdigeArrangement() {
+        return ferdigeArrangement;
     }
 
 
