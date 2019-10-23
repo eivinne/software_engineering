@@ -6,6 +6,6 @@ public class NewMain {
         Main.main(args);
     }
 
-   // Deltager bruker = new Deltager("Sander",12,"kulKar123@hiof.no","")
+   Deltager bruker = new Deltager("Sander","Kander",12,"kulKar123@hiof.no","Bruker","passord123");
 }
 

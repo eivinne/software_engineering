@@ -34,8 +34,13 @@ public abstract class Person {
         return epost;
     }
 
-    //Lage en getter for passord
+    public String getPassord() {
+        return passord;
+    }
 
+    public String getBrukernavn() {
+        return brukernavn;
+    }
 
     public void setFornavn(String fornavn) {
         this.fornavn = fornavn;
@@ -55,5 +60,9 @@ public abstract class Person {
 
     public void setPassord(String passord){
         this.passord = passord;
+    }
+
+    public void setBrukernavn(String brukernavn) {
+        this.brukernavn = brukernavn;
     }
 }
