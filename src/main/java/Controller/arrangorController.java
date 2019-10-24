@@ -61,7 +61,7 @@ public class arrangorController {
 
     }
 
-    private ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {
+    public ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {
         ObservableList<Arrangement> omgjortListe = FXCollections.observableArrayList();
 
         for(int i = 0; i<arrangementListe.size(); i++) {
