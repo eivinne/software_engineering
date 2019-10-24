@@ -35,6 +35,9 @@ public class arrangementSideController {
     @FXML
     private void initialize() {
     arrangementTittelLabel.setText(valgt.getTittel());
+    arrangementDatoTxt.setText(valgt.getDato());
+    arrangementTidspunktTxt.setText(valgt.getTidspunkt());
+    arrangementStedTxt.setText(valgt.getLokasjon());
     }
 
     @FXML
