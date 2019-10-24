@@ -28,7 +28,7 @@ public class loginnController extends Controller {
     private ToggleGroup loginnSom;
 
     @FXML
-    private static AnchorPane rootPane;
+    private  AnchorPane rootPane;
 
 
     @FXML
@@ -60,6 +60,8 @@ public class loginnController extends Controller {
                 if (enPerson.erArrangor()){
                     settPane(rootPane,"../arrangorView.fxml");
             }
+                else
+                    settPane(rootPane,"../brukerForside.fxml");
 
             }
             else
