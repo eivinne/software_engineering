@@ -11,12 +11,9 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    public static Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-
-        Main.primaryStage = primaryStage;
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("arrangorView.fxml"));
