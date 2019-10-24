@@ -43,7 +43,7 @@ public class arrangorController {
     }
 
     @FXML
-    private void gaaTilArrangementside() throws IOException{
+    public void gaaTilArrangementside() throws IOException{
         valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
         if (valgtArrangement != null) {
 
@@ -58,7 +58,12 @@ public class arrangorController {
 
         arrangementSideController arrangementSideController = fxmlLoader.getController();
         arrangementSideController.fyllInnArrangementInfo(valgtArrangement);*/
+    }
 
+    public void opprettNyttArrangement() throws IOException {
+
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../nyttArrangement.fxml"));
+            rootPane.getChildren().setAll(pane);
     }
 
     public ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {

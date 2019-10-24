@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class ArrangementData {
 
+
     private final static ArrayList<Arrangement> arrangementListe = new ArrayList<>();
 
     public static ArrayList<Arrangement> hentArrangementData() {
@@ -19,6 +20,10 @@ public class ArrangementData {
             arrangementListe.add(holmenKollStafetten);
             arrangementListe.add(birkebeineren);
         }
+        return arrangementListe;
+    }
+
+    public static ArrayList<Arrangement> getArrangementListe() {
         return arrangementListe;
     }
 

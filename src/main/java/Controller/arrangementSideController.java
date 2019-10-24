@@ -35,6 +35,7 @@ public class arrangementSideController {
     @FXML
     private void initialize() {
     fyllInnArrangementInfo(valgt);
+
     }
 
     @FXML

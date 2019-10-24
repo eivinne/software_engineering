@@ -8,10 +8,17 @@ public class Arrangement {
     private String tittel, beskrivelse, dato, tidspunkt, lokasjon;
     private int aldersgrense;
     private ObservableList<Deltager> deltagerListe = FXCollections.observableArrayList();
-    private ObservableList<Deltager> interessertListe = FXCollections.observableArrayList();
     private Image arrangementsBilde;
 
     public Arrangement(String tittel, String beskrivelse, String dato, String tidspunkt, String lokasjon, int aldersgrense) {
+        this.tittel = tittel;
+        this.beskrivelse = beskrivelse;
+        this.dato = dato;
+        this.tidspunkt = tidspunkt;
+        this.lokasjon = lokasjon;
+        this.aldersgrense = aldersgrense;
+    }
+    public Arrangement(String tittel, String beskrivelse, String dato, String tidspunkt, String lokasjon) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
         this.dato = dato;
@@ -28,13 +35,6 @@ public class Arrangement {
         this.deltagerListe = deltagerListe;
     }
 
-    public ObservableList<Deltager> getInteressertListe() {
-        return interessertListe;
-    }
-
-    public void setInteressertListe(ObservableList<Deltager> interessertListe) {
-        this.interessertListe = interessertListe;
-    }
 
     @Override
     public String toString() {
