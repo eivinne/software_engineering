@@ -28,7 +28,8 @@ public class loginnController {
     private ToggleGroup loginnSom;
 
     @FXML
-    private AnchorPane hovedPane;
+    private static AnchorPane hovedPane;
+
 
     @FXML
     public void initialize(){
@@ -36,6 +37,9 @@ public class loginnController {
 
     }
 
+    public static void setHovedPane(String view){
+
+    }
 
 
     @FXML
