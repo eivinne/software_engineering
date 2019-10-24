@@ -18,6 +18,7 @@ public class Main extends Application {
         fxmlLoader.setLocation(getClass().getResource("arrangorView.fxml"));
         Parent loginnSkjerm = fxmlLoader.load();
         Scene hovedScene = new Scene(loginnSkjerm, 600, 400);
+        primaryStage.setTitle("THEltager");
         primaryStage.setScene(hovedScene);
         primaryStage.show();
         System.out.println(Main.this);

@@ -21,7 +21,7 @@ import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class arrangorController {
+public class arrangorController extends Controller {
 
     @FXML private ListView<Arrangement> mineArrangementerListe;
     @FXML private Button nyttArrangementBtn;
@@ -43,12 +43,13 @@ public class arrangorController {
     }
 
     @FXML
-    private void gaaTilArrangementside() throws IOException{
+    private void gaaTilArrangementside() {
         valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
         if (valgtArrangement != null) {
-
+           settPane(rootPane,"../arrangementSide.fxml");
+            /*
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangementSide.fxml"));
-            rootPane.getChildren().setAll(pane);
+            rootPane.getChildren().setAll(pane); */
         }
         else
             System.out.print("Velg et arrangement");

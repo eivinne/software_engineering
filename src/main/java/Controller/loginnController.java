@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 
-public class loginnController {
+public class loginnController extends Controller {
     @FXML
     private RadioButton radioBruker, radioArrangor;
 
@@ -28,7 +28,7 @@ public class loginnController {
     private ToggleGroup loginnSom;
 
     @FXML
-    private static AnchorPane hovedPane;
+    private static AnchorPane rootPane;
 
 
     @FXML
@@ -37,9 +37,6 @@ public class loginnController {
 
     }
 
-    public static void setHovedPane(String view){
-
-    }
 
 
     @FXML
@@ -57,12 +54,11 @@ public class loginnController {
     }
 
     @FXML
-    public void knappTrykk() throws IOException {
+    public void knappTrykk(){
         for (Person enPerson : Person.getBrukerListe()) {
             if (enPerson.getBrukernavn().equals(textNavn.getText()) && enPerson.getPassord().equals(textPassord.getText())) {
                 if (enPerson.erArrangor()){
-                    AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangorView.fxml"));
-                    hovedPane.getChildren().setAll(pane);
+                    settPane(rootPane,"../arrangorView.fxml");
             }
 
             }

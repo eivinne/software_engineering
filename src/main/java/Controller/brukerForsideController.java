@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class brukerForsideController {
+public class brukerForsideController extends Controller{
 
     @FXML
     private Button minSideBtn, loggUtBtn, searchFieldBtn;
@@ -29,15 +29,17 @@ public class brukerForsideController {
 
 
     @FXML
-    private void loadMinSide() throws IOException{
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../minSide.fxml"));
-        rootPane.getChildren().setAll(pane);
+    private void loadMinSide() {
+        settPane(rootPane,"../minSide.fxml");
+       /* AnchorPane pane = FXMLLoader.load(getClass().getResource("../minSide.fxml"));
+        rootPane.getChildren().setAll(pane); */
     }
 
     @FXML
-    private void loggUt() throws IOException{
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../loginnskjerm.fxml"));
-        rootPane.getChildren().setAll(pane);
+    private void loggUt() {
+        settPane(rootPane,"../loginnskjerm.fxml");
+        /* AnchorPane pane = FXMLLoader.load(getClass().getResource("../loginnskjerm.fxml"));
+        rootPane.getChildren().setAll(pane); */
     }
 
 }
