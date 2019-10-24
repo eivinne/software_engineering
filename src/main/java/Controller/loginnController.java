@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+
 import java.io.IOException;
 
 
@@ -55,8 +56,11 @@ public class loginnController {
     public void knappTrykk() throws IOException {
         for (Person enPerson : Person.getBrukerListe()) {
             if (enPerson.getBrukernavn().equals(textNavn.getText()) && enPerson.getPassord().equals(textPassord.getText())) {
-                AnchorPane pane = FXMLLoader.load(getClass().getResource("../minSide.fxml"));
-                hovedPane.getChildren().setAll(pane);
+                if (enPerson.erArrangor()){
+                    AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangorView.fxml"));
+                    hovedPane.getChildren().setAll(pane);
+            }
+
             }
             else
                 System.out.println("FEIL BRUKERNAVN ELLER PASSORD" + " " + textNavn.getText() + " " + textPassord.getText());
@@ -64,21 +68,5 @@ public class loginnController {
 
         }
     }
-/*
-        if(textPassord.getText().equals("passord123") && textNavn.getText().equals("Bruker")){
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../brukerForside.fxml"));
-            hovedPane.getChildren().setAll(pane);
 
-        }
-        else if (textPassord.getText().equals("drossap123") && textNavn.getText().equals("Arrangør")){
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangorView.fxml"));
-            hovedPane.getChildren().setAll(pane);
-        }
-        else
-            System.out.println("FEIL BRUKERNAVN ELLER PASSORD" + " " + textNavn.getText() + " " + textPassord.getText());
-
-    }
-
-
-*/
 }

@@ -13,6 +13,7 @@ public abstract class Person {
     private String passord;
 
     private static ArrayList<Person> brukerListe = new ArrayList<>();
+    private Person rolle;
 
 
 
@@ -27,6 +28,17 @@ public abstract class Person {
 
 
 
+    }
+
+    public boolean erArrangor(){
+        if (this instanceof Arrangor)
+            return true;
+        else
+            return false;
+    }
+
+    public static ArrayList<Person> getBrukerListe(){
+        return brukerListe;
     }
 
     public String getFornavn(){
@@ -75,9 +87,5 @@ public abstract class Person {
 
     public void setBrukernavn(String brukernavn) {
         this.brukernavn = brukernavn;
-    }
-
-    public static ArrayList<Person> getBrukerListe(){
-        return brukerListe;
     }
 }
