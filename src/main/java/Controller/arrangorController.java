@@ -50,13 +50,13 @@ public class arrangorController {
     @FXML
     private void gaaTilArrangementside() throws IOException{
         valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
+        if (valgtArrangement != null) {
 
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangementSide.fxml"));
-        rootPane.getChildren().setAll(pane);
-
-
-
-        System.out.print(pane.getProperties());
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangementSide.fxml"));
+            rootPane.getChildren().setAll(pane);
+        }
+        else
+            System.out.print("Velg et arrangement");
 
         /*FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../arrangementSide.fxml"));
