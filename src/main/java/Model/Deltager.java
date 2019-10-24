@@ -17,8 +17,10 @@ public class Deltager extends Person {
         //Dummyfunskjon dato variabel må endres i arrangement
         for(Arrangement etArrangemang: kommendeArrangement){
             if(etArrangemang.getDato() != "123");
-            ferdigeArrangement.add(etArrangemang);
-            kommendeArrangement.remove(etArrangemang);
+            {
+                ferdigeArrangement.add(etArrangemang);
+                kommendeArrangement.remove(etArrangemang);
+            }
         }
         return kommendeArrangement;
     }
