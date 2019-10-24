@@ -34,7 +34,7 @@ public class arrangementSideController {
 
     @FXML
     private void initialize() {
-    arrangementTittelLabel.setText(valgt.getTittel());
+    fyllInnArrangementInfo(valgt);
     }
 
     @FXML

@@ -5,13 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
 public class Main extends Application {
 
+    public static Stage primaryStage;
+
     @Override
     public void start(Stage primaryStage) throws IOException {
+
+        Main.primaryStage = primaryStage;
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("arrangorView.fxml"));
@@ -23,6 +28,8 @@ public class Main extends Application {
         primaryStage.setScene(hovedScene);
 
         primaryStage.show();
+
+        System.out.println(Main.this);
 
     }
     Deltager bruker = new Deltager("Sander","Kander",12,"kulKar123@hiof.no","Bruker","passord123");
