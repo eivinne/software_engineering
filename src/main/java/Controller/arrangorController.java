@@ -2,6 +2,8 @@ package Controller;
 
 import Data.ArrangementData;
 import Model.Arrangement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 
 import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class arrangorController {
 
@@ -35,16 +38,8 @@ public class arrangorController {
     @FXML
     private void initialize() {
 
-        mineArrangementerListe.setItems(ArrangementData.hentArrangementData());
+        mineArrangementerListe.setItems(omgjorArrangementListe(ArrangementData.hentArrangementData()));
 
-        mineArrangementerListe.setOnMouseClicked(e -> {
-            Arrangement selectedItem = mineArrangementerListe.getSelectionModel().getSelectedItem();
-
-            if (selectedItem != null) {
-                navnPaaArrangementTxt.setText(selectedItem.getTittel());
-                arrangementDatoTxt.setText(selectedItem.getDato());
-            }
-        });
     }
 
     @FXML
@@ -64,6 +59,15 @@ public class arrangorController {
         arrangementSideController arrangementSideController = fxmlLoader.getController();
         arrangementSideController.fyllInnArrangementInfo(valgtArrangement);*/
 
+    }
+
+    private ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {
+        ObservableList<Arrangement> omgjortListe = FXCollections.observableArrayList();
+
+        for(int i = 0; i<arrangementListe.size(); i++) {
+            omgjortListe.add(arrangementListe.get(i));
+        }
+        return omgjortListe;
     }
 
     public static Arrangement getValgtArrangement(){
