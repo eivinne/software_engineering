@@ -2,15 +2,17 @@ package Model;
 
 import javafx.collections.ObservableList;
 
+import java.util.ArrayList;
+
 public class Deltager extends Person {
-    private ObservableList<Arrangement> ferdigeArrangement;
-    private ObservableList<Arrangement> kommendeArrangement;
+    private ArrayList<Arrangement> ferdigeArrangement;
+    private ArrayList<Arrangement> kommendeArrangement;
 
     public Deltager(String fornavn, String etternavn, int alder, String epost, String brukernavn, String passord){
         super(fornavn,etternavn,alder,epost, brukernavn, passord);
     }
 
-    public ObservableList<Arrangement> getKommendeArrangement() {
+    public ArrayList<Arrangement> getKommendeArrangement() {
         //NB!!
         //Dummyfunskjon dato variabel må endres i arrangement
         for(Arrangement etArrangemang: kommendeArrangement){
@@ -21,7 +23,7 @@ public class Deltager extends Person {
         return kommendeArrangement;
     }
 
-    public ObservableList<Arrangement> getFerdigeArrangement() {
+    public ArrayList<Arrangement> getFerdigeArrangement() {
         return ferdigeArrangement;
     }
 
