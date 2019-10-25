@@ -30,6 +30,7 @@ public abstract class Person {
 
     }
 
+
     public boolean erArrangor(){
         if (this instanceof Arrangor)
             return true;
