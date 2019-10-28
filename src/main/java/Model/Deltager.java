@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Deltager extends Person {
     private ArrayList<Arrangement> ferdigeArrangement;
     private ArrayList<Arrangement> kommendeArrangement;
+    private ArrayList<Arrangement> interesserteArrangement;
 
     public Deltager(String fornavn, String etternavn, int alder, String epost, String brukernavn, String passord){
         super(fornavn,etternavn,alder,epost, brukernavn, passord);

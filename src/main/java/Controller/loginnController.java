@@ -54,9 +54,18 @@ public class loginnController extends Controller {
     }
 
     @FXML
-    public void knappTrykk(){ //FIKSE FEIL SOM SKRIVER UT FEILMELDING UNDER ARRANGØR INNLOGING
+    public void knappTrykk(){
         String brukernavn = textNavn.getText();
         String passord = textPassord.getText();
+        int redirect = Person.validerBruker(brukernavn,passord);
+        if (redirect == 1)
+            settPane(rootPane,"../arrangorView.fxml");
+        else if(redirect == 0)
+            settPane(rootPane, "../brukerForside.fxml");
+        else
+            System.out.println("FEIL BRUKERNAVN ELLER PASSORD!");
+
+        /*
         boolean valid = false;
           for (Person enPerson : Person.getBrukerListe()) {
             if (enPerson.getBrukernavn().equals(brukernavn) && enPerson.getPassord().equals(passord)) {
@@ -72,5 +81,6 @@ public class loginnController extends Controller {
         if(!valid) {
             System.out.println("FEIL BRUKERNAVN ELLER PASSORD" + " " + textNavn.getText() + " " + textPassord.getText());
         }
+        */
     }
 }
