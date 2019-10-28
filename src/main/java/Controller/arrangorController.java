@@ -21,7 +21,7 @@ import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class arrangorController {
+public class arrangorController extends Controller{
 
     @FXML private ListView<Arrangement> mineArrangementerListe;
     @FXML private Button nyttArrangementBtn;
@@ -43,12 +43,14 @@ public class arrangorController {
     }
 
     @FXML
-    public void gaaTilArrangementside() throws IOException{
+    public void gaaTilArrangementside() {
         valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
         if (valgtArrangement != null) {
-
+            /*
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangementSide.fxml"));
             rootPane.getChildren().setAll(pane);
+            */
+            settPane(rootPane,"../arrangementSide.fxml");
         }
         else
             System.out.print("Velg et arrangement");
@@ -60,18 +62,20 @@ public class arrangorController {
         arrangementSideController.fyllInnArrangementInfo(valgtArrangement);*/
     }
 
-    public void opprettNyttArrangement() throws IOException {
-
+    public void opprettNyttArrangement() {
+            settPane(rootPane,"../nyttArrangement.fxml");
+        /*
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../nyttArrangement.fxml"));
-            rootPane.getChildren().setAll(pane);
+            rootPane.getChildren().setAll(pane); */
     }
 
     public ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {
         ObservableList<Arrangement> omgjortListe = FXCollections.observableArrayList();
-
+        omgjortListe.addAll(arrangementListe);
+        /*
         for(int i = 0; i<arrangementListe.size(); i++) {
             omgjortListe.add(arrangementListe.get(i));
-        }
+        } */
         return omgjortListe;
     }
 
