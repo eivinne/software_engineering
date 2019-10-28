@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.Controller;
 import Data.PersonData;
 import javafx.collections.ObservableList;
 
@@ -29,6 +30,7 @@ public abstract class Person {
 
     public static int validerBruker(String inptBruker, String inptPassord){
         int returnInt = -1;
+        Person innlogget = null;
         for (Person enPerson : PersonData.getBrukerListe()){
             if(enPerson.brukernavn.equals(inptBruker)&& enPerson.passord.equals(inptPassord)){
                 if(enPerson.erArrangor()) {
@@ -37,9 +39,12 @@ public abstract class Person {
                 else  {
                     returnInt = 0;
                 }
+                innlogget = enPerson;
                 break;
             }
         }
+        if (innlogget != null)
+        Controller.setInnlogget(innlogget);
         return returnInt;
     }
 
