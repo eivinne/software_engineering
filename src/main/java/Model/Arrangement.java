@@ -1,5 +1,6 @@
 package Model;
 
+import Data.ArrangementData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
@@ -17,6 +18,8 @@ public class Arrangement {
         this.tidspunkt = tidspunkt;
         this.lokasjon = lokasjon;
         this.aldersgrense = aldersgrense;
+        ArrangementData.getArrangementListe().add(this);
+
     }
     public Arrangement(String tittel, String beskrivelse, String dato, String tidspunkt, String lokasjon) {
         this.tittel = tittel;
@@ -25,6 +28,7 @@ public class Arrangement {
         this.tidspunkt = tidspunkt;
         this.lokasjon = lokasjon;
         this.aldersgrense = aldersgrense;
+        ArrangementData.getArrangementListe().add(this);
     }
 
     public Arrangement (String tittel) {
