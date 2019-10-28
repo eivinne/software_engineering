@@ -16,8 +16,9 @@ public class Arrangement {
     private ArrayList<Deltager> interesserteListe = new ArrayList<>();
     private Image arrangementsBilde;
     private String kategori;
+    private Person arrangementEier;
 
-    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori) {
+    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori, Person arrangementEier) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
         this.dato = dato;
@@ -25,16 +26,18 @@ public class Arrangement {
         this.lokasjon = lokasjon;
         this.aldersgrense = aldersgrense;
         this.kategori = kategori;
+        this.arrangementEier = arrangementEier;
         ArrangementData.getArrangementListe().add(this);
 
     }
-    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori) {
+    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, Person arrangementEier) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
         this.dato = dato;
         this.tidspunkt = tidspunkt;
         this.lokasjon = lokasjon;
         this.kategori = kategori;
+        this.arrangementEier = arrangementEier;
         ArrangementData.getArrangementListe().add(this);
     }
 
@@ -134,5 +137,13 @@ public class Arrangement {
 
     public void setKategori(String kategori) {
         this.kategori = kategori;
+    }
+
+    public Person getArrangementEier() {
+        return arrangementEier;
+    }
+
+    public void setArrangementEier(Person arrangementEier) {
+        this.arrangementEier = arrangementEier;
     }
 }
