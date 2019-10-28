@@ -72,6 +72,13 @@ public class arrangorController extends Controller{
         return omgjortListe;
     }
 
+    @FXML
+    private void loggUt() {
+        settPane(rootPane,"../loginnskjerm.fxml");
+        /* AnchorPane pane = FXMLLoader.load(getClass().getResource("../loginnskjerm.fxml"));
+        rootPane.getChildren().setAll(pane); */
+    }
+
     public static Arrangement getValgtArrangement(){
         return valgtArrangement;
     }

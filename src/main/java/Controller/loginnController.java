@@ -48,7 +48,7 @@ public class loginnController extends Controller {
 
     @FXML
     public void fyllArrangor(){
-        textNavn.setText("Arrangør");
+        textNavn.setText("Arrangør1");
         textPassord.setText("drossap123");
 
     }
