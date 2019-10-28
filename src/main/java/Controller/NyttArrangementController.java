@@ -75,7 +75,7 @@ public class NyttArrangementController extends Controller {
         kategori = selectedRadioButton.getText();
 
 
-        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori);
+        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, );
 
         settPane(rootPane,"../arrangorView.fxml");
     }
