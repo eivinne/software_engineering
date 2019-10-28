@@ -119,4 +119,12 @@ public class Arrangement {
     public void setInteresserteListe(ArrayList<Deltager> interesserteListe) {
         this.interesserteListe = interesserteListe;
     }
+
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
+    }
 }
