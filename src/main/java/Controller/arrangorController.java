@@ -52,6 +52,16 @@ public class arrangorController extends Controller{
             System.out.print("Velg et arrangement");
     }
 
+    @FXML
+    public void redigerArrangementside() {
+        valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
+        if (valgtArrangement != null) {
+            settPane(rootPane,"../redigerArrangement.fxml");
+        }
+        else
+            System.out.print("Velg et arrangement");
+    }
+
     public void opprettNyttArrangement() {
             settPane(rootPane,"../nyttArrangement.fxml");
     }
