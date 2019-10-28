@@ -1,4 +1,5 @@
 import Model.Arrangement;
+import Model.Arrangor;
 import Model.Deltager;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,8 +8,9 @@ import java.time.LocalDate;
 
 public class deltagerTest {
     Deltager bruker = new Deltager("Sander","Kander",12,"kulKar123@hiof.no","Bruker","passord123");
-    Arrangement etArr = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski");
-    Arrangement gammeltArr = new Arrangement("Gått ut på dato","Finnes ikke lenger",LocalDate.parse("2018-10-10"),"09:00","Borte",13,"Ski");
+    Arrangor arrangor1 = new Arrangor("Maria", "Casino", 14, "minstLike@kul.no", "Arrangør1", "drossap123", "Gamblers");
+    Arrangement etArr = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski",arrangor1);
+    Arrangement gammeltArr = new Arrangement("Gått ut på dato","Finnes ikke lenger",LocalDate.parse("2018-10-10"),"09:00","Borte",13,"Ski",arrangor1);
 
     @Test //Tester at bruker kan melde seg på arrangemang og at listene blir oppdatert.
     public void testPaamelding(){

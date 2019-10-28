@@ -46,7 +46,7 @@ public class NyttArrangementController extends Controller {
         rootPane.getChildren().setAll(pane);
     }
 
-    public void hentInput() throws IOException {
+    public void hentInput() {
 
         String tittel = "";
         String beskrivelse = "";
@@ -75,7 +75,7 @@ public class NyttArrangementController extends Controller {
         kategori = selectedRadioButton.getText();
 
 
-        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, );
+        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori,Controller.getInnlogget());
 
         settPane(rootPane,"../arrangorView.fxml");
     }
