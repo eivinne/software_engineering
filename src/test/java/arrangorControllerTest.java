@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class arrangorControllerTest {
 
 
-    //Sjekker om innholdet i de to listene er det samme før og etter omgjøring.
+    //Sjekker om innholdet i de to listene er det samme før og etter omgjøring fra ArrayList til ObservableList.
     @Test
     void omgjorArrangementListeTest() {
         arrangorController tester = new arrangorController();

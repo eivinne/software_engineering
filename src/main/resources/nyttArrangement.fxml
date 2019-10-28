@@ -10,22 +10,23 @@
 
 <AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NyttArrangementController">
     <children>
-        <Label id="arrangementTittelLabel" fx:id="arrangementTittelLabel" layoutX="14.0" layoutY="14.0" text="Nytt Arrangement">
+        <Label id="arrangementTittelLabel" fx:id="arrangementTittelLabel" layoutX="52.0" layoutY="24.0" text="Nytt Arrangement">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
         <ImageView id="arrangementBildeImg" fx:id="arrangementBildeImg" fitHeight="150.0" fitWidth="244.0" layoutX="14.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
-        <TextField id="arrangementDatoTxt" fx:id="arrangementDatoTxt" layoutX="393.0" layoutY="89.0" />
-        <TextField id="arrangementTidspunktTxt" fx:id="arrangementTidspunktTxt" layoutX="393.0" layoutY="153.0" />
-        <TextField id="arrangementStedTxt" fx:id="arrangementStedTxt" layoutX="393.0" layoutY="217.0" />
-        <Label layoutX="459.0" layoutY="60.0" text="Dato" />
-        <Label layoutX="444.0" layoutY="125.0" text="Tidspunkt" />
-        <Label layoutX="460.0" layoutY="192.0" text="Sted" />
+        <TextField id="arrangementDatoTxt" fx:id="arrangementDatoTxt" layoutX="393.0" layoutY="148.0" />
+        <TextField id="arrangementTidspunktTxt" fx:id="arrangementTidspunktTxt" layoutX="393.0" layoutY="209.0" />
+        <TextField id="arrangementStedTxt" fx:id="arrangementStedTxt" layoutX="393.0" layoutY="271.0" />
+        <TextField id="arrangementTittelTxt" fx:id="arrangementTittelTxt" layoutX="393.0" layoutY="82.0" />
         <TextArea id="arrangementBeskrivelseTxt" fx:id="arrangementBeskrivelseTxt" layoutX="14.0" layoutY="209.0" prefHeight="177.0" prefWidth="244.0" />
-        <Button id="tilbakeBtn" layoutX="443.0" layoutY="344.0" mnemonicParsing="false" onAction="#tilbakeTilMineArrangementer" text="Tilbake" />
-      <TextField id="arrangementTittelTxt" fx:id="arrangementTittelTxt" layoutX="226.0" layoutY="47.0" />
-      <Label layoutX="234.0" layoutY="19.0" text="Arrangementets navn" />
-      <Button id="opprettArrangementBtn" fx:id="opprettArrangementBtn" layoutX="329.0" layoutY="298.0" mnemonicParsing="false" onAction="#hentInput" text="Opprett arrangement" />
+        <Button id="tilbakeBtn" layoutX="497.0" layoutY="344.0" mnemonicParsing="false" onAction="#tilbakeTilMineArrangementer" text="Tilbake" />
+        <Button id="opprettArrangementBtn" fx:id="opprettArrangementBtn" layoutX="319.0" layoutY="344.0" mnemonicParsing="false" onAction="#hentInput" text="Opprett arrangement" />
+        <Label layoutX="458.0" layoutY="117.0" text="Dato" />
+        <Label layoutX="443.0" layoutY="183.0" text="Tidspunkt" />
+        <Label layoutX="459.0" layoutY="246.0" text="Sted" />
+        <Label layoutX="411.0" layoutY="50.0" text="Arrangementets navn" />
+        <Label layoutX="39.0" layoutY="183.0" text="Beskrivelse av arrangementet" />
     </children>
 </AnchorPane>

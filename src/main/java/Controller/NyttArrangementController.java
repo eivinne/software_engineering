@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.lang.reflect.Array;
 
-public class NyttArrangementController {
+public class NyttArrangementController extends Controller {
 
     @FXML
     Label arrangementTittelLabel;
@@ -71,14 +71,6 @@ public class NyttArrangementController {
 
         Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted);
 
-        lagreNyttArrangement(nyttArrangement);
+        settPane(rootPane,"../arrangorView.fxml");
     }
-
-    public void lagreNyttArrangement(Arrangement nyttArrangement) throws IOException {
-
-        ArrangementData.getArrangementListe().add(nyttArrangement);
-
-        tilbakeTilMineArrangementer();
-    }
-
 }
