@@ -16,13 +16,16 @@ public class Deltager extends Person {
 
     public void meldDegPaa(Arrangement arr){
         paameldteArrangement.add(arr);
+        arr.leggTilDeltager(this);
+
     }
 
     public void meldInteresse(Arrangement arr){
         interesserteArrangement.add(arr);
+        arr.leggTilInteressert(this);
     }
 
-    public ArrayList<Arrangement> getpaameldteArrangement() {
+    public ArrayList<Arrangement> getPaameldteArrangement() {
         for(Arrangement etArrangemang: paameldteArrangement){
             if(etArrangemang.getDato().isBefore(LocalDate.now())) {
                 ferdigeArrangement.add(etArrangemang);

@@ -42,6 +42,14 @@ public class Arrangement {
         this.tittel = tittel;
     }
 
+    public void leggTilDeltager(Deltager deltager){
+        paameldteListe.add(deltager);
+    }
+
+    public void leggTilInteressert(Deltager deltager){
+        interesserteListe.add(deltager);
+    }
+
 
     @Override
     public String toString() {
