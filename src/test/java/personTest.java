@@ -23,6 +23,12 @@ public class personTest {
     public void lagtiIListeTest(){
         assertTrue(PersonData.getBrukerListe().contains(bruker));
         assertTrue(PersonData.getBrukerListe().contains(arrangor));
+    }
 
+    @Test
+    public void valideringTest(){
+        assertEquals(1,Person.validerBruker("Arrangør","drossap123"));
+        assertEquals(0,Person.validerBruker("Bruker","passord123"));
+        assertEquals(-1,Person.validerBruker("Ikke","ISystemet"));
     }
 }
