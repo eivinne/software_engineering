@@ -15,21 +15,31 @@ public class Deltager extends Person {
     }
 
     public void meldDegPaa(Arrangement arr){
-        paameldteArrangement.add(arr);
-        arr.leggTilDeltager(this);
+        if (arr.getDato().isBefore(LocalDate.now()))
+            System.out.println("Du kan ikke melde deg på tidligere arrangement");
+        else {
+            paameldteArrangement.add(arr);
+            arr.leggTilDeltager(this);
+        }
 
     }
 
     public void meldInteresse(Arrangement arr){
-        interesserteArrangement.add(arr);
-        arr.leggTilInteressert(this);
+        if (arr.getDato().isBefore(LocalDate.now()))
+            System.out.println("Du kan ikke melde deg på tidligere arrangement");
+        else {
+            interesserteArrangement.add(arr);
+            arr.leggTilInteressert(this);
+        }
     }
 
     public ArrayList<Arrangement> getPaameldteArrangement() {
         for(Arrangement etArrangemang: paameldteArrangement){
             if(etArrangemang.getDato().isBefore(LocalDate.now())) {
-                ferdigeArrangement.add(etArrangemang);
-                paameldteArrangement.remove(etArrangemang);
+                if(paameldteArrangement.size()!=0) {
+                    ferdigeArrangement.add(etArrangemang);
+                    paameldteArrangement.remove(etArrangemang);
+                }
             }
         }
         return paameldteArrangement;

@@ -6,13 +6,38 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 
 public class deltagerTest {
-    @Test //Tester at bruker kan melde seg på arrangemang.
+    Deltager bruker = new Deltager("Sander","Kander",12,"kulKar123@hiof.no","Bruker","passord123");
+    Arrangement etArr = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski");
+    Arrangement gammeltArr = new Arrangement("Gått ut på dato","Finnes ikke lenger",LocalDate.parse("2018-10-10"),"09:00","Borte",13,"Ski");
+
+    @Test //Tester at bruker kan melde seg på arrangemang og at listene blir oppdatert.
     public void testPaamelding(){
-        Deltager bruker = new Deltager("Sander","Kander",12,"kulKar123@hiof.no","Bruker","passord123");
-        Arrangement etArr = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski");
         bruker.meldDegPaa(etArr);
+        bruker.meldDegPaa(gammeltArr);
+
+        //Sjkker at det er mulig å melde seg på kommende arrangement
         assertTrue(bruker.getPaameldteArrangement().contains(etArr));
         assertTrue(etArr.getPaameldteListe().contains(bruker));
+
+        //skjerkker at det ikke er mulig å melde seg på tidligere arrangement
+        assertFalse(bruker.getPaameldteArrangement().contains(gammeltArr));
+        assertFalse(gammeltArr.getPaameldteListe().contains(bruker));
     }
+
+    @Test //Tester at bruker kan melde interesse
+    public void testInterresert(){
+        bruker.meldInteresse(etArr);
+        bruker.meldInteresse(gammeltArr);
+
+        //sjekker at man kan interessere seg i kommende arrangement
+        assertTrue(bruker.getInteresserteArrangement().contains(etArr));
+        assertTrue(etArr.getInteresserteListe().contains(bruker));
+
+        //sjekker at det det ikke er mulig å melde interesse på tidligere arrangement
+        assertFalse(bruker.getInteresserteArrangement().contains(gammeltArr));
+        assertFalse(gammeltArr.getInteresserteListe().contains(bruker));
+    }
+
+
 
 }
