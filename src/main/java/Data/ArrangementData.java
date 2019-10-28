@@ -4,6 +4,7 @@ import Model.Arrangement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ArrangementData {
@@ -14,8 +15,8 @@ public class ArrangementData {
     public static ArrayList<Arrangement> hentArrangementData() {
 
         if(arrangementListe.size() == 0) {
-            Arrangement holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", "20-03-2020", "12:00", "Holmenkollen", 12);
-            Arrangement birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", "20-01-2020", "08:00", "Skogen", 15);
+            Arrangement holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", LocalDate.parse("2020-03-03"), "12:00", "Holmenkollen", "Loping");
+            Arrangement birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski");
         }
         return arrangementListe;
     }

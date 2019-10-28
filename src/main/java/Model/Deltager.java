@@ -12,7 +12,7 @@ public class Deltager extends Person {
         super(fornavn,etternavn,alder,epost, brukernavn, passord);
     }
 
-    public ArrayList<Arrangement> getKommendeArrangement() {
+    /*public ArrayList<Arrangement> getKommendeArrangement() {
         //NB!!
         //Dummyfunskjon dato variabel må endres i arrangement
         for(Arrangement etArrangemang: kommendeArrangement){
@@ -23,7 +23,7 @@ public class Deltager extends Person {
             }
         }
         return kommendeArrangement;
-    }
+    }*/
 
     public ArrayList<Arrangement> getFerdigeArrangement() {
         return ferdigeArrangement;

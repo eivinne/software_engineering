@@ -4,14 +4,13 @@ import Data.ArrangementData;
 import Model.Arrangement;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.time.LocalDate;
 
 public class NyttArrangementController extends Controller {
 
@@ -22,13 +21,15 @@ public class NyttArrangementController extends Controller {
     @FXML
     ImageView arrangementBildeImg;
     @FXML
-    TextField arrangementDatoTxt;
+    DatePicker arrangementDatoPicker;
     @FXML
     TextField arrangementTidspunktTxt;
     @FXML
     TextField arrangementStedTxt;
     @FXML
     TextArea arrangementBeskrivelseTxt;
+    @FXML
+    ToggleGroup lopsKategori;
 
     @FXML
     private AnchorPane rootPane;
@@ -49,9 +50,10 @@ public class NyttArrangementController extends Controller {
 
         String tittel = "";
         String beskrivelse = "";
-        String dato = "";
+        LocalDate dato = LocalDate.now();
         String tidspunkt = "";
         String sted = "";
+        String kategori = "";
         if(arrangementTittelTxt.getText() != null) {
             tittel = arrangementTittelTxt.getText();
         }
@@ -59,8 +61,8 @@ public class NyttArrangementController extends Controller {
         if(arrangementBeskrivelseTxt.getText() != null) {
             beskrivelse = arrangementBeskrivelseTxt.getText();
         }
-        if(arrangementDatoTxt.getText() != null) {
-            dato = arrangementDatoTxt.getText();
+        if(arrangementDatoPicker.getValue() != null) {
+            dato = arrangementDatoPicker.getValue();
         }
         if(arrangementTidspunktTxt.getText() != null) {
             tidspunkt = arrangementTidspunktTxt.getText();
@@ -69,7 +71,11 @@ public class NyttArrangementController extends Controller {
             sted = arrangementStedTxt.getText();
         }
 
-        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted);
+        RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
+        kategori = selectedRadioButton.getText();
+
+
+        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori);
 
         settPane(rootPane,"../arrangorView.fxml");
     }

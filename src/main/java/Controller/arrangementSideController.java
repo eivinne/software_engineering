@@ -47,7 +47,7 @@ public class arrangementSideController extends Controller {
 
     public void fyllInnArrangementInfo(Arrangement etArrangement) {
         arrangementTittelLabel.setText(etArrangement.getTittel());
-        arrangementDatoTxt.setText(etArrangement.getDato());
+        arrangementDatoTxt.setText(etArrangement.getDato().toString());
         arrangementTidspunktTxt.setText(etArrangement.getTidspunkt());
         arrangementStedTxt.setText(etArrangement.getLokasjon());
         arrangementBeskrivelseTxt.setText(etArrangement.getBeskrivelse());
