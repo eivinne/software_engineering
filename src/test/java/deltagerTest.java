@@ -12,6 +12,7 @@ public class deltagerTest {
         Arrangement etArr = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski");
         bruker.meldDegPaa(etArr);
         assertTrue(bruker.getPaameldteArrangement().contains(etArr));
+        assertTrue(etArr.getPaameldteListe().contains(bruker));
     }
 
 }

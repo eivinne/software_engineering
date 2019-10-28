@@ -6,9 +6,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Deltager extends Person {
-    private ArrayList<Arrangement> ferdigeArrangement;
-    private ArrayList<Arrangement> paameldteArrangement;
-    private ArrayList<Arrangement> interesserteArrangement;
+    private ArrayList<Arrangement> ferdigeArrangement = new ArrayList<>();
+    private ArrayList<Arrangement> paameldteArrangement = new ArrayList<>();
+    private ArrayList<Arrangement> interesserteArrangement = new ArrayList<>();
 
     public Deltager(String fornavn, String etternavn, int alder, String epost, String brukernavn, String passord){
         super(fornavn,etternavn,alder,epost, brukernavn, passord);
