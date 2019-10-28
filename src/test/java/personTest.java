@@ -1,3 +1,4 @@
+import Data.PersonData;
 import Model.Arrangor;
 import Model.Deltager;
 import Model.Person;
@@ -20,8 +21,8 @@ public class personTest {
 
     @Test//skjekker at brukere blir lagt til i brukerliste
     public void lagtiIListeTest(){
-        assertTrue(Person.getBrukerListe().contains(bruker));
-        assertTrue(Person.getBrukerListe().contains(arrangor));
+        assertTrue(PersonData.getBrukerListe().contains(bruker));
+        assertTrue(PersonData.getBrukerListe().contains(arrangor));
 
     }
 }
