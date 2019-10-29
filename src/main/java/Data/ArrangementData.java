@@ -26,7 +26,7 @@ public class ArrangementData {
         return arrangementListe;
     }
     
-    public ArrayList<Arrangement> hentArrangorArr(Arrangor arrangor){
+    public static ArrayList<Arrangement> hentArrangorArr(Arrangor arrangor){
         ArrayList<Arrangement> returnList = new ArrayList<>();
         for (Arrangement etArr:arrangementListe){
             if (etArr.getArrangementEier() == arrangor){

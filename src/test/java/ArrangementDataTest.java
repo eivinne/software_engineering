@@ -28,14 +28,11 @@ public class ArrangementDataTest {
     @Test
     public void hentArrangorArrTest() {
 
-        ArrangementData arrData = new ArrangementData();
-
         PersonData.genererBrukere();
         Arrangor arrangor1 = (Arrangor) PersonData.getBrukerListe().get(1);
         Arrangor arrangor2 = (Arrangor) PersonData.getBrukerListe().get(2);
-
         
-        arrData.hentArrangorArr(arrangor1);
+        ArrangementData.hentArrangorArr(arrangor1);
     }
 
 }
