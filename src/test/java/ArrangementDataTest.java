@@ -66,6 +66,7 @@ public class ArrangementDataTest {
         assertTrue(ArrangementData.sokArr("Holmenkoll").contains(holmenKollStafetten));
         assertTrue(ArrangementData.sokArr("Bislett").contains(joggetur));
         assertTrue(ArrangementData.sokArr("Skogen").contains(birkebeineren));
+        System.out.println(ArrangementData.sokArr("Holmenkoll").size());
 
         assertTrue(ArrangementData.sokArr("Holmenkoll","Loping").contains(holmenKollStafetten));
         assertFalse(ArrangementData.sokArr("Holmenkoll","Loping").contains(joggetur));
