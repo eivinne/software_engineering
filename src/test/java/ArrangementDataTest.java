@@ -13,6 +13,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrangementDataTest {
 
+    Arrangor arrangor1 = new Arrangor("Maria", "Casino", 14, "minstLike@kul.no", "Arrangør1", "drossap123", "Gamblers");
+    Arrangor arrangor2 = new Arrangor("Roger", "Jebus", 94, "nestenLike@kul.no", "Arrangør2", "drossap123", "Halden IF");
+
+
+    Arrangement holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", LocalDate.parse("2020-03-03"), "12:00", "Holmenkollen", "Loping", arrangor1);
+    Arrangement joggetur = new Arrangement("joggetur", "Det jogges", LocalDate.parse("2022-04-04"), "10:00", "Bislett", "Loping", arrangor1);
+    Arrangement birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski", arrangor2);
+
+
 
 
     @Test
@@ -30,18 +39,6 @@ public class ArrangementDataTest {
     @Test
     public void hentArrangorArrTest() {
 
-        PersonData.genererBrukere();
-        Arrangor arrangor1 = (Arrangor) PersonData.getBrukerListe().get(1);
-        Arrangor arrangor2 = (Arrangor) PersonData.getBrukerListe().get(2);
-
-        Arrangement holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", LocalDate.parse("2020-03-03"), "12:00", "Holmenkollen", "Loping", arrangor1);
-        Arrangement joggetur = new Arrangement("joggetur", "Det jogges", LocalDate.parse("2022-04-04"), "10:00", "Bislett", "Loping", arrangor1);
-        Arrangement birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski", arrangor2);
-
-        ArrangementData.getArrangementListe().add(holmenKollStafetten); //arrangor1 oppført som arrangementeier
-        ArrangementData.getArrangementListe().add(joggetur); //arrangor1 oppført som arrangementeier
-        ArrangementData.getArrangementListe().add(birkebeineren); //arrangor2 oppført som arrangementeier
-
         ArrayList<Arrangement> arrangor1SineArrangement = ArrangementData.hentArrangorArr(arrangor1);
         ArrayList<Arrangement> arrangor2SineArrangement = ArrangementData.hentArrangorArr(arrangor2);
 
@@ -55,13 +52,6 @@ public class ArrangementDataTest {
 
     @Test
     public void testSok(){
-        PersonData.genererBrukere();
-        Arrangor arrangor1 = (Arrangor) PersonData.getBrukerListe().get(1);
-        Arrangor arrangor2 = (Arrangor) PersonData.getBrukerListe().get(2);
-
-        Arrangement holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", LocalDate.parse("2020-03-03"), "12:00", "Holmenkollen", "Loping", arrangor1);
-        Arrangement joggetur = new Arrangement("joggetur", "Det jogges", LocalDate.parse("2022-04-04"), "10:00", "Bislett", "Loping", arrangor1);
-        Arrangement birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski", arrangor2);
 
         assertTrue(ArrangementData.sokArr("Holmenkoll").contains(holmenKollStafetten));
         assertTrue(ArrangementData.sokArr("Bislett").contains(joggetur));
