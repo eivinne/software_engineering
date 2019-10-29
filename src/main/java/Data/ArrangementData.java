@@ -25,6 +25,16 @@ public class ArrangementData {
         }
         return arrangementListe;
     }
+    
+    public ArrayList<Arrangement> hentArrangorArr(Arrangor arrangor){
+        ArrayList<Arrangement> returnList = new ArrayList<>();
+        for (Arrangement etArr:arrangementListe){
+            if (etArr.getArrangementEier() == arrangor){
+                returnList.add(etArr);
+            }
+        }
+        return returnList;
+    }
 
     public static ArrayList<Arrangement> getArrangementListe() {
         return arrangementListe;
