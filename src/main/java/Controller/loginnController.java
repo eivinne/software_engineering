@@ -28,7 +28,7 @@ public class loginnController extends Controller {
     private ToggleGroup loginnSom;
 
     @FXML
-    private static AnchorPane rootPane;
+    private  AnchorPane rootPane;
 
 
     @FXML
@@ -48,25 +48,39 @@ public class loginnController extends Controller {
 
     @FXML
     public void fyllArrangor(){
-        textNavn.setText("Arrangør");
+        textNavn.setText("Arrangør1");
         textPassord.setText("drossap123");
 
     }
 
     @FXML
     public void knappTrykk(){
-        for (Person enPerson : Person.getBrukerListe()) {
-            if (enPerson.getBrukernavn().equals(textNavn.getText()) && enPerson.getPassord().equals(textPassord.getText())) {
-                if (enPerson.erArrangor()){
-                    settPane(rootPane,"../arrangorView.fxml");
+        String brukernavn = textNavn.getText();
+        String passord = textPassord.getText();
+        int redirect = Person.validerBruker(brukernavn,passord);
+        if (redirect == 1)
+            settPane(rootPane,"../arrangorView.fxml");
+        else if(redirect == 0)
+            settPane(rootPane, "../brukerForside.fxml");
+        else
+            System.out.println("FEIL BRUKERNAVN ELLER PASSORD!");
+
+        /*
+        boolean valid = false;
+          for (Person enPerson : Person.getBrukerListe()) {
+            if (enPerson.getBrukernavn().equals(brukernavn) && enPerson.getPassord().equals(passord)) {
+                if (enPerson.erArrangor()) {
+                    settPane(rootPane, "../arrangorView.fxml");
+                }
+                else {
+                    settPane(rootPane, "../brukerForside.fxml");
+                }
+                valid = true;
             }
-
-            }
-            else
-                System.out.println("FEIL BRUKERNAVN ELLER PASSORD" + " " + textNavn.getText() + " " + textPassord.getText());
-
-
         }
+        if(!valid) {
+            System.out.println("FEIL BRUKERNAVN ELLER PASSORD" + " " + textNavn.getText() + " " + textPassord.getText());
+        }
+        */
     }
-
 }

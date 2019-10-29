@@ -1,7 +1,7 @@
 package Controller;
 
-import Data.ArrangementData;
 import Model.Arrangement;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -9,10 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.time.LocalDate;
 
-public class NyttArrangementController extends Controller {
+public class RedigerArrangementController extends Controller {
 
     @FXML
     Label arrangementTittelLabel;
@@ -34,9 +32,11 @@ public class NyttArrangementController extends Controller {
     @FXML
     private AnchorPane rootPane;
 
+    private Arrangement valgt = arrangorController.getValgtArrangement();
+
     @FXML
     private void initialize() {
-        arrangementTittelLabel.setText("Nytt Arrangement");
+        fyllInnArrangementInfo(valgt);
 
     }
 
@@ -46,37 +46,38 @@ public class NyttArrangementController extends Controller {
         rootPane.getChildren().setAll(pane);
     }
 
-    public void hentInput() {
+    public void fyllInnArrangementInfo(Arrangement etArrangement) {
+        arrangementTittelLabel.setText(etArrangement.getTittel());
+        arrangementDatoPicker.setValue(etArrangement.getDato());
+        arrangementTidspunktTxt.setText(etArrangement.getTidspunkt());
+        arrangementStedTxt.setText(etArrangement.getLokasjon());
+        arrangementBeskrivelseTxt.setText(etArrangement.getBeskrivelse());
+    }
 
-        String tittel = "";
-        String beskrivelse = "";
-        LocalDate dato = LocalDate.now();
-        String tidspunkt = "";
-        String sted = "";
-        String kategori = "";
+    public void redigerArrangement(ActionEvent actionEvent) {
         if(arrangementTittelTxt.getText() != null) {
-            tittel = arrangementTittelTxt.getText();
+            valgt.setTittel(arrangementTittelTxt.getText());
         }
 
         if(arrangementBeskrivelseTxt.getText() != null) {
-            beskrivelse = arrangementBeskrivelseTxt.getText();
+            valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());
         }
         if(arrangementDatoPicker.getValue() != null) {
-            dato = arrangementDatoPicker.getValue();
+            valgt.setDato(arrangementDatoPicker.getValue());
         }
         if(arrangementTidspunktTxt.getText() != null) {
-            tidspunkt = arrangementTidspunktTxt.getText();
+            valgt.setTidspunkt(arrangementTidspunktTxt.getText());
         }
         if(arrangementStedTxt.getText() != null) {
-            sted = arrangementStedTxt.getText();
+            valgt.setLokasjon(arrangementStedTxt.getText());
         }
 
-        RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
-        kategori = selectedRadioButton.getText();
-
-
-        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori,Controller.getInnlogget());
+       // RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
+        if (lopsKategori.getSelectedToggle() != null) {
+            valgt.setKategori(lopsKategori.getSelectedToggle().toString());
+        }
 
         settPane(rootPane,"../arrangorView.fxml");
     }
+
 }

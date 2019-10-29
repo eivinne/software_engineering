@@ -1,24 +1,27 @@
 package Data;
 
 import Model.Arrangement;
+import Model.Arrangor;
+import Model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ArrangementData {
 
 
-    private final static ArrayList<Arrangement> arrangementListe = new ArrayList<>();
+    private static ArrayList<Arrangement> arrangementListe = new ArrayList<>();
 
     public static ArrayList<Arrangement> hentArrangementData() {
 
-        if(arrangementListe.size() == 0) {
-            Arrangement holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", "20-03-2020", "12:00", "Holmenkollen", 12);
-            Arrangement birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", "20-01-2020", "08:00", "Skogen", 15);
+        Person arrangor1 = PersonData.getBrukerListe().get(1);
+        Person arrangor2 = PersonData.getBrukerListe().get(2);
 
-            arrangementListe.add(holmenKollStafetten);
-            arrangementListe.add(birkebeineren);
+        if(arrangementListe.size() == 0) {
+            Arrangement holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", LocalDate.parse("2020-03-03"), "12:00", "Holmenkollen", "Loping", arrangor1);
+            Arrangement birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski", arrangor2);
         }
         return arrangementListe;
     }

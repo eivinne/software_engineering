@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.Controller;
+import Data.PersonData;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
@@ -12,9 +14,8 @@ public abstract class Person {
     private String brukernavn;
     private String passord;
 
-    private static ArrayList<Person> brukerListe = new ArrayList<>();
-    private Person rolle;
 
+    private Person rolle;
 
 
     public Person(String fornavn, String etternavn, int alder, String epost, String brukernavn, String passord){
@@ -24,22 +25,34 @@ public abstract class Person {
         this.epost = epost;
         this.brukernavn = brukernavn;
         this.passord = passord;
-        brukerListe.add(this);
+        PersonData.getBrukerListe().add(this);
+    }
 
-
-
+    public static int validerBruker(String inptBruker, String inptPassord){
+        int returnInt = -1;
+        Person innlogget = null;
+        for (Person enPerson : PersonData.getBrukerListe()){
+            if(enPerson.brukernavn.equals(inptBruker)&& enPerson.passord.equals(inptPassord)){
+                if(enPerson.erArrangor()) {
+                    returnInt = 1;
+                }
+                else  {
+                    returnInt = 0;
+                }
+                innlogget = enPerson;
+                break;
+            }
+        }
+        if (innlogget != null)
+        Controller.setInnlogget(innlogget);
+        System.out.println(innlogget);
+        return returnInt;
     }
 
     public boolean erArrangor(){
-        if (this instanceof Arrangor)
-            return true;
-        else
-            return false;
+        return this instanceof Arrangor;
     }
 
-    public static ArrayList<Person> getBrukerListe(){
-        return brukerListe;
-    }
 
     public String getFornavn(){
         return fornavn;

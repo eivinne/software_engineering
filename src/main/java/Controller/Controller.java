@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Person;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -7,6 +8,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 
 public abstract class Controller {
+    private static Person innlogget;
     //Metode som setter ny scene
     public void settPane(Pane pane, String fxml){
         try {
@@ -17,5 +19,12 @@ public abstract class Controller {
         catch (IOException ioe){
             System.out.println(ioe.getMessage());
         }
+    }
+
+    public static Person getInnlogget(){
+        return innlogget;
+    }
+    public static void setInnlogget(Person person){
+        innlogget = person;
     }
 }
