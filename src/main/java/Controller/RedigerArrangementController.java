@@ -52,6 +52,7 @@ public class RedigerArrangementController extends Controller {
         arrangementTidspunktTxt.setText(etArrangement.getTidspunkt());
         arrangementStedTxt.setText(etArrangement.getLokasjon());
         arrangementBeskrivelseTxt.setText(etArrangement.getBeskrivelse());
+        arrangementTittelTxt.setText(etArrangement.getTittel());
     }
 
     public void redigerArrangement(ActionEvent actionEvent) {
