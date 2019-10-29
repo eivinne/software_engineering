@@ -56,7 +56,7 @@ public class Arrangement {
 
     @Override
     public String toString() {
-        return this.getTittel() + " " + this.getDato();
+        return this.getTittel() + " " + this.getDato() + " Kategori: " + this.getKategori();
     }
 
     public Image getArrangementsBilde() {
