@@ -1,5 +1,9 @@
 package Model;
 
+import Data.ArrangementData;
+
+import java.util.ArrayList;
+
 public class Arrangor extends Person {
     //Indrettslag som arrangør ha tilknyttning til må legges inn som klassevariabel
     String indrettslag;
@@ -15,4 +19,5 @@ public class Arrangor extends Person {
     public void setIndrettslag(String indrettslag){
         this.indrettslag = indrettslag;
     }
+
 }

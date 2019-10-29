@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ArrangementDataTest {
 
 
+
     @Test
     public void testIfArrangementDataIsNotEmpty() {
         assertFalse(ArrangementData.hentArrangementData().isEmpty());
@@ -54,6 +55,29 @@ public class ArrangementDataTest {
         for(Arrangement etArr:arrangor1SineArrangement) {
             assertTrue(etArr.getArrangementEier() == arrangor1);
         }
+    }
+
+    @Test
+    public void testSok(){
+        PersonData.genererBrukere();
+        Arrangor arrangor1 = (Arrangor) PersonData.getBrukerListe().get(1);
+        Arrangor arrangor2 = (Arrangor) PersonData.getBrukerListe().get(2);
+
+        Arrangement holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", LocalDate.parse("2020-03-03"), "12:00", "Holmenkollen", "Loping", arrangor1);
+        Arrangement joggetur = new Arrangement("joggetur", "Det jogges", LocalDate.parse("2022-04-04"), "10:00", "Bislett", "Loping", arrangor1);
+        Arrangement birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski", arrangor2);
+
+        assertTrue(ArrangementData.sokArr("Holmenkoll").contains(holmenKollStafetten));
+        assertTrue(ArrangementData.sokArr("Bislett").contains(joggetur));
+        assertTrue(ArrangementData.sokArr("Skogen").contains(birkebeineren));
+
+        assertTrue(ArrangementData.sokArr("Holmenkoll","Loping").contains(holmenKollStafetten));
+        assertFalse(ArrangementData.sokArr("Holmenkoll","Loping").contains(joggetur));
+        assertFalse(ArrangementData.sokArr("Holmenkoll","Loping").contains(birkebeineren));
+        System.out.println(ArrangementData.sokArr("Holmenkoll","Loping").toString());
+
+
+
     }
 
 
