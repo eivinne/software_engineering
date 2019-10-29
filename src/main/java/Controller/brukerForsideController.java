@@ -37,9 +37,7 @@ public class brukerForsideController extends Controller{
 
     @FXML
     private void loggUt() {
-        settPane(rootPane,"../loginnskjerm.fxml");
-        /* AnchorPane pane = FXMLLoader.load(getClass().getResource("../loginnskjerm.fxml"));
-        rootPane.getChildren().setAll(pane); */
+        utlogging(rootPane);
     }
 
 }

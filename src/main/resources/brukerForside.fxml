@@ -16,6 +16,6 @@
          </font>
       </Label>
       <TextField fx:id="searchField" layoutX="14.0" layoutY="53.0" />
-      <Button fx:id="searchBtn" layoutX="163.0" layoutY="53.0" mnemonicParsing="false" onAction="#loadSearch" text="Button" />
+      <Button fx:id="searchBtn" layoutX="163.0" layoutY="53.0" mnemonicParsing="false"  text="Button" />
    </children>
 </AnchorPane>
