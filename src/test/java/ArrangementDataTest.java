@@ -46,14 +46,10 @@ public class ArrangementDataTest {
         ArrayList<Arrangement> arrangor2SineArrangement = ArrangementData.hentArrangorArr(arrangor2);
 
         assertNotEquals(arrangor1SineArrangement, arrangor2SineArrangement);
-        assertTrue(arrangor1SineArrangement.get(0).getArrangementEier() == arrangor1);
-        assertTrue(arrangor1SineArrangement.get(1).getArrangementEier() == arrangor1);
-
-        assertFalse(arrangor1SineArrangement.get(1).getArrangementEier() == arrangor2);
-
 
         for(Arrangement etArr:arrangor1SineArrangement) {
             assertTrue(etArr.getArrangementEier() == arrangor1);
+            assertFalse(etArr.getArrangementEier() == arrangor2);
         }
     }
 
