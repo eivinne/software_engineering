@@ -72,8 +72,10 @@ public class RedigerArrangementController extends Controller {
             valgt.setLokasjon(arrangementStedTxt.getText());
         }
 
-        RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
-        valgt.setKategori(selectedRadioButton.getText());
+       // RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
+        if (lopsKategori.getSelectedToggle() != null) {
+            valgt.setKategori(lopsKategori.getSelectedToggle().toString());
+        }
 
         settPane(rootPane,"../arrangorView.fxml");
     }
