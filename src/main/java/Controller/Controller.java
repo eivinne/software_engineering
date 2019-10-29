@@ -21,6 +21,11 @@ public abstract class Controller {
         }
     }
 
+    public void utlogging(AnchorPane pane){
+        settPane(pane,"../loginnskjerm.fxml");
+        innlogget = null;
+    }
+
     public static Person getInnlogget(){
         return innlogget;
     }
