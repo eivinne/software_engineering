@@ -17,8 +17,10 @@ public class Arrangement {
     private Image arrangementsBilde;
     private String kategori;
     private Person arrangementEier;
+    private int kapasitet;
+    private int ledigePlasser;
 
-    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori, Person arrangementEier) {
+    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori, Person arrangementEier, int kapasitet) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
         this.dato = dato;
@@ -27,10 +29,11 @@ public class Arrangement {
         this.aldersgrense = aldersgrense;
         this.kategori = kategori;
         this.arrangementEier = arrangementEier;
+        this.kapasitet = kapasitet;
         ArrangementData.getArrangementListe().add(this);
 
     }
-    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, Person arrangementEier) {
+    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, Person arrangementEier, int kapasitet) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
         this.dato = dato;
@@ -146,4 +149,5 @@ public class Arrangement {
     public void setArrangementEier(Person arrangementEier) {
         this.arrangementEier = arrangementEier;
     }
+
 }
