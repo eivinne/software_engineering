@@ -14,6 +14,9 @@ import java.util.ArrayList;
 
 public abstract class Controller {
     private static Person innlogget;
+
+    private static Arrangement valgtArrangement;
+
     //Metode som setter ny scene
     public void settPane(Pane pane, String fxml){
         try {
@@ -34,8 +37,17 @@ public abstract class Controller {
     public static Person getInnlogget(){
         return innlogget;
     }
+
     public static void setInnlogget(Person person){
         innlogget = person;
+    }
+
+    public static void setValgtArrangement(Arrangement arrangement){
+        valgtArrangement = arrangement;
+    }
+
+    public static Arrangement getValgtArrangement(){
+        return valgtArrangement;
     }
 
     public ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {
@@ -45,8 +57,8 @@ public abstract class Controller {
         return omgjortListe;
     }
 
-    public void gaaTilArrangementside(Arrangement valgtArrangement, Pane rootPane) {
-        if (valgtArrangement != null) {
+    public void gaaTilArrangementside(Pane rootPane) {
+        if (Controller.getValgtArrangement() != null) {
             settPane(rootPane,"../arrangementSide.fxml");
         }
         else

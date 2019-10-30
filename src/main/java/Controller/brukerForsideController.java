@@ -39,7 +39,6 @@ public class brukerForsideController extends Controller{
     @FXML
     private ComboBox<String> velgKategoriCombo = new ComboBox<>();
 
-    private static Arrangement valgtArrangement;
 
     @FXML
     private void initialize() {
@@ -67,9 +66,8 @@ public class brukerForsideController extends Controller{
 
     @FXML
     public void gaaTilArrangementside() {
-        valgtArrangement = brukerSideArrangementerList.getSelectionModel().getSelectedItem();
-        System.out.println(valgtArrangement);
-        gaaTilArrangementside(valgtArrangement, rootPane);
+        setValgtArrangement(brukerSideArrangementerList.getSelectionModel().getSelectedItem());
+        gaaTilArrangementside(rootPane);
     }
 }
 

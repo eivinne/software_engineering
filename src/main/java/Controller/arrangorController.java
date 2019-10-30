@@ -23,7 +23,7 @@ public class arrangorController extends Controller{
     @FXML
     private AnchorPane rootPane;
 
-    private static Arrangement valgtArrangement;
+
 
 
     @FXML
@@ -35,15 +35,15 @@ public class arrangorController extends Controller{
 
     @FXML
     public void gaaTilArrangementside() {
-        valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
-        System.out.println(valgtArrangement);
-        gaaTilArrangementside(valgtArrangement, rootPane);
+        setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
+        //System.out.println(valgtArrangement);
+        gaaTilArrangementside(rootPane);
     }
 
     @FXML
     public void redigerArrangementside() {
-        valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
-        if (valgtArrangement != null) {
+        setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
+        if (getValgtArrangement() != null) {
             settPane(rootPane,"../redigerArrangement.fxml");
         }
         else
@@ -61,8 +61,5 @@ public class arrangorController extends Controller{
         utlogging(rootPane);
     }
 
-    public static Arrangement getValgtArrangement(){
-        return valgtArrangement;
-    }
 
 }
