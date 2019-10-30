@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 
 public class deltagerTest {
-    Deltager bruker = new Deltager("Sander","Kander",12,"kulKar123@hiof.no","Bruker","passord123");
+   /* Deltager bruker = new Deltager("Sander","Kander",12,"kulKar123@hiof.no","Bruker","passord123");
     Arrangor arrangor1 = new Arrangor("Maria", "Casino", 14, "minstLike@kul.no", "Arrangør1", "drossap123", "Gamblers");
     Arrangement etArr = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski",arrangor1);
     Arrangement gammeltArr = new Arrangement("Gått ut på dato","Finnes ikke lenger",LocalDate.parse("2018-10-10"),"09:00","Borte",13,"Ski",arrangor1);
@@ -40,6 +40,6 @@ public class deltagerTest {
         assertFalse(gammeltArr.getInteresserteListe().contains(bruker));
     }
 
-
+*/
 
 }

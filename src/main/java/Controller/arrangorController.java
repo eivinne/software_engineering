@@ -36,11 +36,8 @@ public class arrangorController extends Controller{
     @FXML
     public void gaaTilArrangementside() {
         valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
-        if (valgtArrangement != null) {
-            settPane(rootPane,"../arrangementSide.fxml");
-        }
-        else
-            System.out.print("Velg et arrangement");
+        System.out.println(valgtArrangement);
+        gaaTilArrangementside(valgtArrangement, rootPane);
     }
 
     @FXML
@@ -57,12 +54,7 @@ public class arrangorController extends Controller{
             settPane(rootPane,"../nyttArrangement.fxml");
     }
 
-    public ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {
-        ObservableList<Arrangement> omgjortListe = FXCollections.observableArrayList();
 
-        omgjortListe.addAll(arrangementListe);
-        return omgjortListe;
-    }
 
     @FXML
     private void loggUt() {

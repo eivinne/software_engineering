@@ -1,11 +1,16 @@
 package Controller;
 
+import Model.Arrangement;
 import Model.Person;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public abstract class Controller {
     private static Person innlogget;
@@ -17,7 +22,7 @@ public abstract class Controller {
 
         }
         catch (IOException ioe){
-            System.out.println(ioe.getMessage());
+            ioe.printStackTrace();
         }
     }
 
@@ -31,5 +36,20 @@ public abstract class Controller {
     }
     public static void setInnlogget(Person person){
         innlogget = person;
+    }
+
+    public ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {
+        ObservableList<Arrangement> omgjortListe = FXCollections.observableArrayList();
+
+        omgjortListe.addAll(arrangementListe);
+        return omgjortListe;
+    }
+
+    public void gaaTilArrangementside(Arrangement valgtArrangement, Pane rootPane) {
+        if (valgtArrangement != null) {
+            settPane(rootPane,"../arrangementSide.fxml");
+        }
+        else
+            System.out.print("Velg et arrangement");
     }
 }

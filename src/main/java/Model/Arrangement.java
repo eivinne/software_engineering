@@ -18,7 +18,9 @@ public class Arrangement {
     private String kategori;
     private Person arrangementEier;
 
-    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori, Person arrangementEier) {
+    private int testint;
+
+    /*public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori, Person arrangementEier) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
         this.dato = dato;
@@ -29,7 +31,7 @@ public class Arrangement {
         this.arrangementEier = arrangementEier;
         ArrangementData.getArrangementListe().add(this);
 
-    }
+    }*/
     public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, Person arrangementEier) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
@@ -38,12 +40,26 @@ public class Arrangement {
         this.lokasjon = lokasjon;
         this.kategori = kategori;
         this.arrangementEier = arrangementEier;
+
+        /*if (ArrangementData.getArrangementListe().size() == 0) {
+            ArrangementData.getArrangementListe().add(this);
+        } else {
+            for (int i = 0; i < ArrangementData.getArrangementListe().size(); i++) {
+                if (ArrangementData.getArrangementListe().get(i).getTittel().contains(this.tittel)) {
+                    break;
+                } else {
+                    ArrangementData.getArrangementListe().add(this);
+                }
+            }
+            //
+        }*/
         ArrangementData.getArrangementListe().add(this);
     }
 
-    public Arrangement (String tittel) {
+
+    /*public Arrangement (String tittel) {
         this.tittel = tittel;
-    }
+    }*/
 
     public void leggTilDeltager(Deltager deltager){
         paameldteListe.add(deltager);

@@ -1,40 +1,50 @@
 package Controller;
 
-import javafx.beans.value.ChangeListener;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
+import Data.ArrangementData;
+import Model.Arrangement;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
-import java.io.IOException;
+import Data.ArrangementData;
+import Model.Arrangement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
+import java.util.ArrayList;
+
 
 public class brukerForsideController extends Controller{
 
     @FXML
-    private Button minSideBtn, loggUtBtn, searchFieldBtn;
+    private Button gaaTilMinSideBtn, loggUtBtn, sokIArrangementerBtn, visAlleArrangementBtn, gaaTilArrangementBtn;
 
     @FXML
     private AnchorPane rootPane;
 
     @FXML
-    private TextField searchField;
+    private TextField sokIArrangementerTxt;
+
+    @FXML
+    private ListView<Arrangement> brukerSideArrangementerList;
 
     @FXML
     private ComboBox<String> velgKategoriCombo = new ComboBox<>();
 
+    private static Arrangement valgtArrangement;
+
     @FXML
     private void initialize() {
+
+        brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.getArrangementListe()));
 
         velgKategoriCombo.getItems().add("Alle kategorier");
         velgKategoriCombo.getItems().add("Ski");
@@ -55,6 +65,12 @@ public class brukerForsideController extends Controller{
         utlogging(rootPane);
     }
 
+    @FXML
+    public void gaaTilArrangementside() {
+        valgtArrangement = brukerSideArrangementerList.getSelectionModel().getSelectedItem();
+        System.out.println(valgtArrangement);
+        gaaTilArrangementside(valgtArrangement, rootPane);
+    }
 }
 
 
