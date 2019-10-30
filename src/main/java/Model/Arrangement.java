@@ -4,6 +4,7 @@ import Data.ArrangementData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
+import jdk.vm.ci.meta.Local;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -48,12 +49,29 @@ public class Arrangement {
         this.tittel = tittel;
     }
 
-    public void leggTilDeltager(Deltager deltager){
-        paameldteListe.add(deltager);
+    public int leggTilDeltager(Deltager deltager, boolean betalingOK){
+        int returnInt = -1;
+        if(!betalingOK){
+            System.out.println("INGEN FATTIGE!");
+        }
+        else if (this.getDato().isBefore(LocalDate.now())) {
+            System.out.println("Du kan ikke melde deg på tidligere arrangement");
+            returnInt = 0;
+        }
+        else {
+            returnInt = 1;
+            deltager.meldDegPaa(this);
+            paameldteListe.add(deltager);
+        }
+        return returnInt;
     }
 
-    public void leggTilInteressert(Deltager deltager){
+    public int leggTilInteressert(Deltager deltager){
+        int returnInt = -1;
+        if (!this.getDato().isBefore(LocalDate.now()))
         interesserteListe.add(deltager);
+
+        return returnInt;
     }
 
 
