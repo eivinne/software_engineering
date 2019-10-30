@@ -43,6 +43,7 @@ public class Arrangement {
         this.lokasjon = lokasjon;
         this.kategori = kategori;
         this.arrangementEier = arrangementEier;
+        this.kapasitet = kapasitet;
         ArrangementData.getArrangementListe().add(this);
     }
 
@@ -52,6 +53,7 @@ public class Arrangement {
 
     public boolean sjekkOmArrangementErFulltEllerHarVaert() {
         if(kapasitet <= paameldteListe.size()) {
+            System.out.println(kapasitet + " : " + paameldteListe.size());
             System.out.println("Arrangementet er fullt! Du får ikke meldt deg på.");
             return false;
         }

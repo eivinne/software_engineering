@@ -67,8 +67,13 @@ public class brukerForsideController extends Controller{
     @FXML
     public void gaaTilArrangementside() {
         setValgtArrangement(brukerSideArrangementerList.getSelectionModel().getSelectedItem());
-        gaaTilArrangementside(rootPane);
+        if (Controller.getValgtArrangement() != null) {
+            settPane(rootPane,"../brukerArrangementSide.fxml");
+        }
+        else
+            System.out.print("Velg et arrangement");
     }
+
 
 }
 
