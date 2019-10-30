@@ -1,8 +1,7 @@
 import Data.ArrangementData;
-import Data.PersonData;
 import Model.Arrangement;
 import Model.Arrangor;
-import Model.Person;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -12,27 +11,35 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ArrangementDataTest {
+    static Arrangor arrangor1;
+    static Arrangor arrangor2;
+    static Arrangement holmenKollStafetten;
+    static Arrangement joggetur;
+    static Arrangement birkebeineren;
 
-    Arrangor arrangor1 = new Arrangor("Maria", "Casino", 14, "minstLike@kul.no", "Arrangør1", "drossap123", "Gamblers");
-    Arrangor arrangor2 = new Arrangor("Roger", "Jebus", 94, "nestenLike@kul.no", "Arrangør2", "drossap123", "Halden IF");
 
 
-    Arrangement holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", LocalDate.parse("2020-03-03"), "12:00", "Holmenkollen", "Loping", arrangor1);
-    Arrangement joggetur = new Arrangement("joggetur", "Det jogges", LocalDate.parse("2022-04-04"), "10:00", "Bislett", "Loping", arrangor1);
-    Arrangement birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski", arrangor2);
 
+    @BeforeAll
+    public static void setup(){
+     arrangor1 = new Arrangor("Maria", "Casino", 14, "minstLike@kul.no", "Arrangør1", "drossap123", "Gamblers");
+     arrangor2 = new Arrangor("Roger", "Jebus", 94, "nestenLike@kul.no", "Arrangør2", "drossap123", "Halden IF");
+     holmenKollStafetten = new Arrangement("Holmenkoll Stafetten", "Det jogges", LocalDate.parse("2020-03-03"), "12:00", "Holmenkollen", "Loping", arrangor1);
+     joggetur = new Arrangement("joggetur", "Det jogges", LocalDate.parse("2022-04-04"), "10:00", "Bislett", "Loping", arrangor1);
+     birkebeineren = new Arrangement("Birkebeiner løpet", "Det gås på ski", LocalDate.parse("2020-04-04"), "08:00", "Skogen", "Ski", arrangor2);
+    }
 
 
 
     @Test
     public void testIfArrangementDataIsNotEmpty() {
-        assertFalse(ArrangementData.hentArrangementData().isEmpty());
+        assertFalse(ArrangementData.getArrangementListe().isEmpty());
     }
 
     @Test
     public void testIfArrangement() {
-        for(int i = 0; i<ArrangementData.hentArrangementData().size(); i++){
-            assertTrue(ArrangementData.hentArrangementData().get(i) instanceof Arrangement);
+        for(Arrangement etArr: ArrangementData.getArrangementListe()){
+            assertTrue(etArr instanceof Arrangement);
         }
     }
 

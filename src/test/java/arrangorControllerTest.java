@@ -2,17 +2,11 @@ import Controller.arrangorController;
 import Data.ArrangementData;
 import Model.Arrangement;
 import javafx.collections.ObservableList;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 public class arrangorControllerTest {
@@ -22,8 +16,8 @@ public class arrangorControllerTest {
     @Test
     void omgjorArrangementListeTest() {
         arrangorController tester = new arrangorController();
-        ArrayList<Arrangement> expected = ArrangementData.hentArrangementData();
-        ObservableList<Arrangement> actual = tester.omgjorArrangementListe(ArrangementData.hentArrangementData());
+        ArrayList<Arrangement> expected = ArrangementData.getArrangementListe();
+        ObservableList<Arrangement> actual = tester.omgjorArrangementListe(ArrangementData.getArrangementListe());
 
         assertEquals(expected, actual);
 

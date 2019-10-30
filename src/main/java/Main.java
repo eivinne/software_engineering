@@ -1,3 +1,4 @@
+import Data.ArrangementData;
 import Data.PersonData;
 import Model.Arrangor;
 import Model.Deltager;
@@ -28,8 +29,8 @@ public class Main extends Application {
             primaryStage.show();
             System.out.println(Main.this);
 
-
             PersonData.genererBrukere();
+            ArrangementData.genererArrangement();
         }
         catch(IOException ioe){
             System.out.println(ioe.getMessage());
