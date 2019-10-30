@@ -29,7 +29,7 @@ public class arrangementSideController extends Controller {
 
     @FXML
     private AnchorPane rootPane;
-    private Arrangement valgt = arrangorController.getValgtArrangement();
+    private Arrangement valgt = getValgtArrangement();
 
 
     @FXML
@@ -41,8 +41,7 @@ public class arrangementSideController extends Controller {
     @FXML
     private void tilbakeTilMineArrangementer() {
         settPane(rootPane,"../arrangorView.fxml");
-        /*AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangorView.fxml"));
-        rootPane.getChildren().setAll(pane);*/
+
     }
 
     public void fyllInnArrangementInfo(Arrangement etArrangement) {

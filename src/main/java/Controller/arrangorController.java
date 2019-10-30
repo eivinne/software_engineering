@@ -2,6 +2,7 @@ package Controller;
 
 import Data.ArrangementData;
 import Model.Arrangement;
+import Model.Arrangor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,31 +20,44 @@ public class arrangorController extends Controller{
     @FXML private Button seArrangementsideBtn;
     @FXML private TextField navnPaaArrangementTxt;
     @FXML private TextField arrangementDatoTxt;
+    @FXML private ObservableList<Arrangement> alleArrangemantOmgjort = omgjorArrangementListe(ArrangementData.getArrangementListe());
 
     @FXML
     private AnchorPane rootPane;
 
-    private static Arrangement valgtArrangement;
+
 
 
     @FXML
     private void initialize() {
 
-        mineArrangementerListe.setItems(omgjorArrangementListe(ArrangementData.getArrangementListe()));
+        mineArrangementerListe.setItems(alleArrangemantOmgjort);
 
+    }
+
+    @FXML
+    public void visAlleArrangementer(){
+        mineArrangementerListe.setItems(alleArrangemantOmgjort);
+    }
+
+
+    @FXML
+    public void visMineArrangementer(){
+        Arrangor arrangor = (Arrangor) getInnlogget();
+        ArrayList<Arrangement> arrangorSineArr = arrangor.getArrangorArrangement();
+        mineArrangementerListe.setItems(omgjorArrangementListe(arrangorSineArr));
     }
 
     @FXML
     public void gaaTilArrangementside() {
-        valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
-        System.out.println(valgtArrangement);
-        gaaTilArrangementside(valgtArrangement, rootPane);
+        setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
+        gaaTilArrangementside(rootPane);
     }
 
     @FXML
     public void redigerArrangementside() {
-        valgtArrangement = mineArrangementerListe.getSelectionModel().getSelectedItem();
-        if (valgtArrangement != null) {
+        setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
+        if (getValgtArrangement() != null) {
             settPane(rootPane,"../redigerArrangement.fxml");
         }
         else
@@ -61,8 +75,5 @@ public class arrangorController extends Controller{
         utlogging(rootPane);
     }
 
-    public static Arrangement getValgtArrangement(){
-        return valgtArrangement;
-    }
 
 }

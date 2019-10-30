@@ -10,8 +10,8 @@
       <Button id="nyttArrangementBtn" fx:id="nyttArrangementBtn" layoutX="14.0" layoutY="353.0" mnemonicParsing="false" onAction="#opprettNyttArrangement" prefHeight="40.0" prefWidth="182.0" text="Nytt arrangement" />
       <Button id="gaaTilArrangementsideBtn" fx:id="gaaTilArrangementsideBtn" layoutX="404.0" layoutY="353.0" mnemonicParsing="false" onAction="#gaaTilArrangementside" prefHeight="40.0" prefWidth="182.0" text="Gå til arrangementside" />
       <Button id="redigerArrangementBtn" layoutX="219.0" layoutY="353.0" mnemonicParsing="false" onAction="#redigerArrangementside" prefHeight="40.0" prefWidth="162.0" text="Rediger Arrangement" />
-      <Button id="seMineArrangementerBtn" fx:id="seMineArrangementerBtn" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="162.0" text="Mine Arrangementer" />
-      <Button id="seAlleArrangementerBtn" fx:id="seAlleArrangementerBtn" layoutX="219.0" layoutY="7.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="162.0" text="Alle Arrangementer" />
+      <Button id="seMineArrangementerBtn" fx:id="seMineArrangementerBtn" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#visMineArrangementer" prefHeight="40.0" prefWidth="162.0" text="Mine Arrangementer" />
+      <Button id="seAlleArrangementerBtn" fx:id="seAlleArrangementerBtn" layoutX="219.0" layoutY="7.0" mnemonicParsing="false" onAction="#visAlleArrangementer" prefHeight="40.0" prefWidth="162.0" text="Alle Arrangementer" />
       <Button id="loggUtBtn" fx:id="loggUtBtn" layoutX="424.0" layoutY="7.0" mnemonicParsing="false" onAction="#loggUt" prefHeight="40.0" prefWidth="162.0" text="Logg ut" />
    </children>
 </AnchorPane>

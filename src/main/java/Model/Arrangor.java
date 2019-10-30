@@ -12,6 +12,16 @@ public class Arrangor extends Person {
         this.indrettslag =  idrettslag;
     }
 
+    public ArrayList<Arrangement> getArrangorArrangement(){
+        ArrayList<Arrangement> returnList = new ArrayList<>();
+        for (Arrangement etArr:ArrangementData.getArrangementListe()){
+            if (etArr.getArrangementEier().equals(this)){
+                returnList.add(etArr);
+            }
+        }
+        return returnList;
+    }
+
     public String getIndrettslag() {
         return indrettslag;
     }
