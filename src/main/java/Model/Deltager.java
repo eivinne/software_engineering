@@ -15,22 +15,12 @@ public class Deltager extends Person {
     }
 
     public void meldDegPaa(Arrangement arr){
-        if (arr.getDato().isBefore(LocalDate.now()))
-            System.out.println("Du kan ikke melde deg på tidligere arrangement");
-        else {
             paameldteArrangement.add(arr);
-            arr.leggTilDeltager(this);
-        }
-
     }
 
     public void meldInteresse(Arrangement arr){
-        if (arr.getDato().isBefore(LocalDate.now()))
-            System.out.println("Du kan ikke melde deg på tidligere arrangement");
-        else {
-            interesserteArrangement.add(arr);
-            arr.leggTilInteressert(this);
-        }
+        if (!arr.getDato().isBefore(LocalDate.now()))
+        interesserteArrangement.add(arr);
     }
 
     public ArrayList<Arrangement> getPaameldteArrangement() {
