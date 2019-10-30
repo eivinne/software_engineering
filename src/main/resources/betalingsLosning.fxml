@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BetalingsLosningsController">
+   <children>
+      <Button id="betalingGodkjentBtn" fx:id="betalingGodkjentBtn" layoutX="62.0" layoutY="136.0" mnemonicParsing="false" onAction="#betalingGodkjent" prefHeight="93.0" prefWidth="186.0" text="Betaling godkjent" />
+      <Button id="betalingAvslattBtn" fx:id="betalingAvslattBtn" layoutX="347.0" layoutY="136.0" mnemonicParsing="false" onAction="#betalingAvslatt" prefHeight="93.0" prefWidth="186.0" text="Betaling avslått" />
+   </children>
+</AnchorPane>

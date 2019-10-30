@@ -1,10 +1,10 @@
 package Model;
 
+import Controller.brukerForsideController;
 import Data.ArrangementData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
-import jdk.vm.ci.meta.Local;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,6 +20,7 @@ public class Arrangement {
     private Person arrangementEier;
     private int kapasitet;
     private int ledigePlasser;
+    private boolean betaling;
 
     public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori, Person arrangementEier, int kapasitet) {
         this.tittel = tittel;
@@ -49,7 +50,32 @@ public class Arrangement {
         this.tittel = tittel;
     }
 
-    public int leggTilDeltager(Deltager deltager, boolean betalingOK){
+    public boolean sjekkOmArrangementErFulltEllerHarVaert() {
+        if(kapasitet <= paameldteListe.size()) {
+            System.out.println("Arrangementet er fullt! Du får ikke meldt deg på.");
+            return false;
+        }
+        else if (this.getDato().isBefore(LocalDate.now())) {
+            System.out.println("Du kan ikke melde deg på tidligere arrangement");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    public void hvisBetalingStatusGodkjentMeldPaaArrangement(boolean erGodkjent, Deltager deltager) {
+        if(erGodkjent) {
+            paameldteListe.add(deltager);
+            System.out.println("Du er nå påmeldt!");
+            System.out.println(paameldteListe);
+        }else{
+            System.out.println("Betalingen ble ikke godkjent, vennligst prøv igjen.");
+            System.out.println(paameldteListe);
+        }
+    }
+
+    /*public int leggTilDeltager(Deltager deltager, boolean betalingOK){
         int returnInt = -1;
         if(!betalingOK){
             System.out.println("INGEN FATTIGE!");
@@ -72,7 +98,7 @@ public class Arrangement {
         interesserteListe.add(deltager);
 
         return returnInt;
-    }
+    }*/
 
 
     @Override

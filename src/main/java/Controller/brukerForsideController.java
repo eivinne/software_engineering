@@ -71,6 +71,7 @@ public class brukerForsideController extends Controller{
         System.out.println(valgtArrangement);
         gaaTilArrangementside(valgtArrangement, rootPane);
     }
+
 }
 
 
