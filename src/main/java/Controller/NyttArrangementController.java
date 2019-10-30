@@ -42,8 +42,7 @@ public class NyttArrangementController extends Controller {
 
     @FXML
     private void tilbakeTilMineArrangementer() throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangorView.fxml"));
-        rootPane.getChildren().setAll(pane);
+        settPane(rootPane,"../arrangorView.fxml");
     }
 
     public void hentInput() {
@@ -72,6 +71,7 @@ public class NyttArrangementController extends Controller {
         }
 
         RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
+        if (selectedRadioButton != null)
         kategori = selectedRadioButton.getText();
 
 
