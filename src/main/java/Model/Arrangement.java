@@ -69,6 +69,7 @@ public class Arrangement {
     public void hvisBetalingStatusGodkjentMeldPaaArrangement(boolean erGodkjent, Deltager deltager) {
         if(erGodkjent) {
             paameldteListe.add(deltager);
+            deltager.getPaameldteArrangement().add(this);
             System.out.println("Du er nå påmeldt!");
             System.out.println(paameldteListe);
         }else{

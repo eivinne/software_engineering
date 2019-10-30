@@ -14,10 +14,12 @@ public class BetalingsLosningsController extends Controller{
 
     public void betalingGodkjent(ActionEvent actionEvent) {
         valgt.hvisBetalingStatusGodkjentMeldPaaArrangement(true, (Deltager) getInnlogget());
+        settPane(rootPane, "../minSide.fxml");
 
     }
 
     public void betalingAvslatt(ActionEvent actionEvent) {
         valgt.hvisBetalingStatusGodkjentMeldPaaArrangement(false, (Deltager) getInnlogget());
+        settPane(rootPane, "../brukerForside.fxml");
     }
 }
