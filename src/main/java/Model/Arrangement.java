@@ -17,10 +17,10 @@ public class Arrangement {
     private Image arrangementsBilde;
     private String kategori;
     private Person arrangementEier;
+    private int kapasitet;
+    private int ledigePlasser;
 
-    private int testint;
-
-    /*public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori, Person arrangementEier) {
+    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori, Person arrangementEier, int kapasitet) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
         this.dato = dato;
@@ -29,10 +29,11 @@ public class Arrangement {
         this.aldersgrense = aldersgrense;
         this.kategori = kategori;
         this.arrangementEier = arrangementEier;
+        this.kapasitet = kapasitet;
         ArrangementData.getArrangementListe().add(this);
 
-    }*/
-    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, Person arrangementEier) {
+    }
+    public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, Person arrangementEier, int kapasitet) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
         this.dato = dato;
@@ -40,26 +41,12 @@ public class Arrangement {
         this.lokasjon = lokasjon;
         this.kategori = kategori;
         this.arrangementEier = arrangementEier;
-
-        /*if (ArrangementData.getArrangementListe().size() == 0) {
-            ArrangementData.getArrangementListe().add(this);
-        } else {
-            for (int i = 0; i < ArrangementData.getArrangementListe().size(); i++) {
-                if (ArrangementData.getArrangementListe().get(i).getTittel().contains(this.tittel)) {
-                    break;
-                } else {
-                    ArrangementData.getArrangementListe().add(this);
-                }
-            }
-            //
-        }*/
         ArrangementData.getArrangementListe().add(this);
     }
 
-
-    /*public Arrangement (String tittel) {
+    public Arrangement (String tittel) {
         this.tittel = tittel;
-    }*/
+    }
 
     public void leggTilDeltager(Deltager deltager){
         paameldteListe.add(deltager);
@@ -162,4 +149,5 @@ public class Arrangement {
     public void setArrangementEier(Person arrangementEier) {
         this.arrangementEier = arrangementEier;
     }
+
 }
