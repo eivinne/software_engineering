@@ -56,9 +56,13 @@ public class arrangorController extends Controller{
 
     @FXML
     public void redigerArrangementside() {
+        Arrangor arrangor = (Arrangor) getInnlogget();
         setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
         if (getValgtArrangement() != null) {
+            if (arrangor.getArrangorArrangement().contains(getValgtArrangement()))
             settPane(rootPane,"../redigerArrangement.fxml");
+            else
+                System.out.println("Du kan ikke endre arrangement du ikke eier");
         }
         else
             System.out.print("Velg et arrangement");

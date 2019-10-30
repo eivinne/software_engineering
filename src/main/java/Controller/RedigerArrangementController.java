@@ -1,5 +1,6 @@
 package Controller;
 
+import Data.ArrangementData;
 import Model.Arrangement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,12 +33,18 @@ public class RedigerArrangementController extends Controller {
     @FXML
     private AnchorPane rootPane;
 
-    private Arrangement valgt = arrangorController.getValgtArrangement();
+    private Arrangement valgt = getValgtArrangement();
 
     @FXML
     private void initialize() {
         fyllInnArrangementInfo(valgt);
 
+    }
+
+    @FXML
+    public void slettArrangement(){
+        ArrangementData.getArrangementListe().remove(valgt);
+        settPane(rootPane,"../arrangorView.fxml");
     }
 
     @FXML
