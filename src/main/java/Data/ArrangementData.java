@@ -48,14 +48,5 @@ public class ArrangementData {
         return returnArr;
     }
 
-    public static ArrayList<Arrangement> hentArrangorArr(Arrangor arrangor){
-        ArrayList<Arrangement> returnList = new ArrayList<>();
-        for (Arrangement etArr:arrangementListe){
-            if (etArr.getArrangementEier() == arrangor){
-                returnList.add(etArr);
-            }
-        }
-        return returnList;
-    }
 
 }
