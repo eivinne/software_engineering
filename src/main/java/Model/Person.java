@@ -39,7 +39,6 @@ public abstract class Person {
         }
         if (innlogget != null)
         Controller.setInnlogget(innlogget);
-        System.out.println(innlogget);
         return returnInt;
     }
 
