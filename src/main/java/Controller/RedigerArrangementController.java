@@ -62,20 +62,20 @@ public class RedigerArrangementController extends Controller {
     }
 
     public void redigerArrangement(ActionEvent actionEvent) {
-        if(arrangementTittelTxt.getText() != null) {
+        if(!arrangementTittelTxt.getText().equals("")) {
             valgt.setTittel(arrangementTittelTxt.getText());
         }
 
-        if(arrangementBeskrivelseTxt.getText() != null) {
+        if(!arrangementBeskrivelseTxt.getText().equals("")) {
             valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());
         }
-        if(arrangementDatoPicker.getValue() != null) {
+        if(!arrangementDatoPicker.getValue().equals("")) {
             valgt.setDato(arrangementDatoPicker.getValue());
         }
-        if(arrangementTidspunktTxt.getText() != null) {
+        if(!arrangementTidspunktTxt.getText().equals("")) {
             valgt.setTidspunkt(arrangementTidspunktTxt.getText());
         }
-        if(arrangementStedTxt.getText() != null) {
+        if(!arrangementStedTxt.getText().equals("")) {
             valgt.setLokasjon(arrangementStedTxt.getText());
         }
 
