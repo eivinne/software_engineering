@@ -63,7 +63,7 @@ public class brukerArrangementSideController extends Controller {
     }
 
     public void interessertIArrangement(ActionEvent actionEvent) {
-        Deltager innloggetBruker = (Deltager) Controller.getInnlogget();
+        Deltager innloggetBruker = (Deltager) getInnlogget();
         innloggetBruker.meldInteresse(valgt);
 
     }

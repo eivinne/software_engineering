@@ -6,6 +6,7 @@ import Model.Arrangor;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -19,6 +20,7 @@ public class arrangorController extends Controller{
     @FXML private Button seArrangementsideBtn;
     @FXML private TextField navnPaaArrangementTxt;
     @FXML private TextField arrangementDatoTxt;
+    @FXML private Label utskriftLabel;
     @FXML private ObservableList<Arrangement> alleArrangemantOmgjort = omgjorArrangementListe(ArrangementData.getArrangementListe());
 
     @FXML
@@ -50,7 +52,10 @@ public class arrangorController extends Controller{
     @FXML
     public void gaaTilArrangementside() {
         setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
-        gaaTilArrangementside(rootPane);
+        if (getValgtArrangement() != null)
+            settPane(rootPane,"../arrangementSide.fxml");
+        else
+            utskriftLabel.setText("Velg et arrangement");
     }
 
     @FXML
@@ -61,10 +66,10 @@ public class arrangorController extends Controller{
             if (arrangor.getArrangorArrangement().contains(getValgtArrangement()))
             settPane(rootPane,"../redigerArrangement.fxml");
             else
-                System.out.println("Du kan ikke endre arrangement du ikke eier");
+                utskriftLabel.setText("Du kan ikke endre arrangement du ikke eier");
         }
         else
-            System.out.print("Velg et arrangement");
+            utskriftLabel.setText("Velg et arrangement");
     }
 
     public void opprettNyttArrangement() {

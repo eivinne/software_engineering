@@ -29,8 +29,8 @@ public abstract class Controller {
     }
 
     public void utlogging(AnchorPane pane){
-        settPane(pane,"../loginnskjerm.fxml");
         innlogget = null;
+        settPane(pane,"../loginnskjerm.fxml");
     }
 
     public static Person getInnlogget(){
@@ -39,6 +39,10 @@ public abstract class Controller {
 
     public static void setInnlogget(Person person){
         innlogget = person;
+    }
+
+    public static void resettInnlogget(){
+        innlogget = null;
     }
 
     public static void setValgtArrangement(Arrangement arrangement){
@@ -56,11 +60,4 @@ public abstract class Controller {
         return omgjortListe;
     }
 
-    public void gaaTilArrangementside(Pane rootPane) {
-        if (Controller.getValgtArrangement() != null) {
-            settPane(rootPane,"../arrangementSide.fxml");
-        }
-        else
-            System.out.print("Velg et arrangement");
-    }
 }
