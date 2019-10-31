@@ -4,29 +4,14 @@ import Data.ArrangementData;
 import Model.Arrangement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-import Data.ArrangementData;
-import Model.Arrangement;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-
-import java.util.ArrayList;
 
 
 public class brukerForsideController extends Controller{
-
-    @FXML
-    private Button gaaTilMinSideBtn, loggUtBtn, sokIArrangementerBtn, visAlleArrangementBtn, gaaTilArrangementBtn;
 
     @FXML
     private AnchorPane rootPane;
@@ -83,11 +68,6 @@ public class brukerForsideController extends Controller{
         if(valgtKategori == null || valgtKategori == "Alle kategorier") {
             valgtKategori = "";
         }
-
-        System.out.println(sokefeltInput + "   sokefeltinput");
-        System.out.println(valgtKategori + "   valgtkategori");
-
-
         brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.sokArr(sokefeltInput, valgtKategori)));
     }
 

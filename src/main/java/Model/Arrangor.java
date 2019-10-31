@@ -21,13 +21,4 @@ public class Arrangor extends Person {
         }
         return returnList;
     }
-
-    public String getIndrettslag() {
-        return indrettslag;
-    }
-
-    public void setIndrettslag(String indrettslag){
-        this.indrettslag = indrettslag;
-    }
-
 }

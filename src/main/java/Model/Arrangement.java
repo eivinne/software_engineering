@@ -1,9 +1,6 @@
 package Model;
 
-import Controller.brukerForsideController;
 import Data.ArrangementData;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 
 import java.time.LocalDate;
@@ -47,10 +44,6 @@ public class Arrangement {
         ArrangementData.getArrangementListe().add(this);
     }
 
-    public Arrangement (String tittel) {
-        this.tittel = tittel;
-    }
-
     public boolean sjekkOmArrangementErFulltEllerHarVaert() {
         if(kapasitet <= paameldteListe.size()) {
             System.out.println("Arrangementet er fullt! Du får ikke meldt deg på.");
@@ -69,6 +62,12 @@ public class Arrangement {
         if(erGodkjent) {
             paameldteListe.add(deltager);
             deltager.getPaameldteArrangement().add(this);
+            if(deltager.getInteresserteArrangement().contains(this)) {
+                deltager.getInteresserteArrangement().remove(this);
+            }
+            if(interesserteListe.contains(deltager)) {
+                interesserteListe.remove(deltager);
+            }
             System.out.println("Du er nå påmeldt!");
             System.out.println(paameldteListe);
         }else{
@@ -131,28 +130,8 @@ public class Arrangement {
         this.lokasjon = lokasjon;
     }
 
-    public int getAldersgrense() {
-        return aldersgrense;
-    }
-
-    public void setAldersgrense(int aldersgrense) {
-        this.aldersgrense = aldersgrense;
-    }
-
-    public ArrayList<Deltager> getPaameldteListe() {
-        return paameldteListe;
-    }
-
-    public void setPaameldteListe(ArrayList<Deltager> paameldteListe) {
-        this.paameldteListe = paameldteListe;
-    }
-
     public ArrayList<Deltager> getInteresserteListe() {
         return interesserteListe;
-    }
-
-    public void setInteresserteListe(ArrayList<Deltager> interesserteListe) {
-        this.interesserteListe = interesserteListe;
     }
 
     public String getKategori() {
@@ -165,10 +144,6 @@ public class Arrangement {
 
     public Person getArrangementEier() {
         return arrangementEier;
-    }
-
-    public void setArrangementEier(Person arrangementEier) {
-        this.arrangementEier = arrangementEier;
     }
 
 }

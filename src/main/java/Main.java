@@ -27,7 +27,6 @@ public class Main extends Application {
             primaryStage.setTitle("THEltager");
             primaryStage.setScene(hovedScene);
             primaryStage.show();
-            System.out.println(Main.this);
 
             PersonData.genererBrukere();
             ArrangementData.genererArrangement();
