@@ -1,15 +1,12 @@
 package Controller;
 
-import Data.ArrangementData;
 import Model.Arrangement;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 
 public class NyttArrangementController extends Controller {

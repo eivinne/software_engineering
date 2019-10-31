@@ -1,7 +1,5 @@
 package Model;
 
-import javafx.collections.ObservableList;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -14,14 +12,12 @@ public class Deltager extends Person {
         super(fornavn,etternavn,alder,epost, brukernavn, passord);
     }
 
-    public void meldDegPaa(Arrangement arr){
-            paameldteArrangement.add(arr);
-    }
-
     public void meldInteresse(Arrangement arr){
         boolean alleredeIListe = interesserteArrangement.contains(arr);
-
-        if (!arr.getDato().isBefore(LocalDate.now()) && alleredeIListe == false) {
+        if(arr.getDato().isBefore(LocalDate.now())) {
+            System.out.println("Du kan ikke melde deg interessert til arrangementer som allerede har vært.");
+        }
+        else if (alleredeIListe == false) {
             interesserteArrangement.add(arr);
             arr.getInteresserteListe().add(this);
             System.out.println("Du er lagt til i listen av interesserte.");
