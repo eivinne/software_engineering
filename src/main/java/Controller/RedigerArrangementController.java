@@ -26,9 +26,13 @@ public class RedigerArrangementController extends Controller {
     @FXML
     TextField arrangementStedTxt;
     @FXML
+    TextField antallPlasserTxt;
+    @FXML
     TextArea arrangementBeskrivelseTxt;
     @FXML
     ToggleGroup lopsKategori;
+    @FXML
+    RadioButton skiRadioBtn, lopRadioBtn, sykkelRadioBtn;
 
     @FXML
     private AnchorPane rootPane;
@@ -60,32 +64,52 @@ public class RedigerArrangementController extends Controller {
         arrangementStedTxt.setText(etArrangement.getLokasjon());
         arrangementBeskrivelseTxt.setText(etArrangement.getBeskrivelse());
         arrangementTittelTxt.setText(etArrangement.getTittel());
+        antallPlasserTxt.setText(String.valueOf(etArrangement.getKapasitet()));
     }
 
     public void redigerArrangement(ActionEvent actionEvent) {
-        if(arrangementTittelTxt.getText() != null) {
+        if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") ||arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
+            System.out.println("Alle felter må være fylt inn.");
+        }else {
+            valgt.setTittel(arrangementTittelTxt.getText());
+            valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());
+            valgt.setDato(arrangementDatoPicker.getValue());
+            valgt.setTidspunkt(arrangementTidspunktTxt.getText());
+            valgt.setLokasjon(arrangementStedTxt.getText());
+            valgt.setKapasitet(Integer.parseInt(antallPlasserTxt.getText()));
+
+            RadioButton selected = (RadioButton) lopsKategori.getSelectedToggle();
+            valgt.setKategori(selected.getText());
+
+            settPane(rootPane,"../arrangorView.fxml");
+        }
+    }
+
+
+    /*public void redigerArrangement(ActionEvent actionEvent) {
+        if(!arrangementTittelTxt.getText().equals("")) {
             valgt.setTittel(arrangementTittelTxt.getText());
         }
 
-        if(arrangementBeskrivelseTxt.getText() != null) {
+        if(!arrangementBeskrivelseTxt.getText().equals("")) {
             valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());
         }
         if(arrangementDatoPicker.getValue() != null) {
             valgt.setDato(arrangementDatoPicker.getValue());
         }
-        if(arrangementTidspunktTxt.getText() != null) {
+        if(!arrangementTidspunktTxt.getText().equals("")) {
             valgt.setTidspunkt(arrangementTidspunktTxt.getText());
         }
-        if(arrangementStedTxt.getText() != null) {
+        if(!arrangementStedTxt.getText().equals("")) {
             valgt.setLokasjon(arrangementStedTxt.getText());
         }
 
-       // RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
         if (lopsKategori.getSelectedToggle() != null) {
-            valgt.setKategori(lopsKategori.getSelectedToggle().toString());
+            RadioButton selected = (RadioButton) lopsKategori.getSelectedToggle();
+            valgt.setKategori(selected.getText());
         }
 
         settPane(rootPane,"../arrangorView.fxml");
-    }
+    }*/
 
 }

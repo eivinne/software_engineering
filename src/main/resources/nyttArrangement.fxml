@@ -19,16 +19,16 @@
             </font>
         </Label>
         <ImageView id="arrangementBildeImg" fx:id="arrangementBildeImg" fitHeight="150.0" fitWidth="244.0" layoutX="14.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
-        <TextField id="arrangementTidspunktTxt" fx:id="arrangementTidspunktTxt" layoutX="393.0" layoutY="209.0" />
-        <TextField id="arrangementStedTxt" fx:id="arrangementStedTxt" layoutX="393.0" layoutY="271.0" />
-        <TextField id="arrangementTittelTxt" fx:id="arrangementTittelTxt" layoutX="393.0" layoutY="82.0" />
+        <TextField id="arrangementTidspunktTxt" fx:id="arrangementTidspunktTxt" layoutX="393.0" layoutY="178.0" />
+        <TextField id="arrangementStedTxt" fx:id="arrangementStedTxt" layoutX="393.0" layoutY="241.0" />
+        <TextField id="arrangementTittelTxt" fx:id="arrangementTittelTxt" layoutX="395.0" layoutY="54.0" />
         <TextArea id="arrangementBeskrivelseTxt" fx:id="arrangementBeskrivelseTxt" layoutX="14.0" layoutY="209.0" prefHeight="177.0" prefWidth="244.0" />
-        <Button id="tilbakeBtn" layoutX="497.0" layoutY="344.0" mnemonicParsing="false" onAction="#tilbakeTilMineArrangementer" text="Tilbake" />
-        <Button id="opprettArrangementBtn" fx:id="opprettArrangementBtn" layoutX="319.0" layoutY="344.0" mnemonicParsing="false" onAction="#hentInput" text="Opprett arrangement" />
-        <Label layoutX="458.0" layoutY="117.0" text="Dato" />
-        <Label layoutX="443.0" layoutY="183.0" text="Tidspunkt" />
-        <Label layoutX="459.0" layoutY="246.0" text="Sted" />
-        <Label layoutX="411.0" layoutY="50.0" text="Arrangementets navn" />
+        <Button id="tilbakeBtn" layoutX="497.0" layoutY="358.0" mnemonicParsing="false" onAction="#tilbakeTilMineArrangementer" text="Tilbake" />
+        <Button id="opprettArrangementBtn" fx:id="opprettArrangementBtn" layoutX="319.0" layoutY="358.0" mnemonicParsing="false" onAction="#hentInput" text="Opprett arrangement" />
+        <Label layoutX="458.0" layoutY="91.0" text="Dato" />
+        <Label layoutX="442.0" layoutY="152.0" text="Tidspunkt" />
+        <Label layoutX="458.0" layoutY="217.0" prefHeight="17.0" prefWidth="30.0" text="Sted" />
+        <Label layoutX="412.0" layoutY="29.0" text="Arrangementets navn" />
         <Label layoutX="39.0" layoutY="183.0" text="Beskrivelse av arrangementet" />
       <RadioButton layoutX="278.0" layoutY="82.0" mnemonicParsing="false" text="Ski">
          <toggleGroup>
@@ -36,7 +36,9 @@
          </toggleGroup></RadioButton>
       <RadioButton layoutX="278.0" layoutY="108.0" mnemonicParsing="false" text="Løp" toggleGroup="$lopsKategori" />
       <RadioButton layoutX="278.0" layoutY="134.0" mnemonicParsing="false" text="Sykkel" toggleGroup="$lopsKategori" />
-      <DatePicker id="arrangementDatoPicker" fx:id="arrangementDatoPicker" layoutX="380.0" layoutY="147.0" />
+      <DatePicker id="arrangementDatoPicker" fx:id="arrangementDatoPicker" editable="false" layoutX="379.0" layoutY="112.0" />
       <Label layoutX="276.0" layoutY="50.0" text="Løpskategori" />
+      <TextField fx:id="antallPlasserTxt" layoutX="394.0" layoutY="307.0" />
+      <Label layoutX="432.0" layoutY="281.0" text="Antall plasser" />
     </children>
 </AnchorPane>

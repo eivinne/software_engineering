@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Arrangement;
+import Model.Arrangor;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -24,6 +25,8 @@ public class NyttArrangementController extends Controller {
     @FXML
     TextField arrangementStedTxt;
     @FXML
+    TextField antallPlasserTxt;
+    @FXML
     TextArea arrangementBeskrivelseTxt;
     @FXML
     ToggleGroup lopsKategori;
@@ -46,34 +49,39 @@ public class NyttArrangementController extends Controller {
 
         String tittel = "";
         String beskrivelse = "";
-        LocalDate dato = LocalDate.now();
+        LocalDate dato;
         String tidspunkt = "";
         String sted = "";
         String kategori = "";
-        if(arrangementTittelTxt.getText() != null) {
+        String antallPlasser = "";
+        antallPlasser = antallPlasserTxt.getText();
+        int antallPlasserInt = 0;
+
+        try{
+            antallPlasserInt = Integer.parseInt(antallPlasser);
+        } catch (NumberFormatException nfe) {
+            System.out.println("");
+        }
+
+        if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
+            System.out.println("Alle felter må være fylt inn.");
+
+        }else if (antallPlasserInt == 0){
+            System.out.println("Antall plasser må fylles ut med et tall og det må være større enn 0.");
+        }
+        else {
             tittel = arrangementTittelTxt.getText();
-        }
-
-        if(arrangementBeskrivelseTxt.getText() != null) {
             beskrivelse = arrangementBeskrivelseTxt.getText();
-        }
-        if(arrangementDatoPicker.getValue() != null) {
-            dato = arrangementDatoPicker.getValue();
-        }
-        if(arrangementTidspunktTxt.getText() != null) {
+            dato= arrangementDatoPicker.getValue();
             tidspunkt = arrangementTidspunktTxt.getText();
-        }
-        if(arrangementStedTxt.getText() != null) {
             sted = arrangementStedTxt.getText();
+            RadioButton selected = (RadioButton) lopsKategori.getSelectedToggle();
+            kategori = selected.getText();
+            Arrangor arrangementEier = (Arrangor) Controller.getInnlogget();
+
+            Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, arrangementEier, antallPlasserInt);
+
+            settPane(rootPane,"../arrangorView.fxml");
         }
-
-        RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
-        if (selectedRadioButton != null)
-        kategori = selectedRadioButton.getText();
-
-
-        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori,Controller.getInnlogget(),150);
-
-        settPane(rootPane,"../arrangorView.fxml");
     }
 }

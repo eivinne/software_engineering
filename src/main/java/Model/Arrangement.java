@@ -19,6 +19,14 @@ public class Arrangement {
     private int ledigePlasser;
     private boolean betaling;
 
+    public int getKapasitet() {
+        return kapasitet;
+    }
+
+    public void setKapasitet(int kapasitet) {
+        this.kapasitet = kapasitet;
+    }
+
     public Arrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int aldersgrense, String kategori, Person arrangementEier, int kapasitet) {
         this.tittel = tittel;
         this.beskrivelse = beskrivelse;
