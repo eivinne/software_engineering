@@ -36,8 +36,10 @@ public class personTest {
     public void validerBrukerTest(){
         assertEquals(1,Person.validerBruker("Arrangør","drossap123"));
         assertTrue(Controller.getInnlogget().equals(arrangor));
+
         assertEquals(0,Person.validerBruker("Bruker","passord123"));
         assertTrue(Controller.getInnlogget().equals(bruker));
+
         assertEquals(-1,Person.validerBruker("Ikke","ISystemet"));
         assertNull(Controller.getInnlogget());
     }

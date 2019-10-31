@@ -82,6 +82,10 @@ public class Arrangement {
         return this.getTittel() + " " + this.getDato() + " Kategori: " + this.getKategori();
     }
 
+    public ArrayList<Deltager> getPaameldteListe(){
+        return paameldteListe;
+    }
+
     public Image getArrangementsBilde() {
         return arrangementsBilde;
     }
