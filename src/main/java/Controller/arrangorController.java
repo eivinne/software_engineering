@@ -53,7 +53,10 @@ public class arrangorController extends Controller{
     @FXML
     public void gaaTilArrangementside() {
         setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
-        gaaTilArrangementside(rootPane);
+        if (getValgtArrangement() != null)
+            settPane(rootPane,"../arrangementSide.fxml");
+        else
+            utskriftLabel.setText("Velg et arrangement");
     }
 
     @FXML

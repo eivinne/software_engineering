@@ -49,8 +49,7 @@ public class RedigerArrangementController extends Controller {
 
     @FXML
     private void tilbakeTilMineArrangementer() throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangorView.fxml"));
-        rootPane.getChildren().setAll(pane);
+        settPane(rootPane,"../arrangorView.fxml");
     }
 
     public void fyllInnArrangementInfo(Arrangement etArrangement) {
