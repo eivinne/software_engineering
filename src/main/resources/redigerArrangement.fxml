@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RedigerArrangementController">
+<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RedigerArrangementController">
     <children>
         <Label id="arrangementTittelLabel" fx:id="arrangementTittelLabel" layoutX="52.0" layoutY="24.0" text="Nytt Arrangement">
             <font>
@@ -19,25 +19,27 @@
             </font>
         </Label>
         <ImageView id="arrangementBildeImg" fx:id="arrangementBildeImg" fitHeight="150.0" fitWidth="244.0" layoutX="14.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
-        <TextField id="arrangementTidspunktTxt" fx:id="arrangementTidspunktTxt" layoutX="393.0" layoutY="209.0" />
-        <TextField id="arrangementStedTxt" fx:id="arrangementStedTxt" layoutX="393.0" layoutY="271.0" />
-        <TextField id="arrangementTittelTxt" fx:id="arrangementTittelTxt" layoutX="393.0" layoutY="82.0" />
+        <TextField id="arrangementTidspunktTxt" fx:id="arrangementTidspunktTxt" layoutX="393.0" layoutY="187.0" />
+        <TextField id="arrangementStedTxt" fx:id="arrangementStedTxt" layoutX="393.0" layoutY="247.0" />
+        <TextField id="arrangementTittelTxt" fx:id="arrangementTittelTxt" layoutX="394.0" layoutY="57.0" />
         <TextArea id="arrangementBeskrivelseTxt" fx:id="arrangementBeskrivelseTxt" layoutX="14.0" layoutY="209.0" prefHeight="177.0" prefWidth="244.0" />
-        <Button id="tilbakeBtn" layoutX="497.0" layoutY="344.0" mnemonicParsing="false" onAction="#tilbakeTilMineArrangementer" text="Tilbake" />
-        <Button id="redigerArrangementBtn" fx:id="redigerArrangementBtn" layoutX="319.0" layoutY="344.0" mnemonicParsing="false" onAction="#redigerArrangement" text="Oppdater arrangement" />
-        <Label layoutX="458.0" layoutY="117.0" text="Dato" />
-        <Label layoutX="443.0" layoutY="183.0" text="Tidspunkt" />
-        <Label layoutX="459.0" layoutY="246.0" text="Sted" />
-        <Label layoutX="411.0" layoutY="50.0" text="Arrangementets navn" />
+        <Button id="tilbakeBtn" layoutX="495.0" layoutY="358.0" mnemonicParsing="false" onAction="#tilbakeTilMineArrangementer" text="Tilbake" />
+        <Button id="redigerArrangementBtn" fx:id="redigerArrangementBtn" layoutX="315.0" layoutY="358.0" mnemonicParsing="false" onAction="#redigerArrangement" text="Oppdater arrangement" />
+        <Label layoutX="458.0" layoutY="96.0" text="Dato" />
+        <Label layoutX="442.0" layoutY="163.0" text="Tidspunkt" />
+        <Label layoutX="458.0" layoutY="224.0" text="Sted" />
+        <Label layoutX="411.0" layoutY="29.0" text="Arrangementets navn" />
         <Label layoutX="39.0" layoutY="183.0" text="Beskrivelse av arrangementet" />
-        <RadioButton layoutX="278.0" layoutY="128.0" mnemonicParsing="false" text="Ski">
+        <RadioButton fx:id="skiRadioBtn" layoutX="278.0" layoutY="128.0" mnemonicParsing="false" text="Ski">
             <toggleGroup>
                 <ToggleGroup fx:id="lopsKategori" />
             </toggleGroup></RadioButton>
-        <RadioButton layoutX="278.0" layoutY="154.0" mnemonicParsing="false" text="Løp" toggleGroup="$lopsKategori" />
-        <RadioButton layoutX="278.0" layoutY="180.0" mnemonicParsing="false" text="Sykkel" toggleGroup="$lopsKategori" />
-        <DatePicker id="arrangementDatoPicker" fx:id="arrangementDatoPicker" layoutX="380.0" layoutY="147.0" />
+        <RadioButton fx:id="lopRadioBtn" layoutX="278.0" layoutY="154.0" mnemonicParsing="false" text="Løp" toggleGroup="$lopsKategori" />
+        <RadioButton fx:id="sykkelRadioBtn" layoutX="278.0" layoutY="180.0" mnemonicParsing="false" text="Sykkel" toggleGroup="$lopsKategori" />
+        <DatePicker id="arrangementDatoPicker" fx:id="arrangementDatoPicker" editable="false" layoutX="380.0" layoutY="123.0" />
         <Label layoutX="276.0" layoutY="96.0" text="Løpskategori" />
       <Button layoutX="76.0" layoutY="70.0" mnemonicParsing="false" onAction="#slettArrangement" text="Slett Arrangement" textFill="RED" />
+      <TextField fx:id="antallPlasserTxt" layoutX="394.0" layoutY="306.0" />
+      <Label layoutX="436.0" layoutY="281.0" text="Antall plasser" />
     </children>
 </AnchorPane>

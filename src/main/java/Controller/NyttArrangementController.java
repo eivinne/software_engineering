@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Arrangement;
+import Model.Arrangor;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -12,26 +13,26 @@ import java.time.LocalDate;
 public class NyttArrangementController extends Controller {
 
     @FXML
-    private Label arrangementTittelLabel;
+    Label arrangementTittelLabel;
     @FXML
-    private TextField arrangementTittelTxt;
+    TextField arrangementTittelTxt;
     @FXML
-    private ImageView arrangementBildeImg;
+    ImageView arrangementBildeImg;
     @FXML
-    private DatePicker arrangementDatoPicker;
+    DatePicker arrangementDatoPicker;
     @FXML
-    private TextField arrangementTidspunktTxt;
+    TextField arrangementTidspunktTxt;
     @FXML
-    private TextField arrangementStedTxt;
+    TextField arrangementStedTxt;
     @FXML
-    private TextArea arrangementBeskrivelseTxt;
+    TextField antallPlasserTxt;
     @FXML
-    private ToggleGroup lopsKategori;
+    TextArea arrangementBeskrivelseTxt;
     @FXML
-    private Label utskriftLabel;
+    ToggleGroup lopsKategori;
+
     @FXML
     private AnchorPane rootPane;
-
 
     @FXML
     private void initialize() {
@@ -40,26 +41,47 @@ public class NyttArrangementController extends Controller {
     }
 
     @FXML
-    private void tilbakeTilMineArrangementer() {
+    private void tilbakeTilMineArrangementer() throws IOException {
         settPane(rootPane,"../arrangorView.fxml");
     }
 
     public void hentInput() {
 
-        String tittel = arrangementTittelTxt.getText();
-        String beskrivelse = arrangementBeskrivelseTxt.getText();
-        LocalDate dato = arrangementDatoPicker.getValue();
-        String tidspunkt = arrangementTidspunktTxt.getText();
-        String sted = arrangementStedTxt.getText();
+        String tittel = "";
+        String beskrivelse = "";
+        LocalDate dato;
+        String tidspunkt = "";
+        String sted = "";
         String kategori = "";
-        if (lopsKategori.getSelectedToggle() != null) {
-             kategori =String.valueOf(lopsKategori.getSelectedToggle());
+        String antallPlasser = "";
+        antallPlasser = antallPlasserTxt.getText();
+        int antallPlasserInt = 0;
+
+        try{
+            antallPlasserInt = Integer.parseInt(antallPlasser);
+        } catch (NumberFormatException nfe) {
+            System.out.println("");
         }
-        if(!tittel.equals("") && !beskrivelse.equals("") && dato!=null && !tidspunkt.equals("") && !sted.equals("") && !kategori.equals("")) {
-            Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, Controller.getInnlogget(), 150);
-            settPane(rootPane, "../arrangorView.fxml");
+
+        if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
+            System.out.println("Alle felter må være fylt inn.");
+
+        }else if (antallPlasserInt == 0){
+            System.out.println("Antall plasser må fylles ut med et tall og det må være større enn 0.");
         }
-        else
-            utskriftLabel.setText("Fyll inn alle felt");
+        else {
+            tittel = arrangementTittelTxt.getText();
+            beskrivelse = arrangementBeskrivelseTxt.getText();
+            dato= arrangementDatoPicker.getValue();
+            tidspunkt = arrangementTidspunktTxt.getText();
+            sted = arrangementStedTxt.getText();
+            RadioButton selected = (RadioButton) lopsKategori.getSelectedToggle();
+            kategori = selected.getText();
+            Arrangor arrangementEier = (Arrangor) Controller.getInnlogget();
+
+            Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, arrangementEier, antallPlasserInt);
+
+            settPane(rootPane,"../arrangorView.fxml");
+        }
     }
 }
