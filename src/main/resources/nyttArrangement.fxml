@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NyttArrangementController">
+<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NyttArrangementController">
     <children>
         <Label id="arrangementTittelLabel" fx:id="arrangementTittelLabel" layoutX="52.0" layoutY="24.0" text="Nytt Arrangement">
             <font>
@@ -38,5 +38,6 @@
       <RadioButton layoutX="278.0" layoutY="134.0" mnemonicParsing="false" text="Sykkel" toggleGroup="$lopsKategori" />
       <DatePicker id="arrangementDatoPicker" fx:id="arrangementDatoPicker" layoutX="380.0" layoutY="147.0" />
       <Label layoutX="276.0" layoutY="50.0" text="Løpskategori" />
+      <Label fx:id="utskriftLabel" layoutX="319.0" layoutY="318.0" textFill="RED" />
     </children>
 </AnchorPane>

@@ -15,24 +15,26 @@ import java.time.LocalDate;
 public class NyttArrangementController extends Controller {
 
     @FXML
-    Label arrangementTittelLabel;
+    private Label arrangementTittelLabel;
     @FXML
-    TextField arrangementTittelTxt;
+    private TextField arrangementTittelTxt;
     @FXML
-    ImageView arrangementBildeImg;
+    private ImageView arrangementBildeImg;
     @FXML
-    DatePicker arrangementDatoPicker;
+    private DatePicker arrangementDatoPicker;
     @FXML
-    TextField arrangementTidspunktTxt;
+    private TextField arrangementTidspunktTxt;
     @FXML
-    TextField arrangementStedTxt;
+    private TextField arrangementStedTxt;
     @FXML
-    TextArea arrangementBeskrivelseTxt;
+    private TextArea arrangementBeskrivelseTxt;
     @FXML
-    ToggleGroup lopsKategori;
-
+    private ToggleGroup lopsKategori;
+    @FXML
+    private Label utskriftLabel;
     @FXML
     private AnchorPane rootPane;
+
 
     @FXML
     private void initialize() {
@@ -41,42 +43,26 @@ public class NyttArrangementController extends Controller {
     }
 
     @FXML
-    private void tilbakeTilMineArrangementer() throws IOException {
+    private void tilbakeTilMineArrangementer() {
         settPane(rootPane,"../arrangorView.fxml");
     }
 
     public void hentInput() {
 
-        String tittel = "";
-        String beskrivelse = "";
-        LocalDate dato = LocalDate.now();
-        String tidspunkt = "";
-        String sted = "";
+        String tittel = arrangementTittelTxt.getText();
+        String beskrivelse = arrangementBeskrivelseTxt.getText();
+        LocalDate dato = arrangementDatoPicker.getValue();
+        String tidspunkt = arrangementTidspunktTxt.getText();
+        String sted = arrangementStedTxt.getText();
         String kategori = "";
-        if(arrangementTittelTxt.getText() != null) {
-            tittel = arrangementTittelTxt.getText();
+        if (lopsKategori.getSelectedToggle() != null) {
+             kategori =String.valueOf(lopsKategori.getSelectedToggle());
         }
-
-        if(arrangementBeskrivelseTxt.getText() != null) {
-            beskrivelse = arrangementBeskrivelseTxt.getText();
+        if(!tittel.equals("") && !beskrivelse.equals("") && dato!=null && !tidspunkt.equals("") && !sted.equals("") && !kategori.equals("")) {
+            Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, Controller.getInnlogget(), 150);
+            settPane(rootPane, "../arrangorView.fxml");
         }
-        if(arrangementDatoPicker.getValue() != null) {
-            dato = arrangementDatoPicker.getValue();
-        }
-        if(arrangementTidspunktTxt.getText() != null) {
-            tidspunkt = arrangementTidspunktTxt.getText();
-        }
-        if(arrangementStedTxt.getText() != null) {
-            sted = arrangementStedTxt.getText();
-        }
-
-        RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
-        if (selectedRadioButton != null)
-        kategori = selectedRadioButton.getText();
-
-
-        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori,Controller.getInnlogget(),150);
-
-        settPane(rootPane,"../arrangorView.fxml");
+        else
+            utskriftLabel.setText("Fyll inn alle felt");
     }
 }

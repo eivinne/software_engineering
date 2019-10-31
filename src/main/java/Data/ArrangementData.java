@@ -27,14 +27,7 @@ public class ArrangementData {
     }
 
 
-    /*public static ArrayList<Arrangement> sokArr(String sok){
-        ArrayList<Arrangement> returnArr = new ArrayList<>();
-        for(Arrangement etArr: arrangementListe){
-            if (etArr.getTittel().toLowerCase().contains(sok.toLowerCase()) || etArr.getLokasjon().toLowerCase().contains(sok.toLowerCase()))
-                returnArr.add(etArr);
-        }
-        return returnArr;
-    }*/
+
 
     public static ArrayList<Arrangement> sokArr(String sok, String kategori) {
         ArrayList<Arrangement> returnArr = new ArrayList<>();
@@ -56,20 +49,6 @@ public class ArrangementData {
         return returnArr;
     }
 
-    /*public static ArrayList<Arrangement> sokArr(String sok, String kategori){
-        ArrayList<Arrangement> returnArr = new ArrayList<>();
-        for (Arrangement etArr:arrangementListe){
-            if (etArr.getKategori().equals(kategori)){
-                if (!sok.equals("")){
-                    if (etArr.getTittel().toLowerCase().contains(sok.toLowerCase()) || etArr.getLokasjon().toLowerCase().contains(sok.toLowerCase()))
-                        returnArr.add(etArr);
-                }
-                else
-                    returnArr.add(etArr);
-            }
-        }
-        return returnArr;
-    }*/
 
 
 }

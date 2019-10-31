@@ -48,7 +48,7 @@ public class RedigerArrangementController extends Controller {
     }
 
     @FXML
-    private void tilbakeTilMineArrangementer() throws IOException {
+    private void tilbakeTilMineArrangementer() {
         settPane(rootPane,"../arrangorView.fxml");
     }
 
@@ -69,7 +69,7 @@ public class RedigerArrangementController extends Controller {
         if(!arrangementBeskrivelseTxt.getText().equals("")) {
             valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());
         }
-        if(!arrangementDatoPicker.getValue().equals("")) {
+        if(arrangementDatoPicker.getValue()!=null) {
             valgt.setDato(arrangementDatoPicker.getValue());
         }
         if(!arrangementTidspunktTxt.getText().equals("")) {
@@ -79,7 +79,6 @@ public class RedigerArrangementController extends Controller {
             valgt.setLokasjon(arrangementStedTxt.getText());
         }
 
-       // RadioButton selectedRadioButton = (RadioButton) lopsKategori.getSelectedToggle();
         if (lopsKategori.getSelectedToggle() != null) {
             valgt.setKategori(lopsKategori.getSelectedToggle().toString());
         }
