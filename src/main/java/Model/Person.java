@@ -39,6 +39,8 @@ public abstract class Person {
         }
         if (innlogget != null)
         Controller.setInnlogget(innlogget);
+        else
+            Controller.resettInnlogget();
         return returnInt;
     }
 
