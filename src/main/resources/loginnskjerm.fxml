@@ -21,6 +21,7 @@
             <TextField fx:id="textNavn" layoutX="205.0" layoutY="208.0" />
             <Button fx:id="loginnKnapp" layoutX="253.0" layoutY="323.0" mnemonicParsing="false" onAction="#knappTrykk" text="Button" />
             <Label layoutX="237.0" layoutY="106.0" text="Login som:" />
+            <Label fx:id="utskriftLabel" layoutX="205.0" layoutY="283.0" textFill="RED" />
          </children>
       </AnchorPane>
    </children>

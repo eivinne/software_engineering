@@ -18,6 +18,9 @@ public class loginnController extends Controller {
     @FXML
     private  AnchorPane rootPane;
 
+    @FXML
+    private Label utskriftLabel;
+
 
     @FXML
     public void initialize(){
@@ -51,7 +54,7 @@ public class loginnController extends Controller {
         else if(redirect == 0)
             settPane(rootPane, "../brukerForside.fxml");
         else
-            System.out.println("FEIL BRUKERNAVN ELLER PASSORD!");
+            utskriftLabel.setText("Feil brukernavn / passord");
 
     }
 }
