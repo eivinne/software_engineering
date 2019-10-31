@@ -4,10 +4,7 @@ import Data.ArrangementData;
 import Model.Arrangement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import Data.ArrangementData;
@@ -39,6 +36,9 @@ public class brukerForsideController extends Controller{
 
     @FXML
     private ComboBox<String> velgKategoriCombo = new ComboBox<>();
+
+    @FXML
+    private Label utskriftLabel;
 
 
     @FXML
@@ -72,7 +72,7 @@ public class brukerForsideController extends Controller{
             settPane(rootPane,"../brukerArrangementSide.fxml");
         }
         else
-            System.out.print("Velg et arrangement");
+            utskriftLabel.setText("Velg et arrangement");
     }
 
 

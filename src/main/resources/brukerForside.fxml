@@ -2,19 +2,21 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.brukerForsideController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.brukerForsideController">
    <children>
-      <Button id="gaaTilMinSideBtn" fx:id="gaaTilminSideBtn" layoutX="14.0" layoutY="340.0" mnemonicParsing="false" onAction="#loadMinSide" prefHeight="46.0" prefWidth="154.0" text="Min Side" />
-      <Button id="loggUtBtn" fx:id="loggUtBtn" layoutX="432.0" layoutY="340.0" mnemonicParsing="false" onAction="#loggUt" prefHeight="46.0" prefWidth="154.0" text="Logg ut" />
+      <Button id="gaaTilMinSideBtn" fx:id="gaaTilminSideBtn" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#loadMinSide" prefHeight="46.0" prefWidth="154.0" text="Min Side" />
+      <Button id="loggUtBtn" fx:id="loggUtBtn" layoutX="432.0" layoutY="350.0" mnemonicParsing="false" onAction="#loggUt" prefHeight="46.0" prefWidth="154.0" text="Logg ut" />
       <Button id="sokIArrangementerBtn" fx:id="sokIArrangementerBtn" layoutX="270.0" layoutY="14.0" mnemonicParsing="false" onAction="#sokIArrangementListe" prefHeight="27.0" prefWidth="45.0" text="Søk" />
       <Button id="visAlleArrangementBtn" fx:id="visAlleArrangementBtn" layoutX="432.0" layoutY="14.0" mnemonicParsing="false" onAction="#visAlleArrangementer" prefHeight="27.0" prefWidth="154.0" text="Vis alle arrangement" />
-      <Button id="gaaTilArrangementBtn" fx:id="gaaTilArrangementBtn" layoutX="223.0" layoutY="340.0" mnemonicParsing="false" onAction="#gaaTilArrangementside" prefHeight="46.0" prefWidth="154.0" text="Gå til arrangement" />
+      <Button id="gaaTilArrangementBtn" fx:id="gaaTilArrangementBtn" layoutX="223.0" layoutY="350.0" mnemonicParsing="false" onAction="#gaaTilArrangementside" prefHeight="46.0" prefWidth="154.0" text="Gå til arrangement" />
       <ListView id="brukerSideArrangementerList" fx:id="brukerSideArrangementerList" layoutY="48.0" prefHeight="284.0" prefWidth="600.0" />
       <TextField id="sokIArrangementerTxt" fx:id="sokIArrangementerTxt" layoutX="8.0" layoutY="14.0" />
       <ComboBox id="velgKategoriCombo" fx:id="velgKategoriCombo" layoutX="168.0" layoutY="14.0" prefHeight="27.0" prefWidth="102.0" promptText="Kategori" />
+      <Label fx:id="utskriftLabel" layoutX="14.0" layoutY="332.0" textFill="RED" />
    </children>
 </AnchorPane>
