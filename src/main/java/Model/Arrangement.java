@@ -53,7 +53,6 @@ public class Arrangement {
 
     public boolean sjekkOmArrangementErFulltEllerHarVaert() {
         if(kapasitet <= paameldteListe.size()) {
-            System.out.println(kapasitet + " : " + paameldteListe.size());
             System.out.println("Arrangementet er fullt! Du får ikke meldt deg på.");
             return false;
         }
@@ -77,31 +76,6 @@ public class Arrangement {
             System.out.println(paameldteListe);
         }
     }
-
-    /*public int leggTilDeltager(Deltager deltager, boolean betalingOK){
-        int returnInt = -1;
-        if(!betalingOK){
-            System.out.println("INGEN FATTIGE!");
-        }
-        else if (this.getDato().isBefore(LocalDate.now())) {
-            System.out.println("Du kan ikke melde deg på tidligere arrangement");
-            returnInt = 0;
-        }
-        else {
-            returnInt = 1;
-            deltager.meldDegPaa(this);
-            paameldteListe.add(deltager);
-        }
-        return returnInt;
-    }
-
-    public int leggTilInteressert(Deltager deltager){
-        int returnInt = -1;
-        if (!this.getDato().isBefore(LocalDate.now()))
-        interesserteListe.add(deltager);
-
-        return returnInt;
-    }*/
 
 
     @Override

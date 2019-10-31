@@ -10,8 +10,8 @@
    <children>
       <Button id="gaaTilMinSideBtn" fx:id="gaaTilminSideBtn" layoutX="14.0" layoutY="340.0" mnemonicParsing="false" onAction="#loadMinSide" prefHeight="46.0" prefWidth="154.0" text="Min Side" />
       <Button id="loggUtBtn" fx:id="loggUtBtn" layoutX="432.0" layoutY="340.0" mnemonicParsing="false" onAction="#loggUt" prefHeight="46.0" prefWidth="154.0" text="Logg ut" />
-      <Button id="sokIArrangementerBtn" fx:id="sokIArrangementerBtn" layoutX="270.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="45.0" text="Søk" />
-      <Button id="visAlleArrangementBtn" fx:id="visAlleArrangementBtn" layoutX="432.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="154.0" text="Vis alle arrangement" />
+      <Button id="sokIArrangementerBtn" fx:id="sokIArrangementerBtn" layoutX="270.0" layoutY="14.0" mnemonicParsing="false" onAction="#sokIArrangementListe" prefHeight="27.0" prefWidth="45.0" text="Søk" />
+      <Button id="visAlleArrangementBtn" fx:id="visAlleArrangementBtn" layoutX="432.0" layoutY="14.0" mnemonicParsing="false" onAction="#visAlleArrangementer" prefHeight="27.0" prefWidth="154.0" text="Vis alle arrangement" />
       <Button id="gaaTilArrangementBtn" fx:id="gaaTilArrangementBtn" layoutX="223.0" layoutY="340.0" mnemonicParsing="false" onAction="#gaaTilArrangementside" prefHeight="46.0" prefWidth="154.0" text="Gå til arrangement" />
       <ListView id="brukerSideArrangementerList" fx:id="brukerSideArrangementerList" layoutY="48.0" prefHeight="284.0" prefWidth="600.0" />
       <TextField id="sokIArrangementerTxt" fx:id="sokIArrangementerTxt" layoutX="8.0" layoutY="14.0" />

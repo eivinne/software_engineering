@@ -2,6 +2,7 @@ package Controller;
 
 import Data.ArrangementData;
 import Model.Arrangement;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -75,6 +76,25 @@ public class brukerForsideController extends Controller{
     }
 
 
+    public void sokIArrangementListe(ActionEvent actionEvent) {
+
+        String sokefeltInput = sokIArrangementerTxt.getText();
+        String valgtKategori = velgKategoriCombo.getValue();
+        if(valgtKategori == null || valgtKategori == "Alle kategorier") {
+            valgtKategori = "";
+        }
+
+        System.out.println(sokefeltInput + "   sokefeltinput");
+        System.out.println(valgtKategori + "   valgtkategori");
+
+
+        brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.sokArr(sokefeltInput, valgtKategori)));
+    }
+
+
+    public void visAlleArrangementer(ActionEvent actionEvent) {
+        brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.getArrangementListe()));
+    }
 }
 
 

@@ -58,7 +58,7 @@ public class ArrangementDataTest {
         */
     }
 
-    @Test
+   /* @Test
     public void testSok(){
 
         assertTrue(ArrangementData.sokArr("Holmenkoll").contains(holmenKollStafetten));
@@ -73,7 +73,7 @@ public class ArrangementDataTest {
 
 
 
-    }
+    }*/
 
 
 

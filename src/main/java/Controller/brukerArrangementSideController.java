@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Arrangement;
+import Model.Deltager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -62,6 +63,8 @@ public class brukerArrangementSideController extends Controller {
     }
 
     public void interessertIArrangement(ActionEvent actionEvent) {
+        Deltager innloggetBruker = (Deltager) Controller.getInnlogget();
+        innloggetBruker.meldInteresse(valgt);
 
     }
 }

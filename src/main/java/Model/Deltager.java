@@ -19,8 +19,15 @@ public class Deltager extends Person {
     }
 
     public void meldInteresse(Arrangement arr){
-        if (!arr.getDato().isBefore(LocalDate.now()))
-        interesserteArrangement.add(arr);
+        boolean alleredeIListe = interesserteArrangement.contains(arr);
+
+        if (!arr.getDato().isBefore(LocalDate.now()) && alleredeIListe == false) {
+            interesserteArrangement.add(arr);
+            arr.getInteresserteListe().add(this);
+            System.out.println("Du er lagt til i listen av interesserte.");
+        } else {
+            System.out.println("Du er allerede lagt til i listen av interesserte.");
+        }
     }
 
     public ArrayList<Arrangement> getPaameldteArrangement() {
