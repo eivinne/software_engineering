@@ -14,25 +14,27 @@ import java.io.IOException;
 public class RedigerArrangementController extends Controller {
 
     @FXML
-    Label arrangementTittelLabel;
+    private Label arrangementTittelLabel;
     @FXML
-    TextField arrangementTittelTxt;
+    private TextField arrangementTittelTxt;
     @FXML
-    ImageView arrangementBildeImg;
+    private ImageView arrangementBildeImg;
     @FXML
-    DatePicker arrangementDatoPicker;
+    private DatePicker arrangementDatoPicker;
     @FXML
-    TextField arrangementTidspunktTxt;
+    private TextField arrangementTidspunktTxt;
     @FXML
-    TextField arrangementStedTxt;
+    private TextField arrangementStedTxt;
     @FXML
-    TextField antallPlasserTxt;
+    private TextField antallPlasserTxt;
     @FXML
-    TextArea arrangementBeskrivelseTxt;
+    private TextArea arrangementBeskrivelseTxt;
     @FXML
-    ToggleGroup lopsKategori;
+    private ToggleGroup lopsKategori;
     @FXML
-    RadioButton skiRadioBtn, lopRadioBtn, sykkelRadioBtn;
+    private RadioButton skiRadioBtn, lopRadioBtn, sykkelRadioBtn;
+    @FXML
+    private Label utskriftLabel;
 
     @FXML
     private AnchorPane rootPane;
@@ -52,9 +54,8 @@ public class RedigerArrangementController extends Controller {
     }
 
     @FXML
-    private void tilbakeTilMineArrangementer() throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../arrangorView.fxml"));
-        rootPane.getChildren().setAll(pane);
+    private void tilbakeTilMineArrangementer() {
+        settPane(rootPane,"../arrangorView.fxml");
     }
 
     public void fyllInnArrangementInfo(Arrangement etArrangement) {
@@ -69,7 +70,7 @@ public class RedigerArrangementController extends Controller {
 
     public void redigerArrangement(ActionEvent actionEvent) {
         if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") ||arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
-            System.out.println("Alle felter må være fylt inn.");
+            utskriftLabel.setText("Alle felter må være fylt inn.");
         }else {
             valgt.setTittel(arrangementTittelTxt.getText());
             valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());
