@@ -54,7 +54,7 @@ public class MinSideController extends Controller {
             settPane(rootPane,"../brukerArrangementSide.fxml");
         }
         else
-            System.out.print("Velg et arrangement");
+            utskriftLabel.setText("Velg et arrangement");
     }
 
     public void tilbakeTilAlleArrangementer(ActionEvent actionEvent) {

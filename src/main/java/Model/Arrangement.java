@@ -79,7 +79,8 @@ public class Arrangement {
             }
             Controller.setUtskriftString("Du er nå påmeldt!");
             System.out.println(paameldteListe);
-        }else{
+        }
+        else{
             Controller.setUtskriftString("Betalingen ble ikke godkjent, vennligst prøv igjen.");
             System.out.println(paameldteListe);
         }
