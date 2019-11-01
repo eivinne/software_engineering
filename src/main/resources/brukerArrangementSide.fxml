@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.brukerArrangementSideController">
+<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.brukerArrangementSideController">
     <children>
         <Label id="arrangementTittelLabel" fx:id="arrangementTittelLabel" layoutX="14.0" layoutY="14.0" text="Arrangement tittel">
             <font>
@@ -28,5 +28,6 @@
       <Button id="interessertIArrangementBtn" fx:id="interessertIArrangementBtn" layoutX="300.0" layoutY="344.0" mnemonicParsing="false" onAction="#interessertIArrangement" prefHeight="27.0" prefWidth="149.0" text="Sett som interessert" />
       <TextField fx:id="ledigePlasserTxt" editable="false" layoutX="393.0" layoutY="249.0" />
       <Label layoutX="411.0" layoutY="221.0" text="Gjenværende plasser" />
+      <Label fx:id="utskriftLabel" layoutX="300.0" layoutY="327.0" textFill="RED" />
     </children>
 </AnchorPane>

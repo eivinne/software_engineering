@@ -26,6 +26,8 @@ public class brukerArrangementSideController extends Controller {
     TextField ledigePlasserTxt;
     @FXML
     TextArea arrangementBeskrivelseTxt;
+    @FXML
+    private Label utskriftLabel;
 
     @FXML
     private AnchorPane rootPane;
@@ -54,9 +56,13 @@ public class brukerArrangementSideController extends Controller {
     }
 
     public void meldPaaArrangement(ActionEvent actionEvent) {
-        if(valgt.sjekkOmArrangementErFulltEllerHarVaert()) {
+        if (valgt.getPaameldteListe().contains(getInnlogget())){
+            utskriftLabel.setText("Du er allerede meldt på dette arrangementet");
+        }
+        else if(valgt.sjekkOmArrangementErFulltEllerHarVaert()) {
             sendTilBetalingsLosning();
-        } else {
+        }
+        else {
             settPane(rootPane,"../brukerForside.fxml");
         }
     }
