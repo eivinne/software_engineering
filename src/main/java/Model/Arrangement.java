@@ -67,7 +67,7 @@ public class Arrangement {
     }
 
     public void hvisBetalingStatusGodkjentMeldPaaArrangement(boolean erGodkjent, Deltager deltager) {
-        if(erGodkjent) {
+        if(erGodkjent && !paameldteListe.contains(deltager)) {
             paameldteListe.add(deltager);
             deltager.getPaameldteArrangement().add(this);
             if(deltager.getInteresserteArrangement().contains(this)) {

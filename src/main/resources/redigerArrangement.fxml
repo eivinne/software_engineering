@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RedigerArrangementController">
+<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RedigerArrangementController">
     <children>
         <Label id="arrangementTittelLabel" fx:id="arrangementTittelLabel" layoutX="52.0" layoutY="24.0" text="Nytt Arrangement">
             <font>
@@ -41,5 +41,6 @@
       <Button layoutX="76.0" layoutY="70.0" mnemonicParsing="false" onAction="#slettArrangement" text="Slett Arrangement" textFill="RED" />
       <TextField fx:id="antallPlasserTxt" layoutX="394.0" layoutY="306.0" />
       <Label layoutX="436.0" layoutY="281.0" text="Antall plasser" />
+      <Label fx:id="utskriftLabel" layoutX="315.0" layoutY="340.0" textFill="RED" />
     </children>
 </AnchorPane>
