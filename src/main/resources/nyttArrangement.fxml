@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NyttArrangementController">
+<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.NyttArrangementController">
     <children>
         <Label id="arrangementTittelLabel" fx:id="arrangementTittelLabel" layoutX="52.0" layoutY="24.0" text="Nytt Arrangement">
             <font>
@@ -40,5 +40,6 @@
       <Label layoutX="276.0" layoutY="50.0" text="Løpskategori" />
       <TextField fx:id="antallPlasserTxt" layoutX="394.0" layoutY="307.0" />
       <Label layoutX="432.0" layoutY="281.0" text="Antall plasser" />
+      <Label layoutX="319.0" layoutY="341.0" textFill="RED" />
     </children>
 </AnchorPane>

@@ -87,10 +87,10 @@ public class RedigerArrangementController extends Controller {
         }
 
         if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
-            System.out.println("Alle felter må være fylt inn.");
+            utskriftLabel.setText("Alle felter må være fylt inn.");
 
         }else if (antallPlasserInt <= 0){
-            System.out.println("Antall plasser må fylles ut med et tall og det må være større enn 0.");
+            utskriftLabel.setText("Antall plasser må fylles ut med et tall og det må være større enn 0.");
         }
         else {
             valgt.setTittel(arrangementTittelTxt.getText());

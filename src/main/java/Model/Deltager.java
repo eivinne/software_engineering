@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.Controller;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -15,14 +17,14 @@ public class Deltager extends Person {
     public void meldInteresse(Arrangement arr){
         boolean alleredeIListe = interesserteArrangement.contains(arr);
         if(arr.getDato().isBefore(LocalDate.now())) {
-            System.out.println("Du kan ikke melde deg interessert til arrangementer som allerede har vært.");
+            Controller.setUtskriftString("Du kan ikke melde deg interessert til arrangementer som allerede har vært.");
         }
-        else if (alleredeIListe == false) {
+        else if (!alleredeIListe) {
             interesserteArrangement.add(arr);
             arr.getInteresserteListe().add(this);
-            System.out.println("Du er lagt til i listen av interesserte.");
+            Controller.setUtskriftString(("Du er lagt til i listen av interesserte."));
         } else {
-            System.out.println("Du er allerede lagt til i listen av interesserte.");
+            Controller.setUtskriftString("Du er allerede lagt til i listen av interesserte.");
         }
     }
 

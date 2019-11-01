@@ -74,6 +74,8 @@ public class brukerArrangementSideController extends Controller {
     public void interessertIArrangement(ActionEvent actionEvent) {
         Deltager innloggetBruker = (Deltager) getInnlogget();
         innloggetBruker.meldInteresse(valgt);
+        utskriftLabel.setText(getUtskriftString());
+        setUtskriftString("");
 
     }
 }
