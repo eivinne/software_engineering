@@ -96,7 +96,7 @@ public class Arrangement {
 
     @Override
     public String toString() {
-        return this.getTittel() + " " + this.getDato() + " Kategori: " + this.getKategori();
+        return this.getTittel() + " " + this.getDato() + "  Sted: " + this.getLokasjon() + "  Kategori: " + this.getKategori();
     }
 
     public ArrayList<Deltager> getPaameldteListe(){
