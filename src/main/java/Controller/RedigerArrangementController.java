@@ -66,12 +66,33 @@ public class RedigerArrangementController extends Controller {
         arrangementBeskrivelseTxt.setText(etArrangement.getBeskrivelse());
         arrangementTittelTxt.setText(etArrangement.getTittel());
         antallPlasserTxt.setText(String.valueOf(etArrangement.getKapasitet()));
+        if(etArrangement.getKategori() == "Løp") {
+            lopsKategori.selectToggle(lopRadioBtn);
+        }
+        else if (etArrangement.getKategori() == "Ski"){
+            lopsKategori.selectToggle(skiRadioBtn);
+        } else {
+            lopsKategori.selectToggle(sykkelRadioBtn);
+        }
     }
 
     public void redigerArrangement(ActionEvent actionEvent) {
-        if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") ||arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
-            utskriftLabel.setText("Alle felter må være fylt inn.");
-        }else {
+        String antallPlasser = antallPlasserTxt.getText();
+        int antallPlasserInt = 0;
+
+        try{
+            antallPlasserInt = Integer.parseInt(antallPlasser);
+        } catch (NumberFormatException nfe) {
+            System.out.println("");
+        }
+
+        if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
+            System.out.println("Alle felter må være fylt inn.");
+
+        }else if (antallPlasserInt <= 0){
+            System.out.println("Antall plasser må fylles ut med et tall og det må være større enn 0.");
+        }
+        else {
             valgt.setTittel(arrangementTittelTxt.getText());
             valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());
             valgt.setDato(arrangementDatoPicker.getValue());
