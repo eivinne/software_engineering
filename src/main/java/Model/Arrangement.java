@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.Controller;
 import Data.ArrangementData;
 import javafx.scene.image.Image;
 
@@ -76,10 +77,10 @@ public class Arrangement {
             if(interesserteListe.contains(deltager)) {
                 interesserteListe.remove(deltager);
             }
-            System.out.println("Du er nå påmeldt!");
+            Controller.setUtskriftString("Du er nå påmeldt!");
             System.out.println(paameldteListe);
         }else{
-            System.out.println("Betalingen ble ikke godkjent, vennligst prøv igjen.");
+            Controller.setUtskriftString("Betalingen ble ikke godkjent, vennligst prøv igjen.");
             System.out.println(paameldteListe);
         }
     }

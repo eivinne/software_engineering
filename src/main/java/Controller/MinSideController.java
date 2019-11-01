@@ -4,6 +4,7 @@ import Model.Arrangement;
 import Model.Deltager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 
@@ -11,18 +12,19 @@ public class MinSideController extends Controller {
 
     @FXML
     private AnchorPane rootPane;
-
-
     @FXML
     private ListView<Arrangement> minSideArrangementerListe;
-
-
-
+    @FXML
+    private Label utskriftLabel;
     private Deltager innloggetBruker = (Deltager) Controller.getInnlogget();
 
     @FXML
     private void initialize() {
         minSideArrangementerListe.setItems(omgjorArrangementListe(innloggetBruker.getPaameldteArrangement()));
+        if (!getUtskriftString().equals("")) {
+            utskriftLabel.setText(getUtskriftString());
+            setUtskriftString("");
+        }
     }
 
 

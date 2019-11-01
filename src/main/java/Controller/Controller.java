@@ -13,15 +13,14 @@ import java.util.ArrayList;
 
 public abstract class Controller {
     private static Person innlogget;
-
     private static Arrangement valgtArrangement;
+    private static String utskriftString = "";
 
     //Metode som setter ny scene
     public void settPane(Pane pane, String fxml){
         try {
         AnchorPane nyPane = FXMLLoader.load(getClass().getResource(fxml));
         pane.getChildren().setAll(nyPane);
-
         }
         catch (IOException ioe){
             ioe.printStackTrace();
@@ -31,6 +30,12 @@ public abstract class Controller {
     public void utlogging(AnchorPane pane){
         innlogget = null;
         settPane(pane,"../loginnskjerm.fxml");
+    }
+
+    public static void setUtskriftString(String utskift){utskriftString = utskift;}
+
+    public String getUtskriftString(){
+        return utskriftString;
     }
 
     public static Person getInnlogget(){

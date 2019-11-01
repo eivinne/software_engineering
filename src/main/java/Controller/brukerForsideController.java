@@ -50,6 +50,11 @@ public class brukerForsideController extends Controller{
         velgKategoriCombo.getItems().add("Ski");
         velgKategoriCombo.getItems().add("Løp");
         velgKategoriCombo.getItems().add("Sykkel");
+
+        if (!getUtskriftString().equals("")) {
+            utskriftLabel.setText(getUtskriftString());
+            setUtskriftString("");
+        }
     }
 
 
