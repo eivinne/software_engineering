@@ -84,6 +84,13 @@ public class Arrangement {
         }
     }
 
+    public int antallLedigePlasser(Arrangement etArrangement) {
+        int ledigePlasser;
+        ledigePlasser = etArrangement.getKapasitet() - etArrangement.paameldteListe.size();
+
+        return ledigePlasser;
+    }
+
 
     @Override
     public String toString() {

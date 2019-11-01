@@ -23,6 +23,8 @@ public class brukerArrangementSideController extends Controller {
     @FXML
     TextField arrangementStedTxt;
     @FXML
+    TextField ledigePlasserTxt;
+    @FXML
     TextArea arrangementBeskrivelseTxt;
 
     @FXML
@@ -48,6 +50,7 @@ public class brukerArrangementSideController extends Controller {
         arrangementTidspunktTxt.setText(etArrangement.getTidspunkt());
         arrangementStedTxt.setText(etArrangement.getLokasjon());
         arrangementBeskrivelseTxt.setText(etArrangement.getBeskrivelse());
+        ledigePlasserTxt.setText(String.valueOf(etArrangement.antallLedigePlasser(etArrangement)));
     }
 
     public void meldPaaArrangement(ActionEvent actionEvent) {

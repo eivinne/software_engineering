@@ -22,10 +22,10 @@ public class ArrangementData {
         Deltager bruker = (Deltager) PersonData.getBrukerListe().get(0);
         Arrangement holmenkollStafetten = new Arrangement("Holmenkollstafetten", "Det jogges", LocalDate.parse("2020-03-03"), "12:00", "Holmenkollen", "Løp", arrangor1, 100);
         Arrangement haldenLopet = new Arrangement("Haldenløpet", "Det gås på ski", LocalDate.parse("2020-07-01"), "08:00", "Halden", "Ski", arrangor2,150);
-        Arrangement bergensRittet = new Arrangement("Bergensrittet", "Det gås på ski", LocalDate.parse("2020-01-29"), "08:00", "Bergen", "Sykkel", arrangor1,400);
+        Arrangement bergensRittet = new Arrangement("Bergensrittet", "Det sykles", LocalDate.parse("2020-01-29"), "08:00", "Bergen", "Sykkel", arrangor1,400);
         Arrangement VM = new Arrangement("Verdensmesterskapet", "Det gås på ski", LocalDate.parse("2020-02-16"), "08:00", "Holmenkollen", "Ski", arrangor1,5000);
         Arrangement birkebeineren = new Arrangement("Birkebeineren", "Det gås på ski", LocalDate.parse("2020-09-24"), "08:00", "Halden", "Ski", arrangor2,120);
-        Arrangement sentrumsLopet = new Arrangement("Sentrumsløpet", "Det gås på ski", LocalDate.parse("2018-05-29"), "08:00", "Oslo", "Løp", arrangor2,120);
+        Arrangement sentrumsLopet = new Arrangement("Sentrumsløpet", "Det jogges", LocalDate.parse("2018-05-29"), "08:00", "Oslo", "Løp", arrangor2,120);
         bruker.getFerdigeArrangement().add(sentrumsLopet);
     }
 
