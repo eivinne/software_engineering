@@ -12,6 +12,8 @@ public class MinSideController extends Controller {
 
     @FXML
     private AnchorPane rootPane;
+
+
     @FXML
     private ListView<Arrangement> minSideArrangementerListe;
     @FXML
@@ -30,14 +32,17 @@ public class MinSideController extends Controller {
 
     public void visPaameldteArrangement(ActionEvent actionEvent) {
         minSideArrangementerListe.setItems(omgjorArrangementListe(innloggetBruker.getPaameldteArrangement()));
+        listeLabel.setText("Påmeldte Arrangement");
     }
 
     public void visInteressertArrangementBtn(ActionEvent actionEvent) {
         minSideArrangementerListe.setItems(omgjorArrangementListe(innloggetBruker.getInteresserteArrangement()));
+        listeLabel.setText("Interesserte Arrangement");
     }
 
     public void visTidligereArrangement(ActionEvent actionEvent) {
         minSideArrangementerListe.setItems(omgjorArrangementListe(innloggetBruker.getFerdigeArrangement()));
+        listeLabel.setText("Tidligere Arrangement");
 
     }
 
