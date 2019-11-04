@@ -27,6 +27,13 @@ public abstract class Controller {
         }
     }
 
+    public ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {
+        ObservableList<Arrangement> omgjortListe = FXCollections.observableArrayList();
+
+        omgjortListe.addAll(arrangementListe);
+        return omgjortListe;
+    }
+
     public void utlogging(AnchorPane pane){
         innlogget = null;
         settPane(pane,"../loginnskjerm.fxml");
@@ -56,13 +63,6 @@ public abstract class Controller {
 
     public static Arrangement getValgtArrangement(){
         return valgtArrangement;
-    }
-
-    public ObservableList<Arrangement> omgjorArrangementListe(ArrayList<Arrangement> arrangementListe) {
-        ObservableList<Arrangement> omgjortListe = FXCollections.observableArrayList();
-
-        omgjortListe.addAll(arrangementListe);
-        return omgjortListe;
     }
 
 }

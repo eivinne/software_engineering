@@ -14,11 +14,11 @@ import java.io.IOException;
 public class RedigerArrangementController extends Controller {
 
     @FXML
+    private ImageView arrangementBildeImg;
+    @FXML
     private Label arrangementTittelLabel;
     @FXML
     private TextField arrangementTittelTxt;
-    @FXML
-    private ImageView arrangementBildeImg;
     @FXML
     private DatePicker arrangementDatoPicker;
     @FXML
@@ -107,31 +107,5 @@ public class RedigerArrangementController extends Controller {
         }
     }
 
-
-    /*public void redigerArrangement(ActionEvent actionEvent) {
-        if(!arrangementTittelTxt.getText().equals("")) {
-            valgt.setTittel(arrangementTittelTxt.getText());
-        }
-
-        if(!arrangementBeskrivelseTxt.getText().equals("")) {
-            valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());
-        }
-        if(arrangementDatoPicker.getValue() != null) {
-            valgt.setDato(arrangementDatoPicker.getValue());
-        }
-        if(!arrangementTidspunktTxt.getText().equals("")) {
-            valgt.setTidspunkt(arrangementTidspunktTxt.getText());
-        }
-        if(!arrangementStedTxt.getText().equals("")) {
-            valgt.setLokasjon(arrangementStedTxt.getText());
-        }
-
-        if (lopsKategori.getSelectedToggle() != null) {
-            RadioButton selected = (RadioButton) lopsKategori.getSelectedToggle();
-            valgt.setKategori(selected.getText());
-        }
-
-        settPane(rootPane,"../arrangorView.fxml");
-    }*/
 
 }

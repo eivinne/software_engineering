@@ -94,6 +94,14 @@ public class Arrangement {
     }
 
 
+    public Image getArrangementsBilde() {
+        return arrangementsBilde;
+    }
+
+    public void setArrangementsBilde(Image arrangementsBilde) {
+        this.arrangementsBilde = arrangementsBilde;
+    }
+
     @Override
     public String toString() {
         return this.getTittel() + " " + this.getDato() + "  Sted: " + this.getLokasjon() + "  Kategori: " + this.getKategori();
@@ -101,14 +109,6 @@ public class Arrangement {
 
     public ArrayList<Deltager> getPaameldteListe(){
         return paameldteListe;
-    }
-
-    public Image getArrangementsBilde() {
-        return arrangementsBilde;
-    }
-
-    public void setArrangementsBilde(Image arrangementsBilde) {
-        this.arrangementsBilde = arrangementsBilde;
     }
 
     public String getTittel() {

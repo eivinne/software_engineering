@@ -12,10 +12,8 @@ public class MinSideController extends Controller {
 
     @FXML
     private AnchorPane rootPane;
-
     @FXML
     private Label listeLabel;
-
     @FXML
     private ListView<Arrangement> minSideArrangementerListe;
     @FXML

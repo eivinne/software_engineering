@@ -24,26 +24,20 @@ public class brukerForsideController extends Controller{
 
     @FXML
     private Button gaaTilMinSideBtn, loggUtBtn, sokIArrangementerBtn, visAlleArrangementBtn, gaaTilArrangementBtn;
-
     @FXML
     private AnchorPane rootPane;
-
     @FXML
     private TextField sokIArrangementerTxt;
-
     @FXML
     private ListView<Arrangement> brukerSideArrangementerList;
-
     @FXML
     private ComboBox<String> velgKategoriCombo = new ComboBox<>();
-
     @FXML
     private Label utskriftLabel;
 
 
     @FXML
     private void initialize() {
-
         brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.getArrangementListe()));
 
         velgKategoriCombo.getItems().add("Alle kategorier");
@@ -64,11 +58,6 @@ public class brukerForsideController extends Controller{
     }
 
     @FXML
-    private void loggUt() {
-        utlogging(rootPane);
-    }
-
-    @FXML
     public void gaaTilArrangementside() {
         setValgtArrangement(brukerSideArrangementerList.getSelectionModel().getSelectedItem());
         if (Controller.getValgtArrangement() != null) {
@@ -77,7 +66,6 @@ public class brukerForsideController extends Controller{
         else
             utskriftLabel.setText("Velg et arrangement");
     }
-
 
     public void sokIArrangementListe(ActionEvent actionEvent) {
 
@@ -89,10 +77,16 @@ public class brukerForsideController extends Controller{
         brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.sokArr(sokefeltInput, valgtKategori)));
     }
 
-
     public void visAlleArrangementer(ActionEvent actionEvent) {
         brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.getArrangementListe()));
     }
+
+    @FXML
+    private void loggUt() {
+        utlogging(rootPane);
+    }
+
+
 }
 
 

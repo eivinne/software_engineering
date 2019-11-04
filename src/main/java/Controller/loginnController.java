@@ -10,24 +10,16 @@ public class loginnController extends Controller {
 
     @FXML
     private TextField textNavn;
-
     @FXML
     private PasswordField textPassord;
-
-
     @FXML
     private  AnchorPane rootPane;
-
     @FXML
     private Label utskriftLabel;
 
-
     @FXML
     public void initialize(){
-
-
     }
-
 
 
     @FXML
@@ -55,6 +47,5 @@ public class loginnController extends Controller {
             settPane(rootPane, "../brukerForside.fxml");
         else
             utskriftLabel.setText("Feil brukernavn / passord");
-
     }
 }

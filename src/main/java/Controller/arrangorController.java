@@ -15,25 +15,21 @@ import java.util.ArrayList;
 
 public class arrangorController extends Controller{
 
-    @FXML private ListView<Arrangement> mineArrangementerListe;
     @FXML private Button nyttArrangementBtn;
     @FXML private Button seArrangementsideBtn;
     @FXML private TextField navnPaaArrangementTxt;
     @FXML private TextField arrangementDatoTxt;
+    @FXML private ListView<Arrangement> mineArrangementerListe;
     @FXML private Label utskriftLabel;
     @FXML private ObservableList<Arrangement> alleArrangemantOmgjort = omgjorArrangementListe(ArrangementData.getArrangementListe());
-
-    @FXML
-    private AnchorPane rootPane;
+    @FXML private AnchorPane rootPane;
 
 
 
 
     @FXML
     private void initialize() {
-
         mineArrangementerListe.setItems(alleArrangemantOmgjort);
-
     }
 
     @FXML
@@ -50,6 +46,20 @@ public class arrangorController extends Controller{
     }
 
     @FXML
+    public void redigerArrangementside() {
+        Arrangor arrangor = (Arrangor) getInnlogget();
+        setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
+        if (getValgtArrangement() != null) {
+            if (arrangor.getArrangorArrangement().contains(getValgtArrangement()))
+                settPane(rootPane,"../redigerArrangement.fxml");
+            else
+                utskriftLabel.setText("Du kan ikke endre arrangement du ikke eier");
+        }
+        else
+            utskriftLabel.setText("Velg et arrangement");
+    }
+
+    @FXML
     public void gaaTilArrangementside() {
         setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
         if (getValgtArrangement() != null)
@@ -59,17 +69,8 @@ public class arrangorController extends Controller{
     }
 
     @FXML
-    public void redigerArrangementside() {
-        Arrangor arrangor = (Arrangor) getInnlogget();
-        setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
-        if (getValgtArrangement() != null) {
-            if (arrangor.getArrangorArrangement().contains(getValgtArrangement()))
-            settPane(rootPane,"../redigerArrangement.fxml");
-            else
-                utskriftLabel.setText("Du kan ikke endre arrangement du ikke eier");
-        }
-        else
-            utskriftLabel.setText("Velg et arrangement");
+    private void loggUt() {
+        utlogging(rootPane);
     }
 
     public void opprettNyttArrangement() {
@@ -77,11 +78,6 @@ public class arrangorController extends Controller{
     }
 
 
-
-    @FXML
-    private void loggUt() {
-        utlogging(rootPane);
-    }
 
 
 }

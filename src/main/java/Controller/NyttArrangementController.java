@@ -30,7 +30,6 @@ public class NyttArrangementController extends Controller {
     TextArea arrangementBeskrivelseTxt;
     @FXML
     ToggleGroup lopsKategori;
-
     @FXML
     private AnchorPane rootPane;
 
@@ -60,7 +59,7 @@ public class NyttArrangementController extends Controller {
         try{
             antallPlasserInt = Integer.parseInt(antallPlasser);
         } catch (NumberFormatException nfe) {
-            System.out.println("");
+            System.out.println(nfe.getMessage());
         }
 
         if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {

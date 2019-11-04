@@ -28,7 +28,6 @@ public class brukerArrangementSideController extends Controller {
     TextArea arrangementBeskrivelseTxt;
     @FXML
     private Label utskriftLabel;
-
     @FXML
     private AnchorPane rootPane;
     private Arrangement valgt = arrangorController.getValgtArrangement();
