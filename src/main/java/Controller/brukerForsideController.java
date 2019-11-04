@@ -61,8 +61,6 @@ public class brukerForsideController extends Controller{
     @FXML
     private void loadMinSide() {
         settPane(rootPane,"../minSide.fxml");
-       /* AnchorPane pane = FXMLLoader.load(getClass().getResource("../minSide.fxml"));
-        rootPane.getChildren().setAll(pane); */
     }
 
     @FXML
@@ -88,11 +86,6 @@ public class brukerForsideController extends Controller{
         if(valgtKategori == null || valgtKategori == "Alle kategorier") {
             valgtKategori = "";
         }
-
-        System.out.println(sokefeltInput + "   sokefeltinput");
-        System.out.println(valgtKategori + "   valgtkategori");
-
-
         brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.sokArr(sokefeltInput, valgtKategori)));
     }
 

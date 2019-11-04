@@ -62,9 +62,9 @@ public class brukerArrangementSideController extends Controller {
         else if(valgt.sjekkOmArrangementErFulltEllerHarVaert()) {
             sendTilBetalingsLosning();
         }
-        else {
-            settPane(rootPane,"../brukerForside.fxml");
-        }
+        utskriftLabel.setText(getUtskriftString());
+        setUtskriftString("");
+
     }
 
     public void sendTilBetalingsLosning() {

@@ -55,11 +55,11 @@ public class Arrangement {
 
     public boolean sjekkOmArrangementErFulltEllerHarVaert() {
         if(kapasitet <= paameldteListe.size()) {
-            System.out.println("Arrangementet er fullt! Du får ikke meldt deg på.");
+            Controller.setUtskriftString("Arrangementet er fullt! Du får ikke meldt deg på.");
             return false;
         }
         else if (this.getDato().isBefore(LocalDate.now())) {
-            System.out.println("Du kan ikke melde deg på tidligere arrangement");
+            Controller.setUtskriftString("Du kan ikke melde deg på tidligere arrangement");
             return false;
         }
         else {

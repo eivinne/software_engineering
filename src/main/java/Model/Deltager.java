@@ -17,7 +17,7 @@ public class Deltager extends Person {
     public void meldInteresse(Arrangement arr){
         boolean alleredeIListe = interesserteArrangement.contains(arr);
         if(arr.getDato().isBefore(LocalDate.now())) {
-            Controller.setUtskriftString("Du kan ikke melde deg interessert til arrangementer som allerede har vært.");
+            Controller.setUtskriftString("Du kan ikke melde deg interessert i tidligere arrangement.");
         }
         else if (!alleredeIListe) {
             interesserteArrangement.add(arr);
