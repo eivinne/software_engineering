@@ -56,7 +56,7 @@ public class brukerArrangementSideController extends Controller {
 
     public void meldPaaArrangement(ActionEvent actionEvent) {
         if (valgt.getPaameldteListe().contains(getInnlogget())){
-            utskriftLabel.setText("Du er allerede meldt på dette arrangementet");
+            setUtskriftString("Du er allerede meldt på dette arrangementet");
         }
         else if(valgt.sjekkOmArrangementErFulltEllerHarVaert()) {
             sendTilBetalingsLosning();

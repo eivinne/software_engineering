@@ -61,7 +61,7 @@ public class NyttArrangementController extends Controller {
         } catch (NumberFormatException nfe) {
             System.out.println(nfe.getMessage());
         }
-
+        //KASTER EN NULLPOINTER
         if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
             utskfriftLabel.setText("Alle felter må være fylt inn.");
 
