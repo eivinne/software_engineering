@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class NyttArrangementController extends Controller {
 
     @FXML
-    Label arrangementTittelLabel, utskfriftLabel;
+    Label arrangementTittelLabel, utskriftLabel;
     @FXML
     TextField arrangementTittelTxt;
     @FXML
@@ -59,14 +59,14 @@ public class NyttArrangementController extends Controller {
         try{
             antallPlasserInt = Integer.parseInt(antallPlasser);
         } catch (NumberFormatException nfe) {
-            System.out.println(nfe.getMessage());
+            System.out.println(nfe.getMessage() + " morendin");
         }
         //KASTER EN NULLPOINTER
         if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
-            utskfriftLabel.setText("Alle felter må være fylt inn.");
+            utskriftLabel.setText("Alle felter må være fylt inn.");
 
         }else if (antallPlasserInt <= 0){
-            utskfriftLabel.setText("Antall plasser må fylles ut med et tall og det må være større enn 0.");
+            utskriftLabel.setText("Antall plasser må fylles ut med et tall og det må være større enn 0.");
         }
         else {
             tittel = arrangementTittelTxt.getText();

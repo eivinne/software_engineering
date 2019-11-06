@@ -40,6 +40,6 @@
       <Label layoutX="276.0" layoutY="50.0" text="Løpskategori" />
       <TextField fx:id="antallPlasserTxt" layoutX="394.0" layoutY="307.0" />
       <Label layoutX="432.0" layoutY="281.0" text="Antall plasser" />
-      <Label layoutX="319.0" layoutY="341.0" textFill="RED" />
+      <Label fx:id="utskriftLabel" layoutX="319.0" layoutY="341.0" textFill="RED" />
     </children>
 </AnchorPane>
