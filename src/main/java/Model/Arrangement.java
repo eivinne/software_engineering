@@ -53,20 +53,6 @@ public class Arrangement {
         ArrangementData.getArrangementListe().add(this);
     }
 
-    public boolean sjekkOmArrangementErFulltEllerHarVaert() {
-        if(kapasitet <= paameldteListe.size()) {
-            Controller.setUtskriftString("Arrangementet er fullt! Du får ikke meldt deg på.");
-            return false;
-        }
-        else if (this.getDato().isBefore(LocalDate.now())) {
-            Controller.setUtskriftString("Du kan ikke melde deg på tidligere arrangement");
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-
     public void hvisBetalingStatusGodkjentMeldPaaArrangement(boolean erGodkjent, Deltager deltager) {
         if(erGodkjent && !paameldteListe.contains(deltager)) {
             paameldteListe.add(deltager);
@@ -86,9 +72,33 @@ public class Arrangement {
         }
     }
 
-    public int antallLedigePlasser(Arrangement etArrangement) {
+    public boolean sjekkOmArrangementErFulltEllerHarVaert() {
+        return  (!this.erFullt() && !this.harVaert());
+    }
+
+    //boolean som returnerer true om arrangementet er fullt
+    public boolean erFullt(){
+        if (antallLedigePlasser() <= 0) {
+            Controller.setUtskriftString("Arrangementet er fullt!");
+            return true;
+        }
+        else
+            return false;
+    }
+
+    //boolean som returnerer true om arrangement allerede er over og setter en utskriftsstring
+    public boolean harVaert(){
+        if (this.dato.isBefore(LocalDate.now())) {
+            Controller.setUtskriftString("Arrangementet har vært!");
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public int antallLedigePlasser() {
         int ledigePlasser;
-        ledigePlasser = etArrangement.getKapasitet() - etArrangement.paameldteListe.size();
+        ledigePlasser = this.getKapasitet() - this.paameldteListe.size();
 
         return ledigePlasser;
     }

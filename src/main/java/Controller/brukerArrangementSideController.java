@@ -51,7 +51,7 @@ public class brukerArrangementSideController extends Controller {
         arrangementTidspunktTxt.setText(etArrangement.getTidspunkt());
         arrangementStedTxt.setText(etArrangement.getLokasjon());
         arrangementBeskrivelseTxt.setText(etArrangement.getBeskrivelse());
-        ledigePlasserTxt.setText(String.valueOf(etArrangement.antallLedigePlasser(etArrangement)));
+        ledigePlasserTxt.setText(String.valueOf(etArrangement.antallLedigePlasser()));
     }
 
     public void meldPaaArrangement(ActionEvent actionEvent) {

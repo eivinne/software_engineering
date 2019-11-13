@@ -16,14 +16,11 @@ public class Deltager extends Person {
 
     public void meldInteresse(Arrangement arr){
         boolean alleredeIListe = interesserteArrangement.contains(arr);
-        if(arranmentHarVaert(arr)) {
-            Controller.setUtskriftString("Du kan ikke melde deg interessert i tidligere arrangement.");
-        }
-        else if (!alleredeIListe) {
+        if (!alleredeIListe && !arr.harVaert()) {
             interesserteArrangement.add(arr);
             arr.getInteresserteListe().add(this);
             Controller.setUtskriftString(("Du er lagt til i listen av interesserte."));
-        } else {
+        } else if (alleredeIListe) {
             Controller.setUtskriftString("Du er allerede lagt til i listen av interesserte.");
         }
     }
@@ -42,7 +39,7 @@ public class Deltager extends Person {
 
     public void oppdaterPaameldtListe(){
         for(Arrangement etArrangement: paameldteArrangement){
-            if(arranmentHarVaert(etArrangement)) {
+            if(etArrangement.harVaert()) {
                 if(!paameldteArrangement.isEmpty()) {
                     ferdigeArrangement.add(etArrangement);
                     paameldteArrangement.remove(etArrangement);
@@ -53,17 +50,12 @@ public class Deltager extends Person {
 
     public void oppdaterInteresseListe(){
         for(Arrangement etArrangement: interesserteArrangement){
-            if(arranmentHarVaert(etArrangement))
+            if(etArrangement.harVaert())
                 interesserteArrangement.remove(etArrangement);
         }
     }
 
-    public boolean arranmentHarVaert(Arrangement arr){
-        return  arr.getDato().isBefore(LocalDate.now());
 
-
-
-    }
 
     public ArrayList<Arrangement> getFerdigeArrangement() {
         return ferdigeArrangement;
