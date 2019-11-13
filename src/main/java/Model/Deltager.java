@@ -16,7 +16,7 @@ public class Deltager extends Person {
 
     public void meldInteresse(Arrangement arr){
         boolean alleredeIListe = interesserteArrangement.contains(arr);
-        if(arr.getDato().isBefore(LocalDate.now())) {
+        if(arranmentHarVaert(arr)) {
             Controller.setUtskriftString("Du kan ikke melde deg interessert i tidligere arrangement.");
         }
         else if (!alleredeIListe) {
@@ -28,24 +28,41 @@ public class Deltager extends Person {
         }
     }
 
+
+
+    public ArrayList<Arrangement> getInteresserteArrangement(){
+        oppdaterInteresseListe();
+        return interesserteArrangement;
+    }
+
     public ArrayList<Arrangement> getPaameldteArrangement() {
-        for(Arrangement etArrangemang: paameldteArrangement){
-            if(etArrangemang.getDato().isBefore(LocalDate.now())) {
-                if(paameldteArrangement.size()!=0) {
-                    ferdigeArrangement.add(etArrangemang);
-                    paameldteArrangement.remove(etArrangemang);
-                }
-            }
-        }
+        oppdaterPaameldtListe();
         return paameldteArrangement;
     }
 
-    public ArrayList<Arrangement> getInteresserteArrangement(){
-        for(Arrangement etArrangemang: interesserteArrangement){
-            if(etArrangemang.getDato().isBefore(LocalDate.now()))
-                interesserteArrangement.remove(etArrangemang);
+    public void oppdaterPaameldtListe(){
+        for(Arrangement etArrangement: paameldteArrangement){
+            if(arranmentHarVaert(etArrangement)) {
+                if(!paameldteArrangement.isEmpty()) {
+                    ferdigeArrangement.add(etArrangement);
+                    paameldteArrangement.remove(etArrangement);
+                }
+            }
         }
-        return interesserteArrangement;
+    }
+
+    public void oppdaterInteresseListe(){
+        for(Arrangement etArrangement: interesserteArrangement){
+            if(arranmentHarVaert(etArrangement))
+                interesserteArrangement.remove(etArrangement);
+        }
+    }
+
+    public boolean arranmentHarVaert(Arrangement arr){
+        return  arr.getDato().isBefore(LocalDate.now());
+
+
+
     }
 
     public ArrayList<Arrangement> getFerdigeArrangement() {
