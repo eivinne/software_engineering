@@ -10,16 +10,17 @@ public class BetalingsLosningsController extends Controller{
 
     @FXML
     private AnchorPane rootPane;
-    private Arrangement valgt = arrangorController.getValgtArrangement();
+    private Arrangement valgt = getValgtArrangement();
+    private Deltager innlogget = (Deltager) getInnlogget();
 
     public void betalingGodkjent(ActionEvent actionEvent) {
-        valgt.hvisBetalingStatusGodkjentMeldPaaArrangement(true, (Deltager) getInnlogget());
+        innlogget.hvisBetalingStatusGodkjentMeldPaaArrangement(true, valgt);
         settPane(rootPane, "../minSide.fxml");
 
     }
 
     public void betalingAvslatt(ActionEvent actionEvent) {
-        valgt.hvisBetalingStatusGodkjentMeldPaaArrangement(false, (Deltager) getInnlogget());
+        innlogget.hvisBetalingStatusGodkjentMeldPaaArrangement(false, valgt);
         settPane(rootPane, "../brukerForside.fxml");
     }
 }

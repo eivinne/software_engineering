@@ -53,25 +53,9 @@ public class Arrangement {
         ArrangementData.getArrangementListe().add(this);
     }
 
-    public void hvisBetalingStatusGodkjentMeldPaaArrangement(boolean erGodkjent, Deltager deltager) {
-        if(erGodkjent && !paameldteListe.contains(deltager)) {
-            paameldteListe.add(deltager);
-            deltager.getPaameldteArrangement().add(this);
-            if(deltager.getInteresserteArrangement().contains(this)) {
-                deltager.getInteresserteArrangement().remove(this);
-            }
-            if(interesserteListe.contains(deltager)) {
-                interesserteListe.remove(deltager);
-            }
-            Controller.setUtskriftString("Du er nå påmeldt!");
-            System.out.println(paameldteListe);
-        }
-        else{
-            Controller.setUtskriftString("Betalingen ble ikke godkjent, vennligst prøv igjen.");
-            System.out.println(paameldteListe);
-        }
-    }
 
+
+    //Funksjon som både sjekker om arrangementet har ledige plasser og om det har vært
     public boolean sjekkOmArrangementErFulltEllerHarVaert() {
         return  (!this.erFullt() && !this.harVaert());
     }
@@ -89,7 +73,7 @@ public class Arrangement {
     //boolean som returnerer true om arrangement allerede er over og setter en utskriftsstring
     public boolean harVaert(){
         if (this.dato.isBefore(LocalDate.now())) {
-            Controller.setUtskriftString("Arrangementet har vært!");
+            Controller.setUtskriftString("Arrangementet har utgått");
             return true;
         }
         else

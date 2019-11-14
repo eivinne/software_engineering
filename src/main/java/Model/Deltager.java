@@ -14,17 +14,47 @@ public class Deltager extends Person {
         super(fornavn,etternavn,alder,epost, brukernavn, passord);
     }
 
-    public void meldInteresse(Arrangement arr){
-        boolean alleredeIListe = interesserteArrangement.contains(arr);
-        if (!alleredeIListe && !arr.harVaert()) {
-            interesserteArrangement.add(arr);
-            arr.getInteresserteListe().add(this);
-            Controller.setUtskriftString(("Du er lagt til i listen av interesserte."));
-        } else if (alleredeIListe) {
-            Controller.setUtskriftString("Du er allerede lagt til i listen av interesserte.");
+    public void hvisBetalingStatusGodkjentMeldPaaArrangement(boolean erGodkjent, Arrangement arr) {
+        if(erGodkjent && !alleredePaameldt(arr)) {
+            if(alleredeInteressert(arr)) {
+                interesserteArrangement.remove(arr);
+                arr.getInteresserteListe().remove(this);
+            }
+            arr.getPaameldteListe().add(this);
+            paameldteArrangement.add(arr);
+            Controller.setUtskriftString("Du er nå påmeldt!");
+        }
+        else{
+            Controller.setUtskriftString("Betalingen ble ikke godkjent, vennligst prøv igjen.");
         }
     }
 
+
+    public void meldInteresse(Arrangement arr){
+        if (!alleredeInteressert(arr) && !arr.harVaert() && !alleredePaameldt(arr)) {
+            interesserteArrangement.add(arr);
+            arr.getInteresserteListe().add(this);
+            Controller.setUtskriftString(("Du er lagt til i listen av interesserte."));
+        }
+    }
+
+    public boolean alleredePaameldt(Arrangement arr){
+        if (paameldteArrangement.contains(arr)){
+            Controller.setUtskriftString("Du er allerede påmeldt.");
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private boolean alleredeInteressert(Arrangement arr){
+        if (interesserteArrangement.contains(arr)) {
+            Controller.setUtskriftString("Du er allerede satt som interessert.");
+            return true;
+        }
+        else
+            return false;
+    }
 
 
     public ArrayList<Arrangement> getInteresserteArrangement(){
