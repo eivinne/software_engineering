@@ -63,7 +63,7 @@ public class NyttArrangementController extends Controller {
             if (antallPlasser <= 0)
                 utskriftLabel.setText("Antall plasser må fylles ut med et tall større enn 0.");
             else {
-                Arrangement.opprettNyttArrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, arrangementEier, antallPlasser);
+                Arrangement.opprettNyttArrangement(arrangementEier, tittel, beskrivelse, dato, tidspunkt, sted, kategori, antallPlasser);
                 settPane(rootPane, "../arrangorView.fxml");
             }
         }

@@ -18,6 +18,7 @@ public class ArrangementData {
     }
 
     public static void genererArrangement(){
+        PersonData.genererBrukere();
         Person arrangor1 = PersonData.getBrukerListe().get(1);
         Person arrangor2 = PersonData.getBrukerListe().get(2);
         Deltager bruker = (Deltager) PersonData.getBrukerListe().get(0);
