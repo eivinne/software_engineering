@@ -92,14 +92,14 @@ public class Arrangement {
         return ledigePlasser;
     }
 
-    public void redigerArrangement(Arrangement etArrengement, String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int kapasitet, String kategori) {
-        etArrengement.setTittel(tittel);
-        etArrengement.setBeskrivelse(beskrivelse);
-        etArrengement.setDato(dato);
-        etArrengement.setTidspunkt(tidspunkt);
-        etArrengement.setLokasjon(lokasjon);
-        etArrengement.setKapasitet(kapasitet);
-        etArrengement.setKategori(kategori);
+    public void redigerArrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int kapasitet, String kategori) {
+        this.setTittel(tittel);
+        this.setBeskrivelse(beskrivelse);
+        this.setDato(dato);
+        this.setTidspunkt(tidspunkt);
+        this.setLokasjon(lokasjon);
+        this.setKapasitet(kapasitet);
+        this.setKategori(kategori);
     }
 
     public static void opprettNyttArrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, Arrangor arrangementEier, int antallPlasserInt) {

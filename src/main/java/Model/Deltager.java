@@ -4,6 +4,7 @@ import Controller.Controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Deltager extends Person {
     private ArrayList<Arrangement> ferdigeArrangement = new ArrayList<>();
@@ -66,14 +67,21 @@ public class Deltager extends Person {
         return paameldteArrangement;
     }
 
+    public ArrayList<Arrangement> getFerdigeArrangement() {
+        oppdaterPaameldtListe();
+        return ferdigeArrangement;
+    }
+
     public void oppdaterPaameldtListe(){
-        for(Arrangement etArrangement: paameldteArrangement){
-            if(etArrangement.harVaert()) {
-                if(!paameldteArrangement.isEmpty()) {
-                    ferdigeArrangement.add(etArrangement);
-                    paameldteArrangement.remove(etArrangement);
+        if (!paameldteArrangement.isEmpty()) {
+            ArrayList<Arrangement> fjernLeggTil = new ArrayList<>();
+            for (Arrangement etArrangement : paameldteArrangement) {
+                if (etArrangement.harVaert()) {
+                    fjernLeggTil.add(etArrangement);
                 }
             }
+            ferdigeArrangement.addAll(fjernLeggTil);
+            paameldteArrangement.removeAll(fjernLeggTil);
         }
     }
 
@@ -85,9 +93,5 @@ public class Deltager extends Person {
     }
 
 
-
-    public ArrayList<Arrangement> getFerdigeArrangement() {
-        return ferdigeArrangement;
-    }
 
 }

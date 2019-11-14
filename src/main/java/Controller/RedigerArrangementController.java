@@ -100,7 +100,7 @@ public class RedigerArrangementController extends Controller {
             if (antallPlasser <= 0)
                 utskriftLabel.setText("Antall plasser må fylles ut med et tall større enn 0.");
             else {
-                valgt.redigerArrangement(valgt, tittel, beskrivelse, dato, tidspunkt, lokasjon, antallPlasser, kategori);
+                valgt.redigerArrangement(tittel, beskrivelse, dato, tidspunkt, lokasjon, antallPlasser, kategori);
                 settPane(rootPane, "../arrangorView.fxml");
             }
         }

@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 
+import java.util.ArrayList;
+
 public class MinSideController extends Controller {
 
     @FXML
@@ -23,6 +25,7 @@ public class MinSideController extends Controller {
 
     @FXML
     private void initialize() {
+        //innloggetBruker.oppdaterPaameldtListe();
         minSideArrangementerListe.setItems(omgjorArrangementListe(innloggetBruker.getPaameldteArrangement()));
         if (!getUtskriftString().equals("")) {
             utskriftLabel.setText(getUtskriftString());
@@ -44,7 +47,6 @@ public class MinSideController extends Controller {
     public void visTidligereArrangement(ActionEvent actionEvent) {
         minSideArrangementerListe.setItems(omgjorArrangementListe(innloggetBruker.getFerdigeArrangement()));
         listeLabel.setText("Tidligere Arrangement");
-
     }
 
     public void gaaTilArrangementSideBtn(ActionEvent actionEvent) {
