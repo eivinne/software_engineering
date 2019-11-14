@@ -53,6 +53,10 @@ public class Arrangement {
         ArrangementData.getArrangementListe().add(this);
     }
 
+    public void slettArrangement(){
+        ArrayList<Arrangement> alleArrangement = ArrangementData.getArrangementListe();
+        alleArrangement.remove(this);
+    }
 
 
     //Funksjon som både sjekker om arrangementet har ledige plasser og om det har vært

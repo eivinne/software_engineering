@@ -49,7 +49,7 @@ public class RedigerArrangementController extends Controller {
 
     @FXML
     public void slettArrangement(){
-        ArrangementData.getArrangementListe().remove(valgt);
+        valgt.slettArrangement();
         settPane(rootPane,"../arrangorView.fxml");
     }
 
@@ -83,7 +83,6 @@ public class RedigerArrangementController extends Controller {
         try{
             antallPlasserInt = Integer.parseInt(antallPlasser);
         } catch (NumberFormatException nfe) {
-            System.out.println("");
         }
 
         if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
