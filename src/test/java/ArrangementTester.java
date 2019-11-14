@@ -70,5 +70,45 @@ public class ArrangementTester {
         assertTrue(arrangement2.harVaert());
     }
 
+    //Tester om et arrangement har ledige plasser eller er fullt.
+    @Test
+    public void erFulltTest() {
+        Arrangement etArrangement = ArrangementData.getArrangementListe().get(0);
+        etArrangement.setKapasitet(0);
+        assertTrue(etArrangement.erFullt());
+        etArrangement.setKapasitet(10);
+        assertFalse(etArrangement.erFullt());
+    }
+
+    //Tester antallLedigePlasser-funksjonen, som skal trekke fra antall påmeldte i listen paameldtListe fra
+    //arrangementets kapasitet.
+    @Test
+    public void antallLedigePlasserTest() {
+
+        Arrangement etArrangement = ArrangementData.getArrangementListe().get(1);
+        etArrangement.setKapasitet(10);
+        assertEquals(10, etArrangement.antallLedigePlasser());
+
+        Deltager deltager = (Deltager) PersonData.getBrukerListe().get(0);
+
+        deltager.meldPaaArrangement(etArrangement);
+        assertNotEquals(10, etArrangement.antallLedigePlasser());
+    }
+
+    //Sjekker om funksjonen for å slette arrangement fungerer.
+    @Test
+    public void slettArrangementTest() {
+
+        Arrangor eier = (Arrangor) PersonData.getBrukerListe().get(1);
+        Arrangement etArrangement = new Arrangement("etnyttarrangement", "Det gås på ski", LocalDate.parse("2020-02-16"), "08:00", "Holmenkollen", "Ski", eier,5000);
+
+        assertTrue(ArrangementData.getArrangementListe().contains(etArrangement));
+
+        etArrangement.slettArrangement();
+
+        assertFalse(ArrangementData.getArrangementListe().contains(etArrangement));
+
+    }
+
 
 }
