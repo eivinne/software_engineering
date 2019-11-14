@@ -9,8 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
-
 public class RedigerArrangementController extends Controller {
 
     @FXML
@@ -44,7 +42,6 @@ public class RedigerArrangementController extends Controller {
     @FXML
     private void initialize() {
         fyllInnArrangementInfo(valgt);
-
     }
 
     @FXML
@@ -83,14 +80,18 @@ public class RedigerArrangementController extends Controller {
         try{
             antallPlasserInt = Integer.parseInt(antallPlasser);
         } catch (NumberFormatException nfe) {
+            System.out.println(nfe.getMessage());
         }
 
         if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
             utskriftLabel.setText("Alle felter må være fylt inn.");
 
-        }else if (antallPlasserInt <= 0){
+        }
+
+        else if (antallPlasserInt <= 0){
             utskriftLabel.setText("Antall plasser må fylles ut med et tall og det må være større enn 0.");
         }
+
         else {
             valgt.setTittel(arrangementTittelTxt.getText());
             valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());

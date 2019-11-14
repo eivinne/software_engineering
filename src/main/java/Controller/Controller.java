@@ -34,7 +34,7 @@ public abstract class Controller {
     }
 
     public void utlogging(AnchorPane pane){
-        Person.innlogget = null;
+        Person.resettInnlogget();
         settPane(pane,"../loginnskjerm.fxml");
     }
 

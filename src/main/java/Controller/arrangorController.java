@@ -24,6 +24,8 @@ public class arrangorController extends Controller{
     @FXML private Label utskriftLabel;
     @FXML private ObservableList<Arrangement> alleArrangemantOmgjort = omgjorArrangementListe(ArrangementData.getArrangementListe());
     @FXML private AnchorPane rootPane;
+    private Arrangor innloggetArrangor = (Arrangor) Person.getInnlogget();
+
 
 
 
@@ -41,17 +43,15 @@ public class arrangorController extends Controller{
 
     @FXML
     public void visMineArrangementer(){
-        Arrangor arrangor = (Arrangor) Person.getInnlogget();
-        ArrayList<Arrangement> arrangorSineArr = arrangor.getArrangorArrangement();
+        ArrayList<Arrangement> arrangorSineArr = innloggetArrangor.getArrangorArrangement();
         mineArrangementerListe.setItems(omgjorArrangementListe(arrangorSineArr));
     }
 
     @FXML
     public void redigerArrangementside() {
-        Arrangor arrangor = (Arrangor) Person.getInnlogget();
         setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
         if (getValgtArrangement() != null) {
-            if (arrangor.getArrangorArrangement().contains(getValgtArrangement()))
+            if (innloggetArrangor.erEierAvArrangement(getValgtArrangement()))
                 settPane(rootPane,"../redigerArrangement.fxml");
             else
                 utskriftLabel.setText("Du kan ikke endre arrangement du ikke eier");

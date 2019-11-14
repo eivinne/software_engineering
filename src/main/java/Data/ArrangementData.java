@@ -40,7 +40,8 @@ public class ArrangementData {
             if(kategori == "") {
                 if (etArr.getTittel().toLowerCase().contains(sok.toLowerCase()) || etArr.getLokasjon().toLowerCase().contains(sok.toLowerCase()))
                     returnArr.add(etArr);
-            } else {
+            }
+            else {
                 if ((etArr.getTittel().toLowerCase().contains(sok.toLowerCase()) || etArr.getLokasjon().toLowerCase().contains(sok.toLowerCase())) && (etArr.getKategori().equals(kategori))) {
                     returnArr.add(etArr);
                 }
@@ -48,7 +49,5 @@ public class ArrangementData {
         }
         return returnArr;
     }
-
-
 
 }
