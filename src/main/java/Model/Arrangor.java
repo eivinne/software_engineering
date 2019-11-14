@@ -21,4 +21,8 @@ public class Arrangor extends Person {
         }
         return returnList;
     }
+
+    public boolean erEierAvArrangement(Arrangement arr){
+        return this.getArrangorArrangement().contains(arr);
+    }
 }

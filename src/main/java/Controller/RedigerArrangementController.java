@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 public class RedigerArrangementController extends Controller {
 
@@ -45,12 +44,11 @@ public class RedigerArrangementController extends Controller {
     @FXML
     private void initialize() {
         fyllInnArrangementInfo(valgt);
-
     }
 
     @FXML
     public void slettArrangement(){
-        ArrangementData.getArrangementListe().remove(valgt);
+        valgt.slettArrangement();
         settPane(rootPane,"../arrangorView.fxml");
     }
 
@@ -77,21 +75,22 @@ public class RedigerArrangementController extends Controller {
         }
     }
 
-
-    public void redigerArrangement() {
+    public void redigerArrangement(ActionEvent actionEvent) {
         String antallPlasser = antallPlasserTxt.getText();
         int antallPlasserInt = 0;
 
         try{
             antallPlasserInt = Integer.parseInt(antallPlasser);
         } catch (NumberFormatException nfe) {
-            System.out.println("");
+            System.out.println(nfe.getMessage());
         }
 
         if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
             utskriftLabel.setText("Alle felter må være fylt inn.");
 
-        }else if (antallPlasserInt <= 0){
+        }
+
+        else if (antallPlasserInt <= 0){
             utskriftLabel.setText("Antall plasser må fylles ut med et tall og det må være større enn 0.");
         }
         else {

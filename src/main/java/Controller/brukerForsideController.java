@@ -44,6 +44,7 @@ public class brukerForsideController extends Controller{
         velgKategoriCombo.getItems().add("Ski");
         velgKategoriCombo.getItems().add("Løp");
         velgKategoriCombo.getItems().add("Sykkel");
+        velgKategoriCombo.getSelectionModel().select(0);
 
         if (!getUtskriftString().equals("")) {
             utskriftLabel.setText(getUtskriftString());
@@ -68,13 +69,16 @@ public class brukerForsideController extends Controller{
     }
 
     public void sokIArrangementListe(ActionEvent actionEvent) {
-
         String sokefeltInput = sokIArrangementerTxt.getText();
         String valgtKategori = velgKategoriCombo.getValue();
-        if(valgtKategori == null || valgtKategori == "Alle kategorier") {
-            valgtKategori = "";
+        ArrayList<Arrangement> sokArrangement = ArrangementData.sokArr(sokefeltInput, valgtKategori);
+        if (!sokArrangement.isEmpty()) {
+            brukerSideArrangementerList.setItems(omgjorArrangementListe(sokArrangement));
+            utskriftLabel.setText("");
         }
-        brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.sokArr(sokefeltInput, valgtKategori)));
+        else
+        utskriftLabel.setText(getUtskriftString());
+
     }
 
     public void visAlleArrangementer(ActionEvent actionEvent) {
