@@ -24,8 +24,8 @@
         <Label layoutX="459.0" layoutY="155.0" text="Sted" />
         <TextArea id="arrangementBeskrivelseTxt" fx:id="arrangementBeskrivelseTxt" editable="false" layoutX="14.0" layoutY="209.0" prefHeight="177.0" prefWidth="244.0" />
         <Button id="tilbakeBtn" layoutX="497.0" layoutY="344.0" mnemonicParsing="false" onAction="#tilbakeTilAlleArrangementer" text="Tilbake" />
-      <Button id="meldPaaArrangementBtn" fx:id="meldPaaArrangementBtn" layoutX="300.0" layoutY="298.0" mnemonicParsing="false" onAction="#meldPaaArrangement" text="Meld på arrangement" />
-      <Button id="interessertIArrangementBtn" fx:id="interessertIArrangementBtn" layoutX="300.0" layoutY="344.0" mnemonicParsing="false" onAction="#interessertIArrangement" prefHeight="27.0" prefWidth="149.0" text="Sett som interessert" />
+      <Button id="meldPaaArrangementBtn" fx:id="meldPaaArrangementBtn" layoutX="300.0" layoutY="298.0" mnemonicParsing="false" onAction="#meldPaaArrangementKnappTrykket" text="Meld på arrangement" />
+      <Button id="interessertIArrangementBtn" fx:id="interessertIArrangementBtn" layoutX="300.0" layoutY="344.0" mnemonicParsing="false" onAction="#interessertIArrangementKnappTrykket" prefHeight="27.0" prefWidth="149.0" text="Sett som interessert" />
       <TextField fx:id="ledigePlasserTxt" editable="false" layoutX="393.0" layoutY="249.0" />
       <Label layoutX="411.0" layoutY="221.0" text="Gjenværende plasser" />
       <Label fx:id="utskriftLabel" layoutX="300.0" layoutY="327.0" textFill="RED" />

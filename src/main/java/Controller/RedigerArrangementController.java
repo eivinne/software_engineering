@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class RedigerArrangementController extends Controller {
 
@@ -76,7 +77,8 @@ public class RedigerArrangementController extends Controller {
         }
     }
 
-    public void redigerArrangement(ActionEvent actionEvent) {
+
+    public void redigerArrangement() {
         String antallPlasser = antallPlasserTxt.getText();
         int antallPlasserInt = 0;
 
@@ -93,15 +95,17 @@ public class RedigerArrangementController extends Controller {
             utskriftLabel.setText("Antall plasser må fylles ut med et tall og det må være større enn 0.");
         }
         else {
-            valgt.setTittel(arrangementTittelTxt.getText());
-            valgt.setBeskrivelse(arrangementBeskrivelseTxt.getText());
-            valgt.setDato(arrangementDatoPicker.getValue());
-            valgt.setTidspunkt(arrangementTidspunktTxt.getText());
-            valgt.setLokasjon(arrangementStedTxt.getText());
-            valgt.setKapasitet(Integer.parseInt(antallPlasserTxt.getText()));
+            String tittel = arrangementTittelTxt.getText();
+            String beskrivelse = arrangementBeskrivelseTxt.getText();
+            LocalDate dato = arrangementDatoPicker.getValue();
+            String tidspunkt = arrangementTidspunktTxt.getText();
+            String lokasjon = arrangementStedTxt.getText();
+            int kapasitet = Integer.parseInt(antallPlasserTxt.getText());
 
             RadioButton selected = (RadioButton) lopsKategori.getSelectedToggle();
-            valgt.setKategori(selected.getText());
+            String kategori = selected.getText();
+
+            valgt.redigerArrangement(valgt, tittel, beskrivelse, dato, tidspunkt, lokasjon, kapasitet, kategori);
 
             settPane(rootPane,"../arrangorView.fxml");
         }

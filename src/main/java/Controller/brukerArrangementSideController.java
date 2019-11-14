@@ -32,6 +32,7 @@ public class brukerArrangementSideController extends Controller {
     @FXML
     private AnchorPane rootPane;
     private Arrangement valgt = arrangorController.getValgtArrangement();
+    private Deltager innloggetDeltager = (Deltager) Person.getInnlogget();
 
 
     @FXML
@@ -55,8 +56,8 @@ public class brukerArrangementSideController extends Controller {
         ledigePlasserTxt.setText(String.valueOf(etArrangement.antallLedigePlasser()));
     }
 
-    public void meldPaaArrangement(ActionEvent actionEvent) {
-        if (valgt.getPaameldteListe().contains(Person.getInnlogget())){
+    public void meldPaaArrangementKnappTrykket(ActionEvent actionEvent) {
+        if (innloggetDeltager.alleredePaameldt(valgt)){
             setUtskriftString("Du er allerede meldt på dette arrangementet");
         }
         else if(valgt.sjekkOmArrangementErFulltEllerHarVaert()) {
@@ -71,9 +72,9 @@ public class brukerArrangementSideController extends Controller {
         settPane(rootPane, "../betalingsLosning.fxml");
     }
 
-    public void interessertIArrangement(ActionEvent actionEvent) {
-        Deltager innloggetBruker = (Deltager) Person.getInnlogget();
-        innloggetBruker.meldInteresse(valgt);
+    public void interessertIArrangementKnappTrykket(ActionEvent actionEvent) {
+
+        innloggetDeltager.meldInteresse(valgt);
         utskriftLabel.setText(getUtskriftString());
         setUtskriftString("");
 

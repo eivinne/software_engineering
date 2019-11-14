@@ -2,6 +2,7 @@ package Model;
 
 import Controller.Controller;
 import Data.ArrangementData;
+import javafx.event.ActionEvent;
 import javafx.scene.image.Image;
 
 import java.time.LocalDate;
@@ -86,6 +87,22 @@ public class Arrangement {
 
         return ledigePlasser;
     }
+
+    public void redigerArrangement(Arrangement etArrengement, String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, int kapasitet, String kategori) {
+        etArrengement.setTittel(tittel);
+        etArrengement.setBeskrivelse(beskrivelse);
+        etArrengement.setDato(dato);
+        etArrengement.setTidspunkt(tidspunkt);
+        etArrengement.setLokasjon(lokasjon);
+        etArrengement.setKapasitet(kapasitet);
+        etArrengement.setKategori(kategori);
+    }
+
+    public static void opprettNyttArrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, Arrangor arrangementEier, int antallPlasserInt) {
+        Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, lokasjon, kategori, arrangementEier, antallPlasserInt);
+    }
+
+
 
 
     public Image getArrangementsBilde() {

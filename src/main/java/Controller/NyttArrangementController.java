@@ -78,7 +78,7 @@ public class NyttArrangementController extends Controller {
             kategori = selected.getText();
             Arrangor arrangementEier = (Arrangor) Person.getInnlogget();
 
-            Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, arrangementEier, antallPlasserInt);
+            Arrangement.opprettNyttArrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, arrangementEier, antallPlasserInt);
 
             settPane(rootPane,"../arrangorView.fxml");
         }
