@@ -15,13 +15,13 @@ public class BetalingsLosningsController extends Controller{
     private Deltager innlogget = (Deltager) Person.getInnlogget();
 
     public void betalingGodkjent(ActionEvent actionEvent) {
-        innlogget.hvisBetalingStatusGodkjentMeldPaaArrangement(true, valgt);
+        innlogget.meldPaaArrangement(valgt);
         settPane(rootPane, "../minSide.fxml");
 
     }
 
     public void betalingAvslatt(ActionEvent actionEvent) {
-        innlogget.hvisBetalingStatusGodkjentMeldPaaArrangement(false, valgt);
+        innlogget.betalingIkkeGodkjent();
         settPane(rootPane, "../brukerForside.fxml");
     }
 }

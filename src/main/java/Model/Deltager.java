@@ -14,8 +14,7 @@ public class Deltager extends Person {
         super(fornavn,etternavn,alder,epost, brukernavn, passord);
     }
 
-    public void hvisBetalingStatusGodkjentMeldPaaArrangement(boolean erGodkjent, Arrangement arr) {
-        if(erGodkjent && !alleredePaameldt(arr)) {
+    public void meldPaaArrangement(Arrangement arr) {
             if(alleredeInteressert(arr)) {
                 interesserteArrangement.remove(arr);
                 arr.getInteresserteListe().remove(this);
@@ -24,11 +23,11 @@ public class Deltager extends Person {
             paameldteArrangement.add(arr);
             Controller.setUtskriftString("Du er nå påmeldt!");
         }
-        else{
-            Controller.setUtskriftString("Betalingen ble ikke godkjent, vennligst prøv igjen.");
-        }
-    }
 
+
+    public void betalingIkkeGodkjent(){
+        Controller.setUtskriftString("Betalingen ble ikke godkjent, vennligst prøv igjen.");
+    }
 
     public void meldInteresse(Arrangement arr){
         if (!alleredeInteressert(arr) && !arr.harVaert() && !alleredePaameldt(arr)) {
