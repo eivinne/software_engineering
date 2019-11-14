@@ -3,6 +3,7 @@ package Controller;
 import Data.ArrangementData;
 import Model.Arrangement;
 import Model.Arrangor;
+import Model.Person;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -40,14 +41,14 @@ public class arrangorController extends Controller{
 
     @FXML
     public void visMineArrangementer(){
-        Arrangor arrangor = (Arrangor) getInnlogget();
+        Arrangor arrangor = (Arrangor) Person.getInnlogget();
         ArrayList<Arrangement> arrangorSineArr = arrangor.getArrangorArrangement();
         mineArrangementerListe.setItems(omgjorArrangementListe(arrangorSineArr));
     }
 
     @FXML
     public void redigerArrangementside() {
-        Arrangor arrangor = (Arrangor) getInnlogget();
+        Arrangor arrangor = (Arrangor) Person.getInnlogget();
         setValgtArrangement(mineArrangementerListe.getSelectionModel().getSelectedItem());
         if (getValgtArrangement() != null) {
             if (arrangor.getArrangorArrangement().contains(getValgtArrangement()))

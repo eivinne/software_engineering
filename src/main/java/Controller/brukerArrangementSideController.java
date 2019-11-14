@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Arrangement;
 import Model.Deltager;
+import Model.Person;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -55,7 +56,7 @@ public class brukerArrangementSideController extends Controller {
     }
 
     public void meldPaaArrangement(ActionEvent actionEvent) {
-        if (valgt.getPaameldteListe().contains(getInnlogget())){
+        if (valgt.getPaameldteListe().contains(Person.getInnlogget())){
             setUtskriftString("Du er allerede meldt på dette arrangementet");
         }
         else if(valgt.sjekkOmArrangementErFulltEllerHarVaert()) {
@@ -71,7 +72,7 @@ public class brukerArrangementSideController extends Controller {
     }
 
     public void interessertIArrangement(ActionEvent actionEvent) {
-        Deltager innloggetBruker = (Deltager) getInnlogget();
+        Deltager innloggetBruker = (Deltager) Person.getInnlogget();
         innloggetBruker.meldInteresse(valgt);
         utskriftLabel.setText(getUtskriftString());
         setUtskriftString("");

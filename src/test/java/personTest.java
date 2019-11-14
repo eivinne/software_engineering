@@ -1,11 +1,9 @@
-import Controller.Controller;
 import Data.PersonData;
 import Model.Arrangor;
 import Model.Deltager;
 import Model.Person;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,12 +33,12 @@ public class personTest {
     @Test
     public void validerBrukerTest(){
         assertEquals(1,Person.validerBruker("Arrangør","drossap123"));
-        assertTrue(Controller.getInnlogget().equals(arrangor));
+        assertTrue(Person.getInnlogget().equals(arrangor));
 
         assertEquals(0,Person.validerBruker("Bruker","passord123"));
-        assertTrue(Controller.getInnlogget().equals(bruker));
+        assertTrue(Person.getInnlogget().equals(bruker));
 
         assertEquals(-1,Person.validerBruker("Ikke","ISystemet"));
-        assertNull(Controller.getInnlogget());
+        assertNull(Person.getInnlogget());
     }
 }

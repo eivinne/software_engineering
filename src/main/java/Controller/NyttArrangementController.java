@@ -2,12 +2,12 @@ package Controller;
 
 import Model.Arrangement;
 import Model.Arrangor;
+import Model.Person;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
 public class NyttArrangementController extends Controller {
@@ -76,7 +76,7 @@ public class NyttArrangementController extends Controller {
             sted = arrangementStedTxt.getText();
             RadioButton selected = (RadioButton) lopsKategori.getSelectedToggle();
             kategori = selected.getText();
-            Arrangor arrangementEier = (Arrangor) Controller.getInnlogget();
+            Arrangor arrangementEier = (Arrangor) Person.getInnlogget();
 
             Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, arrangementEier, antallPlasserInt);
 

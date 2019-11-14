@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Controller {
-    private static Person innlogget;
     private static Arrangement valgtArrangement;
     private static String utskriftString = "";
 
@@ -35,7 +34,7 @@ public abstract class Controller {
     }
 
     public void utlogging(AnchorPane pane){
-        innlogget = null;
+        Person.innlogget = null;
         settPane(pane,"../loginnskjerm.fxml");
     }
 
@@ -43,18 +42,6 @@ public abstract class Controller {
 
     public String getUtskriftString(){
         return utskriftString;
-    }
-
-    public static Person getInnlogget(){
-        return innlogget;
-    }
-
-    public static void setInnlogget(Person person){
-        innlogget = person;
-    }
-
-    public static void resettInnlogget(){
-        innlogget = null;
     }
 
     public static void setValgtArrangement(Arrangement arrangement){

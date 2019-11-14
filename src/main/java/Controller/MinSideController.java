@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Arrangement;
 import Model.Deltager;
+import Model.Person;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -18,7 +19,7 @@ public class MinSideController extends Controller {
     private ListView<Arrangement> minSideArrangementerListe;
     @FXML
     private Label utskriftLabel;
-    private Deltager innloggetBruker = (Deltager) Controller.getInnlogget();
+    private Deltager innloggetBruker = (Deltager) Person.getInnlogget();
 
     @FXML
     private void initialize() {

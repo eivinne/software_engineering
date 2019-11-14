@@ -1,9 +1,9 @@
 package Model;
 
-import Controller.Controller;
 import Data.PersonData;
 
 public abstract class Person {
+    public static Person innlogget;
     private String fornavn;
     private String etternavn;
     private int alder;
@@ -38,10 +38,22 @@ public abstract class Person {
             }
         }
         if (innlogget != null)
-        Controller.setInnlogget(innlogget);
+        setInnlogget(innlogget);
         else
-            Controller.resettInnlogget();
+            resettInnlogget();
         return returnInt;
+    }
+
+    public static Person getInnlogget(){
+        return innlogget;
+    }
+
+    public static void setInnlogget(Person person){
+        innlogget = person;
+    }
+
+    public static void resettInnlogget(){
+        innlogget = null;
     }
 
     public boolean erArrangor(){
