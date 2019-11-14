@@ -58,12 +58,12 @@ public class NyttArrangementController extends Controller {
             RadioButton selected = (RadioButton) lopsKategori.getSelectedToggle();
             String kategori = selected.getText();
             Arrangor arrangementEier = (Arrangor) Person.getInnlogget();
-            int antallPlasserInt = Integer.valueOf(antallPlasserTxt.getText());
+            int antallPlasser = Integer.valueOf(antallPlasserTxt.getText());
 
-            if (antallPlasserInt <= 0)
+            if (antallPlasser <= 0)
                 utskriftLabel.setText("Antall plasser må fylles ut med et tall større enn 0.");
             else {
-                Arrangement.opprettNyttArrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, arrangementEier, antallPlasserInt);
+                Arrangement.opprettNyttArrangement(tittel, beskrivelse, dato, tidspunkt, sted, kategori, arrangementEier, antallPlasser);
                 settPane(rootPane, "../arrangorView.fxml");
             }
         }

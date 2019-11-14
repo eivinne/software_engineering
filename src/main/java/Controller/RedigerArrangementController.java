@@ -45,6 +45,7 @@ public class RedigerArrangementController extends Controller {
     @FXML
     private void initialize() {
         fyllInnArrangementInfo(valgt);
+        sorgForBareTallInput(antallPlasserTxt);
     }
 
     @FXML
@@ -77,37 +78,31 @@ public class RedigerArrangementController extends Controller {
     }
 
     public void redigerArrangement(ActionEvent actionEvent) {
-        String antallPlasser = antallPlasserTxt.getText();
-        int antallPlasserInt = 0;
 
-        try{
-            antallPlasserInt = Integer.parseInt(antallPlasser);
-        } catch (NumberFormatException nfe) {
-            System.out.println(nfe.getMessage());
-        }
 
         if(arrangementTittelTxt.getText().equals("") || arrangementBeskrivelseTxt.getText().equals("") || arrangementStedTxt.getText().equals("") || arrangementDatoPicker.getValue() == null ||arrangementDatoPicker.getValue().equals("") || antallPlasserTxt.getText().equals("") || arrangementTidspunktTxt.getText().equals("") || lopsKategori.getSelectedToggle() == null) {
             utskriftLabel.setText("Alle felter må være fylt inn.");
 
         }
 
-        else if (antallPlasserInt <= 0){
-            utskriftLabel.setText("Antall plasser må fylles ut med et tall og det må være større enn 0.");
-        }
+
         else {
             String tittel = arrangementTittelTxt.getText();
             String beskrivelse = arrangementBeskrivelseTxt.getText();
             LocalDate dato = arrangementDatoPicker.getValue();
             String tidspunkt = arrangementTidspunktTxt.getText();
             String lokasjon = arrangementStedTxt.getText();
-            int kapasitet = Integer.parseInt(antallPlasserTxt.getText());
+            int antallPlasser = Integer.parseInt(antallPlasserTxt.getText());
 
             RadioButton selected = (RadioButton) lopsKategori.getSelectedToggle();
             String kategori = selected.getText();
 
-            valgt.redigerArrangement(valgt, tittel, beskrivelse, dato, tidspunkt, lokasjon, kapasitet, kategori);
-
-            settPane(rootPane,"../arrangorView.fxml");
+            if (antallPlasser <= 0)
+                utskriftLabel.setText("Antall plasser må fylles ut med et tall større enn 0.");
+            else {
+                valgt.redigerArrangement(valgt, tittel, beskrivelse, dato, tidspunkt, lokasjon, antallPlasser, kategori);
+                settPane(rootPane, "../arrangorView.fxml");
+            }
         }
     }
 
