@@ -57,10 +57,7 @@ public class brukerArrangementSideController extends Controller {
     }
 
     public void meldPaaArrangementKnappTrykket(ActionEvent actionEvent) {
-        if (innloggetDeltager.alleredePaameldt(valgt)){
-            setUtskriftString("Du er allerede meldt på dette arrangementet");
-        }
-        else if(valgt.sjekkOmArrangementErFulltEllerHarVaert()) {
+        if(valgt.sjekkOmArrangementErFulltEllerHarVaert() && !innloggetDeltager.alleredePaameldt(valgt)) {
             sendTilBetalingsLosning();
         }
         utskriftLabel.setText(getUtskriftString());

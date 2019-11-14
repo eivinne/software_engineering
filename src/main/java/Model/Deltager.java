@@ -20,9 +20,11 @@ public class Deltager extends Person {
                 interesserteArrangement.remove(arr);
                 arr.getInteresserteListe().remove(this);
             }
-            arr.getPaameldteListe().add(this);
-            paameldteArrangement.add(arr);
-            Controller.setUtskriftString("Du er nå påmeldt!");
+            else if(!alleredePaameldt(arr)) {
+                arr.getPaameldteListe().add(this);
+                paameldteArrangement.add(arr);
+                Controller.setUtskriftString("Du er nå påmeldt!");
+            }
         }
 
 
@@ -47,7 +49,7 @@ public class Deltager extends Person {
             return false;
     }
 
-    private boolean alleredeInteressert(Arrangement arr){
+    public boolean alleredeInteressert(Arrangement arr){
         if (interesserteArrangement.contains(arr)) {
             Controller.setUtskriftString("Du er allerede satt som interessert.");
             return true;
@@ -74,14 +76,14 @@ public class Deltager extends Person {
 
     public void oppdaterPaameldtListe(){
         if (!paameldteArrangement.isEmpty()) {
-            ArrayList<Arrangement> fjernLeggTil = new ArrayList<>();
+            ArrayList<Arrangement> utgaatteArr = new ArrayList<>();
             for (Arrangement etArrangement : paameldteArrangement) {
                 if (etArrangement.harVaert()) {
-                    fjernLeggTil.add(etArrangement);
+                    utgaatteArr.add(etArrangement);
                 }
             }
-            ferdigeArrangement.addAll(fjernLeggTil);
-            paameldteArrangement.removeAll(fjernLeggTil);
+            ferdigeArrangement.addAll(utgaatteArr);
+            paameldteArrangement.removeAll(utgaatteArr);
         }
     }
 

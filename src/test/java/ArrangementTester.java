@@ -25,7 +25,7 @@ public class ArrangementTester {
 
         Arrangement etArrangement = ArrangementData.getArrangementListe().get(0);
 
-        etArrangement.redigerArrangement(etArrangement, "entittel", "enbeskrivelse", LocalDate.now(), "10:00", "enlokasjon", 100, "Sykkel");
+        etArrangement.redigerArrangement("entittel", "enbeskrivelse", LocalDate.now(), "10:00", "enlokasjon", 100, "Sykkel");
 
         assertTrue(etArrangement.getTittel() == "entittel");
         assertTrue(etArrangement.getBeskrivelse() == "enbeskrivelse");
