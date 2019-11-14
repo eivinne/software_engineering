@@ -76,7 +76,7 @@ public class RedigerArrangementController extends Controller {
             lopsKategori.selectToggle(sykkelRadioBtn);
         }
     }
-
+    @FXML
     public void redigerArrangement(ActionEvent actionEvent) {
 
 

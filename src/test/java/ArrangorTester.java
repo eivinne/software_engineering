@@ -17,7 +17,7 @@ public class ArrangorTester {
         ArrangementData.genererArrangement();
     }
 
-    //Knyttet til krav 4.8.p - arrangorer skal kunne se hvilke arrangement de eier.
+    //Knyttet til krav 4.8.b.1 - arrangorer skal kunne se hvilke arrangement de eier.
     @Test
     public void getArrangorArrangementTest() {
         Arrangor arrangor = (Arrangor) PersonData.getBrukerListe().get(1);

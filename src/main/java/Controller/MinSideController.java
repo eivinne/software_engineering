@@ -33,22 +33,22 @@ public class MinSideController extends Controller {
         }
     }
 
-
+    @FXML
     public void visPaameldteArrangement(ActionEvent actionEvent) {
         minSideArrangementerListe.setItems(omgjorArrangementListe(innloggetBruker.getPaameldteArrangement()));
         listeLabel.setText("Påmeldte Arrangement");
     }
-
+    @FXML
     public void visInteressertArrangementBtn(ActionEvent actionEvent) {
         minSideArrangementerListe.setItems(omgjorArrangementListe(innloggetBruker.getInteresserteArrangement()));
         listeLabel.setText("Interesserte Arrangement");
     }
-
+    @FXML
     public void visTidligereArrangement(ActionEvent actionEvent) {
         minSideArrangementerListe.setItems(omgjorArrangementListe(innloggetBruker.getFerdigeArrangement()));
         listeLabel.setText("Tidligere Arrangement");
     }
-
+    @FXML
     public void gaaTilArrangementSideBtn(ActionEvent actionEvent) {
         setValgtArrangement(minSideArrangementerListe.getSelectionModel().getSelectedItem());
         if (Controller.getValgtArrangement() != null) {
@@ -57,7 +57,7 @@ public class MinSideController extends Controller {
         else
             utskriftLabel.setText("Velg et arrangement");
     }
-
+    @FXML
     public void tilbakeTilAlleArrangementer(ActionEvent actionEvent) {
         settPane(rootPane, "../brukerForside.fxml");
     }
