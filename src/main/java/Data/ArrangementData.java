@@ -1,5 +1,6 @@
 package Data;
 
+import Controller.Controller;
 import Model.Arrangement;
 import Model.Deltager;
 import Model.Person;
@@ -32,17 +33,14 @@ public class ArrangementData {
 
     public static ArrayList<Arrangement> sokArr(String sok, String kategori) {
         ArrayList<Arrangement> returnArr = new ArrayList<>();
-        for (Arrangement etArr:arrangementListe){
-            if(sok == "" && kategori == "") {
-                returnArr = arrangementListe;
-                return returnArr;
-            }
-            if(kategori == "") {
-                if (etArr.getTittel().toLowerCase().contains(sok.toLowerCase()) || etArr.getLokasjon().toLowerCase().contains(sok.toLowerCase()))
+        if (sok.equalsIgnoreCase("") && kategori.equalsIgnoreCase("Alle kategorier")) {
+            Controller.setUtskriftString("Skriv inn søkeord eller velg en kategori");
+        }
+        else {
+            for (Arrangement etArr : arrangementListe) {
+                if (kategori.equalsIgnoreCase("Alle kategorier") && (etArr.getTittel().toLowerCase().contains(sok.toLowerCase()) || etArr.getLokasjon().toLowerCase().contains(sok.toLowerCase()))) {
                     returnArr.add(etArr);
-            }
-            else {
-                if ((etArr.getTittel().toLowerCase().contains(sok.toLowerCase()) || etArr.getLokasjon().toLowerCase().contains(sok.toLowerCase())) && (etArr.getKategori().equals(kategori))) {
+                } else if ((etArr.getTittel().toLowerCase().contains(sok.toLowerCase()) || etArr.getLokasjon().toLowerCase().contains(sok.toLowerCase())) && (etArr.getKategori().equals(kategori))) {
                     returnArr.add(etArr);
                 }
             }

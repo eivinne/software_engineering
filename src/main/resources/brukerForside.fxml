@@ -16,7 +16,7 @@
       <Button id="gaaTilArrangementBtn" fx:id="gaaTilArrangementBtn" layoutX="223.0" layoutY="350.0" mnemonicParsing="false" onAction="#gaaTilArrangementside" prefHeight="46.0" prefWidth="154.0" text="Gå til arrangement" />
       <ListView id="brukerSideArrangementerList" fx:id="brukerSideArrangementerList" layoutY="48.0" prefHeight="284.0" prefWidth="600.0" />
       <TextField id="sokIArrangementerTxt" fx:id="sokIArrangementerTxt" layoutX="8.0" layoutY="14.0" />
-      <ComboBox id="velgKategoriCombo" fx:id="velgKategoriCombo" layoutX="168.0" layoutY="14.0" prefHeight="27.0" prefWidth="102.0" promptText="Kategori" />
+      <ComboBox id="velgKategoriCombo" fx:id="velgKategoriCombo" layoutX="168.0" layoutY="14.0" prefHeight="27.0" prefWidth="102.0" />
       <Label fx:id="utskriftLabel" layoutX="14.0" layoutY="332.0" textFill="RED" />
    </children>
 </AnchorPane>
