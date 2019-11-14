@@ -68,7 +68,7 @@ public class brukerForsideController extends Controller{
             utskriftLabel.setText("Velg et arrangement");
     }
 
-    public void sokIArrangementListe(ActionEvent actionEvent) {
+    public void sokIArrangementListe() {
         String sokefeltInput = sokIArrangementerTxt.getText();
         String valgtKategori = velgKategoriCombo.getValue();
         ArrayList<Arrangement> sokArrangement = ArrangementData.sokArr(sokefeltInput, valgtKategori);

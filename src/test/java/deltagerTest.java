@@ -34,7 +34,7 @@ public class deltagerTest {
 
     @Test
     public void arrangementPaameldingTest(){
-        bruker.hvisBetalingStatusGodkjentMeldPaaArrangement(true,etArr);
+        //bruker.hvisBetalingStatusGodkjentMeldPaaArrangement(true,etArr);
         assertTrue(bruker.getPaameldteArrangement().contains(etArr));
         assertTrue(etArr.getPaameldteListe().contains(bruker));
     }
