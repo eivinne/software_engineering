@@ -102,8 +102,11 @@ public class Arrangement {
         etArrengement.setKategori(kategori);
     }
 
-    public static void opprettNyttArrangement(String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, Arrangor arrangementEier, int antallPlasserInt) {
+    public static void opprettNyttArrangement(Person innlogget, String tittel, String beskrivelse, LocalDate dato, String tidspunkt, String lokasjon, String kategori, int antallPlasserInt) {
+        if(innlogget instanceof Arrangor) {
+            Arrangor arrangementEier = (Arrangor) innlogget;
         Arrangement nyttArrangement = new Arrangement(tittel, beskrivelse, dato, tidspunkt, lokasjon, kategori, arrangementEier, antallPlasserInt);
+        }
     }
 
 
