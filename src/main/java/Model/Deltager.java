@@ -15,15 +15,16 @@ public class Deltager extends Person {
         super(fornavn,etternavn,alder,epost, brukernavn, passord);
     }
 
+    //TESTET
     public void meldPaaArrangement(Arrangement arr) {
+        if(!alleredePaameldt(arr)) {
             if(alleredeInteressert(arr)) {
                 interesserteArrangement.remove(arr);
                 arr.getInteresserteListe().remove(this);
             }
-            else if(!alleredePaameldt(arr)) {
-                arr.getPaameldteListe().add(this);
-                paameldteArrangement.add(arr);
-                Controller.setUtskriftString("Du er nå påmeldt!");
+            arr.getPaameldteListe().add(this);
+            paameldteArrangement.add(arr);
+            Controller.setUtskriftString("Du er nå påmeldt!");
             }
         }
 
@@ -31,7 +32,7 @@ public class Deltager extends Person {
     public void betalingIkkeGodkjent(){
         Controller.setUtskriftString("Betalingen ble ikke godkjent, vennligst prøv igjen.");
     }
-
+    //TESTET
     public void meldInteresse(Arrangement arr){
         if (!alleredeInteressert(arr) && !arr.harVaert() && !alleredePaameldt(arr)) {
             interesserteArrangement.add(arr);
@@ -39,7 +40,7 @@ public class Deltager extends Person {
             Controller.setUtskriftString(("Du er lagt til i listen av interesserte."));
         }
     }
-
+    //TESTET
     public boolean alleredePaameldt(Arrangement arr){
         if (paameldteArrangement.contains(arr)){
             Controller.setUtskriftString("Du er allerede påmeldt.");
@@ -48,7 +49,7 @@ public class Deltager extends Person {
         else
             return false;
     }
-
+    //TESTET
     public boolean alleredeInteressert(Arrangement arr){
         if (interesserteArrangement.contains(arr)) {
             Controller.setUtskriftString("Du er allerede satt som interessert.");
@@ -58,22 +59,22 @@ public class Deltager extends Person {
             return false;
     }
 
-
+    //TESTET
     public ArrayList<Arrangement> getInteresserteArrangement(){
         oppdaterInteresseListe();
         return interesserteArrangement;
     }
-
+    //TESTET
     public ArrayList<Arrangement> getPaameldteArrangement() {
         oppdaterPaameldtListe();
         return paameldteArrangement;
     }
-
+    //TESTET
     public ArrayList<Arrangement> getFerdigeArrangement() {
         oppdaterPaameldtListe();
         return ferdigeArrangement;
     }
-
+    //TESTET
     public void oppdaterPaameldtListe(){
         if (!paameldteArrangement.isEmpty()) {
             ArrayList<Arrangement> utgaatteArr = new ArrayList<>();
@@ -88,10 +89,12 @@ public class Deltager extends Person {
     }
 
     public void oppdaterInteresseListe(){
+        ArrayList<Arrangement> utgaatteArr = new ArrayList<>();
         for(Arrangement etArrangement: interesserteArrangement){
             if(etArrangement.harVaert())
-                interesserteArrangement.remove(etArrangement);
+                utgaatteArr.add(etArrangement);
         }
+        interesserteArrangement.removeAll(utgaatteArr);
     }
 
 
