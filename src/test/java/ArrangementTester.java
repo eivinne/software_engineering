@@ -15,6 +15,7 @@ public class ArrangementTester {
     public static void setup() {
 
         ArrangementData.genererArrangement();
+        PersonData.genererBrukere();
     }
 
 
@@ -27,8 +28,8 @@ public class ArrangementTester {
 
         etArrangement.redigerArrangement("entittel", "enbeskrivelse", LocalDate.now(), "10:00", "enlokasjon", 100, "Sykkel");
 
-        assertTrue(etArrangement.getTittel() == "entittel");
-        assertTrue(etArrangement.getBeskrivelse() == "enbeskrivelse");
+        assertSame(etArrangement.getTittel(),"entittel");
+        assertSame(etArrangement.getBeskrivelse(),"enbeskrivelse");
     }
 
     //Tilhører også krav 4.6
@@ -47,14 +48,14 @@ public class ArrangementTester {
         Arrangement opprettetArrangement1 = ArrangementData.getArrangementListe().get(ArrangementData.getArrangementListe().size() - 1);
 
         assertTrue(ArrangementData.getArrangementListe().contains(opprettetArrangement1));
-        assertTrue(opprettetArrangement1.getTittel() == "tittel123");
-        assertFalse(opprettetArrangement1.getKapasitet() == 95);
+        assertSame(opprettetArrangement1.getTittel(),"tittel123");
+        assertNotEquals(opprettetArrangement1.getKapasitet(),95);
 
         Arrangement.opprettNyttArrangement(deltager, "enAnnenTittel", beskrivelse, dato, tidspunkt, "her", kategori, kapasitet);
         Arrangement opprettetArrangement2 = ArrangementData.getArrangementListe().get(ArrangementData.getArrangementListe().size() - 1);
 
-        assertFalse(opprettetArrangement2.getTittel() == "enAnnenTittel");
-        assertFalse(opprettetArrangement2.getLokasjon() == "her");
+        assertNotEquals(opprettetArrangement2.getTittel(),"enAnnenTittel");
+        assertNotEquals(opprettetArrangement2.getLokasjon(),"her");
     }
 
     //Tester om et arrangement sin dato har utgått/tilhører fortiden.
@@ -107,6 +108,41 @@ public class ArrangementTester {
         etArrangement.slettArrangement();
 
         assertFalse(ArrangementData.getArrangementListe().contains(etArrangement));
+
+    }
+
+    @Test
+    public void getPaameldtListeTest(){
+        //Tester funksjon som henter deltagere i et arrangement
+        Arrangement etArrangement = ArrangementData.getArrangementListe().get(3);
+        Deltager bruker = (Deltager) PersonData.getBrukerListe().get(0);
+
+        //melder deltager på arrangement
+        bruker.meldPaaArrangement(etArrangement);
+
+        //Skjekker at brukeren er blitt lagt til i listen av deltagere
+        assertTrue(etArrangement.getPaameldteListe().contains(bruker));
+
+        //Skjekker at det ikke er blitt lagt til duplikater/andre brukere
+        assertEquals(1,etArrangement.getPaameldteListe().size());
+
+    }
+
+    @Test
+    public void getInteresserteListeTest(){
+        //Tester funksjon som henter liste over interesserte brukere for et arrangement
+        Arrangement etArrangement = ArrangementData.getArrangementListe().get(3);
+        Deltager bruker = (Deltager) PersonData.getBrukerListe().get(3);
+
+
+        //melder bruker som interessert
+        bruker.meldInteresse(etArrangement);
+
+        //Skjekker at brukeren er blitt lagt til i listen av interesserte
+        assertTrue(etArrangement.getInteresserteListe().contains(bruker));
+
+        //Skjekker at det ikke er blitt lagt til duplikater/andre brukere
+        assertEquals(1,etArrangement.getInteresserteListe().size());
 
     }
 

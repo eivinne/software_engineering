@@ -25,15 +25,23 @@ public class ArrangorTester {
         ArrayList<Arrangement> arrangorSineArrangement = arrangor.getArrangorArrangement();
 
         assertNotEquals(alleArrangement, arrangorSineArrangement);
-        assertFalse(arrangor.getArrangorArrangement().size() == 0);
+        assertNotEquals(arrangor.getArrangorArrangement().size(),0);
 
         for(Arrangement etArrangement:arrangorSineArrangement) {
-            assertTrue(etArrangement.getArrangementEier() == arrangor);
+            assertSame(etArrangement.getArrangementEier(),arrangor);
         }
 
+    }
 
+    @Test
+    public void erEierAvArrangementTest(){
+        //Tester funksjon som skjekker om en Arrangør er eier av et arrangement
+        Arrangor arrangor = (Arrangor) PersonData.getBrukerListe().get(1);
+        Arrangor ikkeEier = (Arrangor) PersonData.getBrukerListe().get(2);
+        ArrayList<Arrangement> arrangorSineArrangement = arrangor.getArrangorArrangement();
 
-
+        assertTrue(arrangor.erEierAvArrangement(arrangorSineArrangement.get(0)));
+        assertFalse(ikkeEier.erEierAvArrangement(arrangorSineArrangement.get(0)));
     }
 
 

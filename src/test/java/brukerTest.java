@@ -14,19 +14,23 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class brukerTest {
+
+    //Lager deltagerer
     static Deltager bruker;
     static Deltager bruker2;
     static Deltager bruker3;
-
+    //Lager arrangement
     static Arrangement Holmekollen;
     static Arrangement haldenLopet;
     static Arrangement bergensRittet;
     static Arrangement VM;
+
+    //Setter
     @BeforeAll
     public static void setup(){
         PersonData.genererBrukere();
         bruker = (Deltager)PersonData.getBrukerListe().get(0);
-        bruker2 = new Deltager("Husein","D",25,"husein@husein.no","huseind","niesuh");
+        bruker2 = (Deltager) PersonData.getBrukerListe().get(3);
         bruker3 = new Deltager("Ussain","Bolt",30,"fastestMan@alive.no","bolt","tlob");
         ArrangementData.genererArrangement();
         Holmekollen = ArrangementData.getArrangementListe().get(0);
@@ -35,32 +39,6 @@ public class brukerTest {
         VM = ArrangementData.getArrangementListe().get(3);
 
     }
-    /*
-    //LEGGES I PERSON TEST
-    @Test //tester funksjonen erArrangor
-    public void erArrangorTest(){
-        assertTrue(arrangor.erArrangor());
-        assertFalse(bruker.erArrangor());
-
-    }
-    //LEGGES I PERSON TEST
-    @Test//skjekker at brukere blir lagt til i brukerliste
-    public void lagtiIListeTest(){
-        assertTrue(PersonData.getBrukerListe().contains(bruker));
-        assertTrue(PersonData.getBrukerListe().contains(arrangor));
-    }
-    //LEGGES I PERSON TEST
-    @Test
-    public void validerBrukerTest(){
-        assertEquals(1,Person.validerBruker("Arrangør","drossap123"));
-        assertTrue(Person.getInnlogget().equals(arrangor));
-
-        assertEquals(0,Person.validerBruker("Bruker","passord123"));
-        assertTrue(Person.getInnlogget().equals(bruker));
-
-        assertEquals(-1,Person.validerBruker("Ikke","ISystemet"));
-        assertNull(Person.getInnlogget());
-    }*/
 
     @Test
     public void meldPaaArrangementTest(){
@@ -90,11 +68,11 @@ public class brukerTest {
         bruker2.meldInteresse(haldenLopet);
 
         //sjekker arrangementt er lagt til i listen til bruker
-        //og brukeren er lagt til i arrangementet sin liste
         assertTrue(bruker.getInteresserteArrangement().contains(haldenLopet));
         assertTrue(bruker2.getInteresserteArrangement().contains(haldenLopet));
         assertTrue(bruker2.getInteresserteArrangement().contains(bergensRittet));
 
+        //sjekker brukeren er lagt til i arrangementet sin liste (SKAL I ARRANGEMENT TESTER)
         assertTrue(haldenLopet.getInteresserteListe().contains(bruker));
         assertTrue(bergensRittet.getInteresserteListe().contains(bruker2));
         assertTrue(haldenLopet.getInteresserteListe().contains(bruker2));
@@ -118,6 +96,7 @@ public class brukerTest {
         assertTrue(bruker2.getPaameldteArrangement().contains(haldenLopet));
         assertTrue(bruker2.getPaameldteArrangement().contains(bergensRittet));
 
+        //(SKAL I ARRANGEMENT TESTER)
         assertTrue(haldenLopet.getPaameldteListe().contains(bruker));
         assertTrue(haldenLopet.getPaameldteListe().contains(bruker2));
         assertTrue(bergensRittet.getPaameldteListe().contains(bruker2));
@@ -144,6 +123,8 @@ public class brukerTest {
         //Tester at det ikke blir lagt til duplikater når brukeren prøver å melde interesse igjen
         bruker.meldInteresse(haldenLopet);
         assertEquals(1,bruker.getInteresserteArrangement().size());
+
+        //(SKAL I ARRANGEMENT TESTER)
         assertEquals(1,haldenLopet.getInteresserteListe().size());
     }
 

@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-public class test1 {
+public class PersonTest {
     @Test
     public void testLoginn(){
 
