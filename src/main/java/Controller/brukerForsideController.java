@@ -67,7 +67,7 @@ public class brukerForsideController extends Controller{
         else
             utskriftLabel.setText("Velg et arrangement");
     }
-
+    @FXML
     public void sokIArrangementListe() {
         String sokefeltInput = sokIArrangementerTxt.getText();
         String valgtKategori = velgKategoriCombo.getValue();
@@ -80,7 +80,7 @@ public class brukerForsideController extends Controller{
         utskriftLabel.setText(getUtskriftString());
 
     }
-
+    @FXML
     public void visAlleArrangementer(ActionEvent actionEvent) {
         brukerSideArrangementerList.setItems(omgjorArrangementListe(ArrangementData.getArrangementListe()));
     }

@@ -57,23 +57,20 @@ public class ArrangementDataTest {
         }
         */
     }
-
-   /* @Test
+    // Knyttet til krav 4.5.a.1 og 4.5.a.2, søk på kategori, navn og "andre nøkkelord" som i denne prototypen er
+    // begrenset til søk på lokasjon.
+   @Test
     public void testSok(){
 
-        assertTrue(ArrangementData.sokArr("Holmenkoll").contains(holmenKollStafetten));
-        assertTrue(ArrangementData.sokArr("Bislett").contains(joggetur));
-        assertTrue(ArrangementData.sokArr("Skogen").contains(birkebeineren));
-        System.out.println(ArrangementData.sokArr("Holmenkoll").size());
+        assertTrue(ArrangementData.sokArr("Holmenkoll", "Alle kategorier").contains(holmenKollStafetten));
+        assertTrue(ArrangementData.sokArr("Bislett", "Alle kategorier").contains(joggetur));
+        assertTrue(ArrangementData.sokArr("Skogen", "Ski").contains(birkebeineren));
+
 
         assertTrue(ArrangementData.sokArr("Holmenkoll","Loping").contains(holmenKollStafetten));
         assertFalse(ArrangementData.sokArr("Holmenkoll","Loping").contains(joggetur));
         assertFalse(ArrangementData.sokArr("Holmenkoll","Loping").contains(birkebeineren));
-        System.out.println(ArrangementData.sokArr("Holmenkoll","Loping").toString());
-
-
-
-    }*/
+    }
 
 
 
