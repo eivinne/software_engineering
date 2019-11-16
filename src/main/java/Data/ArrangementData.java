@@ -31,15 +31,6 @@ public class ArrangementData {
         bruker.getFerdigeArrangement().add(sentrumsLopet);
     }
 
-    public static ArrayList<Arrangement> getArrangementListeUtenArrangementerSomHarVaert() {
-        ArrayList<Arrangement> returnList = new ArrayList<>();
-        for(Arrangement etArr : arrangementListe) {
-            if(etArr.getDato().isBefore(LocalDate.now())) {
-                returnList.add(etArr);
-            }
-        }
-        return returnList;
-    }
 
     public static ArrayList<Arrangement> sokArr(String sok, String kategori) {
         ArrayList<Arrangement> returnArr = new ArrayList<>();
