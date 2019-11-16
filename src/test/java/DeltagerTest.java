@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class brukerTest {
+public class DeltagerTest {
 
     //Lager deltagerer
     static Deltager bruker;
