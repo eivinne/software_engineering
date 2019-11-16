@@ -45,6 +45,8 @@ public class ArrangementData {
                     returnArr.add(etArr);
                 }
             }
+            if (returnArr.isEmpty())
+                Controller.setUtskriftString("Ingen Resultater");
         }
         return returnArr;
     }
