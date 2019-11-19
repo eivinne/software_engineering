@@ -44,7 +44,7 @@ public class ArrangementDataTest {
     }
 
 
-    
+
     // Knyttet til krav 4.5.a.1 og 4.5.a.2, søk på kategori, navn og "andre nøkkelord" som i denne prototypen er
     // begrenset til søk på lokasjon.
    @Test
