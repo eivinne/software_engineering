@@ -78,6 +78,7 @@ public class brukerForsideController extends Controller{
         }
         else
         utskriftLabel.setText(getUtskriftString());
+        Controller.setUtskriftString("");
 
     }
     @FXML

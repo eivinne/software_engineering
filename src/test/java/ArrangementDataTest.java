@@ -43,28 +43,24 @@ public class ArrangementDataTest {
         }
     }
 
-    @Test
-    public void hentArrangorArrTest() {
-        /*
-        ArrayList<Arrangement> arrangor1SineArrangement = ArrangementData.hentArrangorArr(arrangor1);
-        ArrayList<Arrangement> arrangor2SineArrangement = ArrangementData.hentArrangorArr(arrangor2);
 
-        assertNotEquals(arrangor1SineArrangement, arrangor2SineArrangement);
-
-        for(Arrangement etArr:arrangor1SineArrangement) {
-            assertTrue(etArr.getArrangementEier() == arrangor1);
-            assertFalse(etArr.getArrangementEier() == arrangor2);
-        }
-        */
-    }
+    
     // Knyttet til krav 4.5.a.1 og 4.5.a.2, søk på kategori, navn og "andre nøkkelord" som i denne prototypen er
     // begrenset til søk på lokasjon.
    @Test
     public void testSok(){
-
+        //Tester at det er mulig å søke
         assertTrue(ArrangementData.sokArr("Holmenkoll", "Alle kategorier").contains(holmenKollStafetten));
         assertTrue(ArrangementData.sokArr("Bislett", "Alle kategorier").contains(joggetur));
         assertTrue(ArrangementData.sokArr("Skogen", "Ski").contains(birkebeineren));
+
+        //Tester søk som ikke gir noen resultater
+        assertTrue(ArrangementData.sokArr("Tullogtøys","Alle kategorier").isEmpty());
+
+
+        //Tester at det er mulig å søke på bare kategori
+        assertFalse(ArrangementData.sokArr("","Ski").isEmpty());
+        assertFalse(ArrangementData.sokArr("","Loping").isEmpty());
 
 
         assertTrue(ArrangementData.sokArr("Holmenkoll","Loping").contains(holmenKollStafetten));

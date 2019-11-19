@@ -8,6 +8,6 @@ public class PersonDataTest {
     public void genererBrukereTest(){
         PersonData.genererBrukere();
         assertFalse(PersonData.getBrukerListe().isEmpty());
-        assertEquals(PersonData.getBrukerListe().size(),4);
+        assertEquals(4,PersonData.getBrukerListe().size());
     }
 }
